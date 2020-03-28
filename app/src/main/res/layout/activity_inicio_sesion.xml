@@ -8,8 +8,8 @@
 
     <ImageView
         android:id="@+id/fondoInicioSesion"
-        android:layout_width="497dp"
-        android:layout_height="848dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:contentDescription="@string/contentDescriptionFondoInicioSesion"
         android:scaleType="centerCrop"
         android:scrollX="70dp"
@@ -25,34 +25,44 @@
         android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0">
+
+        <ImageView
+            android:id="@+id/imagenLogo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtvBienvenido"
+            app:srcCompat="@mipmap/helpets_logo" />
 
         <TextView
             android:id="@+id/txtvBienvenido"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="44dp"
+            android:layout_marginTop="32dp"
             android:text="@string/txtvBienvenido"
             android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-            app:layout_constraintBottom_toBottomOf="@+id/formaRedHelpets"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.497"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <ImageView
             android:id="@+id/formaEslogan"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginBottom="220dp"
             app:layout_constraintBottom_toTopOf="@+id/formaRedHelpets"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.566"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/imagenLogo"
-            app:layout_constraintVertical_bias="0.0"
+            app:layout_constraintVertical_bias="0.287"
             app:srcCompat="@mipmap/cuadro_eslogan" />
 
         <TextView
@@ -65,65 +75,51 @@
             android:textColor="@android:color/background_light"
             app:layout_constraintBottom_toBottomOf="@+id/formaEslogan"
             app:layout_constraintEnd_toEndOf="@+id/formaEslogan"
-            app:layout_constraintHorizontal_bias="0.666"
             app:layout_constraintStart_toStartOf="@+id/formaEslogan"
             app:layout_constraintTop_toTopOf="@+id/formaEslogan"
             app:layout_constraintVertical_bias="1.0" />
 
         <Button
             android:id="@+id/botonRegistrarse"
-            android:layout_width="200dp"
-            android:layout_height="100dp"
+            android:layout_width="184dp"
+            android:layout_height="85dp"
+            android:layout_marginTop="44dp"
             android:background="@mipmap/boton_nuevo_usuario"
             android:text="@string/botonRegistrarse"
             android:textAppearance="@style/TextAppearance.AppCompat.Body1"
             android:textSize="24sp"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.502"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtvEslogan"
-            app:layout_constraintVertical_bias="0.242" />
+            app:layout_constraintTop_toBottomOf="@+id/txtvEslogan" />
 
         <ImageView
             android:id="@+id/formaRedHelpets"
-            android:layout_width="468dp"
-            android:layout_height="64dp"
-            android:layout_marginTop="47dp"
+            android:layout_width="0dp"
+            android:layout_height="82dp"
+            android:adjustViewBounds="false"
             android:cropToPadding="false"
+            android:scaleType="fitXY"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.508"
+            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/botonRegistrarse"
-            app:layout_constraintVertical_bias="1.0"
             app:srcCompat="@mipmap/forma_red_helpets" />
-
-        <ImageView
-            android:id="@+id/imagenLogo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
-            app:layout_constraintBottom_toTopOf="@+id/formaRedHelpets"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.514"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtvBienvenido"
-            app:layout_constraintVertical_bias="0.0"
-            app:srcCompat="@mipmap/helpets_logo" />
 
         <TextView
             android:id="@+id/txtvRedHelpets"
-            android:layout_width="368dp"
-            android:layout_height="50dp"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="5dp"
             android:text="@string/txtvRedHelPets"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="@android:color/holo_green_dark"
             app:layout_constraintBottom_toBottomOf="@+id/formaRedHelpets"
             app:layout_constraintEnd_toEndOf="@+id/formaRedHelpets"
-            app:layout_constraintHorizontal_bias="0.222"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="@+id/formaRedHelpets"
-            app:layout_constraintVertical_bias="0.0" />
+            app:layout_constraintVertical_bias="0.592" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
