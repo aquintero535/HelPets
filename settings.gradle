@@ -1,0 +1,2 @@
+rootProject.name='HelPets'
+include ':app'
