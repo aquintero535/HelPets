@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "699394457632",
+    "firebase_url": "https://helpets-4bc74.firebaseio.com",
+    "project_id": "helpets-4bc74",
+    "storage_bucket": "helpets-4bc74.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:699394457632:android:3149f980965b32ccfdbc45",
+        "android_client_info": {
+          "package_name": "com.example.helpets"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "699394457632-nugq509nsb3d1milvhdogurv4hh3ndvl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDl9i4Hy5x98EXkaGJCbGoI9BlnI64O4bk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "699394457632-nugq509nsb3d1milvhdogurv4hh3ndvl.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
