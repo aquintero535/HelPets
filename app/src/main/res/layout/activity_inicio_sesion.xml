@@ -79,18 +79,14 @@
             app:layout_constraintTop_toTopOf="@+id/formaEslogan"
             app:layout_constraintVertical_bias="1.0" />
 
-        <Button
-            android:id="@+id/botonRegistrarse"
-            android:layout_width="184dp"
-            android:layout_height="85dp"
-            android:layout_marginTop="44dp"
-            android:background="@mipmap/boton_nuevo_usuario"
-            android:text="@string/botonRegistrarse"
-            android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-            android:textSize="24sp"
+        <com.google.android.gms.common.SignInButton
+            android:id="@+id/sign_in_button"
+            android:layout_width="181dp"
+            android:layout_height="66dp"
+            android:layout_marginTop="56dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtvEslogan" />
+            app:layout_constraintTop_toBottomOf="@+id/formaEslogan" />
 
         <ImageView
             android:id="@+id/formaRedHelpets"
