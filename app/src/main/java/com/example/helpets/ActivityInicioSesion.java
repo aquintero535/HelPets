@@ -2,6 +2,7 @@ package com.example.helpets;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -18,6 +19,7 @@ import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
@@ -32,11 +34,13 @@ public class ActivityInicioSesion extends AppCompatActivity {
     private FirebaseUser usuario;
     private static final int RC_SIGN_IN = 9001;
     private static final String TAG = "GoogleActivity";
+    private ConstraintLayout constraintLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inicio_sesion);
+        constraintLayout = (ConstraintLayout)findViewById(R.id.constraint_layout_iniciosesion);
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder
                 (GoogleSignInOptions.DEFAULT_SIGN_IN).requestIdToken
                 (getString(R.string.default_web_client_id))
@@ -52,7 +56,6 @@ public class ActivityInicioSesion extends AppCompatActivity {
         botonIniciarSesion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(ActivityInicioSesion.this, "Test", Toast.LENGTH_SHORT).show();
                 iniciarSesion();
             }
         });
@@ -98,8 +101,12 @@ public class ActivityInicioSesion extends AppCompatActivity {
                         if (task.isSuccessful()){
                             Log.d(TAG, "signInWithCredentials");
                             usuario = mAuth.getCurrentUser();
-                            Toast.makeText(ActivityInicioSesion.this, "Sesión iniciada", Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(ActivityInicioSesion.this, ActivityMenuPrincipal.class));
+                            //Snackbar no se muestra.
+                            Snackbar.make(constraintLayout,
+                                    "Sesión iniciada", Snackbar.LENGTH_SHORT).show();
+                            startActivity(new Intent
+                                    (ActivityInicioSesion.this,
+                                            ActivityMenuPrincipal.class));
                             finish();
                         } else{
                             Log.w(TAG, "signInWithCredential:failure", task.getException());
