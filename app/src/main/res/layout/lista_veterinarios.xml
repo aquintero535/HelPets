@@ -2,14 +2,34 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="179dp"
+        android:layout_height="76dp"
+        app:srcCompat="@drawable/forma_lista_veterinario"
+        tools:layout_editor_absoluteX="115dp"
+        tools:layout_editor_absoluteY="-3dp" />
+
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/listaTexto1"
         android:layout_width="0dp"
-        android:layout_height="50dp"
+        android:layout_height="40dp"
+        android:textAlignment="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/listaTexto2"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/listaTexto1" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

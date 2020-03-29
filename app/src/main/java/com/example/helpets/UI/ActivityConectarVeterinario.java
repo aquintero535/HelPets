@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.SimpleAdapter;
 import android.widget.Toast;
 
 import com.example.helpets.R;
@@ -21,7 +22,9 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class ActivityConectarVeterinario extends AppCompatActivity {
 
@@ -65,16 +68,33 @@ public class ActivityConectarVeterinario extends AppCompatActivity {
     }
 
     private void llenarLista(Task<QuerySnapshot> task){
+        List<Map<String, String>> lista = new ArrayList<>();
+
+
         for (QueryDocumentSnapshot document : task.getResult()) {
             String nombre = document.getData().get("nombre").toString();
             String apellido = document.getData().get("apellido").toString();
-            listaPrueba.add(nombre.concat(" "+apellido));
+            HashMap<String, String> hashmap = new HashMap<String, String>();
+            hashmap.put("Nombre", nombre+" "+apellido);
+            hashmap.put("Clientes", "Clientes satisfechos: "+document.getData().get("clientes")
+                    .toString());
+            lista.add(hashmap);
+            //listaPrueba.add(nombre.concat(" "+apellido));
         }
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>
+        /*
+            ArrayAdapter<String> adapter = new ArrayAdapter<String>
                 (ActivityConectarVeterinario.this,
                         android.R.layout.simple_list_item_1,
                         listaPrueba);
-        listaVeterinarios.setAdapter(adapter);
 
+         */
+        SimpleAdapter adapter = new SimpleAdapter(ActivityConectarVeterinario.this,
+                lista,
+                R.layout.lista_veterinarios,
+                new String[]{"Nombre", "Clientes"},
+                new int[]{R.id.listaTexto1, R.id.listaTexto2}
+        );
+
+        listaVeterinarios.setAdapter(adapter);
     }
 }
