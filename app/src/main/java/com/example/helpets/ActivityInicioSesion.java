@@ -92,7 +92,6 @@ public class ActivityInicioSesion extends AppCompatActivity {
     //el cual después se enviará al método signInWithCredential para iniciar sesión en Firebase.
     private void inicioSesionFirebase(GoogleSignInAccount account){
         Log.d(TAG, "firebaseAuthWithGoogle" + account.getId());
-
         AuthCredential credential = GoogleAuthProvider.getCredential(account.getIdToken(), null);
         mAuth.signInWithCredential(credential)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
