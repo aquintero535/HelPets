@@ -5,7 +5,7 @@
     android:id="@+id/constraint_layout_iniciosesion"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ActivityInicioSesion">
+    tools:context=".UI.ActivityInicioSesion">
 
     <ImageView
         android:id="@+id/fondoInicioSesion"
