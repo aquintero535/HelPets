@@ -100,33 +100,23 @@ public class ActivityInicioSesion extends AppCompatActivity {
                         if (task.isSuccessful()){
                             Log.d(TAG, "signInWithCredentials");
                             usuario = mAuth.getCurrentUser();
-                            //Snackbar no se muestra.
-                            Snackbar.make(constraintLayout,
-                                    "Sesión iniciada", Snackbar.LENGTH_SHORT).show();
+                            Toast.makeText(ActivityInicioSesion.this,
+                                    "Sesión iniciada",
+                                    Toast.LENGTH_SHORT)
+                                    .show();
+
                             startActivity(new Intent
                                     (ActivityInicioSesion.this,
                                             ActivityMenuPrincipal.class));
                             finish();
                         } else{
                             Log.w(TAG, "signInWithCredential:failure", task.getException());
-                            System.out.println("INICIO DE SESIÓN FALLIDO");
+                            Toast.makeText(ActivityInicioSesion.this,
+                                    "No se pudo iniciar sesión",
+                                    Toast.LENGTH_SHORT)
+                                    .show();
                         }
                     }
                 });
-    }
-
-    //Comprueba si la sesión está iniciada.
-    @Override
-    protected void onStart() {
-        super.onStart();
-        if (GoogleSignIn.getLastSignedInAccount(this) == null) {
-            System.out.println("No se ha iniciado sesión.");
-        } else {
-            Toast.makeText(ActivityInicioSesion.this, "Sesión iniciada", Toast.LENGTH_SHORT).show();
-            usuario = mAuth.getCurrentUser();
-            startActivity(new Intent(this, ActivityMenuPrincipal.class));
-            finish();
-        }
-
     }
 }

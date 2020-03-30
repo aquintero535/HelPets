@@ -44,6 +44,7 @@
         android:layout_marginStart="6dp"
         android:layout_marginTop="25dp"
         android:layout_marginEnd="6dp"
+        android:layout_marginBottom="20dp"
         android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="@+id/fondoBuzon"
         app:layout_constraintEnd_toEndOf="@id/fondoBuzon"
