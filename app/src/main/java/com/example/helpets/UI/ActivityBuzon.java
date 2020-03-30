@@ -4,6 +4,8 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
+import com.example.helpets.R;
+
 public class ActivityBuzon extends AppCompatActivity {
 
     @Override

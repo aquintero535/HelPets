@@ -17,16 +17,19 @@ public class ActivityMenuPrincipal extends AppCompatActivity implements View.OnC
     private Button botonMenu;
     private Button botonCitas;
     private Button botonAdoptar;
+    private Button botonBuzon;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.menu_principal);
         botonCitas = (Button)findViewById(R.id.botonCitas);
         botonAdoptar = (Button)findViewById(R.id.botonAdopta);
+        botonBuzon = (Button)findViewById(R.id.botonBuzon);
 
         botonCitas.setOnClickListener(this);
-
         botonAdoptar.setOnClickListener(this);
+        botonBuzon.setOnClickListener(this);
+
     }
 
 
@@ -39,6 +42,8 @@ public class ActivityMenuPrincipal extends AppCompatActivity implements View.OnC
             case R.id.botonAdopta:
                 startActivity(new Intent(ActivityMenuPrincipal.this, ActivityAdopta.class));
                 break;
+            case R.id.botonBuzon:
+                startActivity(new Intent(ActivityMenuPrincipal.this, ActivityBuzon.class));
         }
     }
 

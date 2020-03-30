@@ -102,6 +102,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/txtvNombre"
                         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                        android:textColor="@color/design_default_color_secondary_variant"
                         app:layout_constraintBottom_toBottomOf="@+id/cuadroNombre"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -147,6 +148,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/txtvTelefono"
                         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                        android:textColor="@color/design_default_color_secondary_variant"
                         app:layout_constraintBottom_toBottomOf="@+id/cuadroTelefono"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -192,6 +194,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/txtvCorreo"
                         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                        android:textColor="@color/design_default_color_secondary_variant"
                         app:layout_constraintBottom_toBottomOf="@+id/cuadroCorreo"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -212,7 +215,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="200dp"
                 android:orientation="horizontal">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
@@ -237,6 +240,7 @@
                         android:layout_height="wrap_content"
                         android:text="@string/txtvMensaje"
                         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                        android:textColor="@color/design_default_color_secondary_variant"
                         app:layout_constraintBottom_toBottomOf="@+id/cuadroMensaje"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toStartOf="parent"
@@ -250,10 +254,27 @@
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:ems="10"
-                    android:inputType="textLongMessage"
+                    android:inputType="textMultiLine"
                     android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
 
             </LinearLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/consLayoutBotonEnviar"
+                android:layout_width="match_parent"
+                android:layout_height="70dp">
+
+                <Button
+                    android:id="@+id/botonEnviar"
+                    style="@style/Widget.AppCompat.Button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@mipmap/boton_enviar"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
         </LinearLayout>
     </ScrollView>
