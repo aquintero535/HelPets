@@ -4,6 +4,63 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ActivityAdopta">
+    tools:context=".UI.ActivityAdopta">
+
+    <ImageView
+        android:id="@+id/fondoAdopta"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/fondo_adopta" />
+
+    <ImageView
+        android:id="@+id/marcoListaAdopta"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp"
+        android:scaleType="fitXY"
+        app:layout_constraintBottom_toBottomOf="@+id/fondoAdopta"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/fragmentMenuAdopta"
+        app:srcCompat="@mipmap/marco_lista_veterinarios" />
+
+    <fragment
+        android:id="@+id/fragmentMenuAdopta"
+        android:name="com.example.helpets.UI.FragmentMenu"
+        tools:layout="@layout/fragment_menu"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/fondoAdopta" />
+
+    <ListView
+        android:id="@+id/listaAdopta"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="6dp"
+        android:layout_marginEnd="6dp"
+        app:layout_constraintBottom_toBottomOf="@id/marcoListaAdopta"
+        app:layout_constraintEnd_toEndOf="@id/marcoListaAdopta"
+        app:layout_constraintStart_toStartOf="@id/marcoListaAdopta"
+        app:layout_constraintTop_toTopOf="@+id/marcoListaAdopta">
+
+    </ListView>
+
+    <ImageView
+        android:id="@+id/logoAdopta"
+        android:layout_width="92dp"
+        android:layout_height="35dp"
+        app:layout_constraintBottom_toTopOf="@+id/marcoListaAdopta"
+        app:layout_constraintEnd_toEndOf="@+id/fragmentMenuAdopta"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@mipmap/logo_adopta" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

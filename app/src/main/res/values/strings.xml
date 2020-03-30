@@ -10,4 +10,7 @@
         a tu mascota cuando lo necesites en la red HelPets.</string>
     <string name="txtvConectarseVeterinario">Conecte con un veterinario</string>
 
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 </resources>

@@ -17,26 +17,14 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
-        android:id="@+id/botonMenu"
-        android:layout_width="56dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="10dp"
-        android:background="@mipmap/menu_button"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
     <ScrollView
         android:id="@+id/inicioScrollView2"
         android:layout_width="0dp"
         android:layout_height="0dp"
-        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintBottom_toBottomOf="@id/fondoInicio2"
         app:layout_constraintEnd_toEndOf="@+id/fondoInicio2"
-        app:layout_constraintHorizontal_bias="0.51"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-        app:layout_constraintVertical_bias="0.49">
+        app:layout_constraintStart_toStartOf="@id/fondoInicio2"
+        app:layout_constraintTop_toBottomOf="@+id/fragment">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -93,14 +81,14 @@
         app:layout_constraintStart_toStartOf="@id/inicioScrollView2"
         app:srcCompat="@mipmap/forma_helpets2" />
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
+    <fragment
+        android:id="@+id/fragment"
+        android:name="com.example.helpets.UI.FragmentMenu"
+        android:layout_width="0dp"
+        android:layout_height="100dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@mipmap/helpets_logo" />
+        app:layout_constraintTop_toTopOf="@+id/fondoInicio2"
+        tools:layout="@layout/fragment_menu" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

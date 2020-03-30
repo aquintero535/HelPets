@@ -10,33 +10,33 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.helpets.R;
 
-public class ActivityMenuPrincipal extends AppCompatActivity {
+public class ActivityMenuPrincipal extends AppCompatActivity implements View.OnClickListener {
 
     private Button botonMenu;
     private Button botonCitas;
+    private Button botonAdoptar;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.menu_principal);
-
-        botonMenu = (Button)findViewById(R.id.botonMenu);
         botonCitas = (Button)findViewById(R.id.botonCitas);
-        botonMenu.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(ActivityMenuPrincipal.this, "Test", Toast.LENGTH_SHORT).show();
-            }
-        });
+        botonAdoptar = (Button)findViewById(R.id.botonAdopta);
 
+        botonCitas.setOnClickListener(this);
 
-        botonCitas.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(ActivityMenuPrincipal.this,
-                        ActivityConectarVeterinario.class));
-            }
-        });
+        botonAdoptar.setOnClickListener(this);
     }
 
 
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()){
+            case R.id.botonCitas:
+                startActivity(new Intent(ActivityMenuPrincipal.this, ActivityConectarVeterinario.class));
+                break;
+            case R.id.botonAdopta:
+                startActivity(new Intent(ActivityMenuPrincipal.this, ActivityAdopta.class));
+                break;
+        }
+    }
 }

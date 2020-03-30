@@ -1,6 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android" android:layout_width="match_parent"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
     android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/formaItemAdopcion"
+        android:layout_width="257dp"
+        android:layout_height="86dp"
+        app:layout_constraintEnd_toEndOf="@id/adopcionItemEdad"
+        app:layout_constraintStart_toStartOf="@id/adopcionItemEdad"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/forma_item_adopcion" />
+
+    <TextView
+        android:id="@+id/adopcionItemNombre"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:text="Nombre"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/adopcionItemEdad"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:text="TextView"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/adopcionItemNombre" />
+
+    <TextView
+        android:id="@+id/adopcionItemVacunas"
+        android:layout_width="0dp"
+        android:layout_height="30dp"
+        android:text="TextView"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/adopcionItemEdad" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

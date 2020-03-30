@@ -17,6 +17,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <fragment
+        android:id="@+id/conectarVeterinariosMenu"
+        android:name="com.example.helpets.UI.FragmentMenu"
+        tools:layout="@layout/fragment_menu"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/marcoListaVeterinarios"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/fondoListaVeterinarios" />
+
     <ImageView
         android:id="@+id/marcoListaVeterinarios"
         android:layout_width="0dp"
@@ -35,7 +46,7 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="5dp"
-        android:layout_marginTop="100dp"
+        android:layout_marginTop="120dp"
         android:layout_marginEnd="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -47,27 +58,12 @@
     </ListView>
 
     <ImageView
-        android:id="@+id/imageView6"
-        android:layout_width="281dp"
-        android:layout_height="48dp"
-        app:layout_constraintBottom_toTopOf="@+id/conectar_veterinarios_lista"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@mipmap/marco_texto_lista_veterinarios" />
-
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/txtvConectarseVeterinario"
-        android:textAppearance="@style/TextAppearance.AppCompat.Large"
-        android:textColor="@android:color/holo_green_dark"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView6"
-        app:layout_constraintEnd_toEndOf="@+id/imageView6"
-        app:layout_constraintHorizontal_bias="0.496"
-        app:layout_constraintStart_toStartOf="@+id/imageView6"
-        app:layout_constraintTop_toTopOf="@+id/imageView6"
-        app:layout_constraintVertical_bias="0.571" />
+        android:id="@+id/imageView"
+        android:layout_width="92dp"
+        android:layout_height="46dp"
+        app:layout_constraintBottom_toBottomOf="@+id/conectarVeterinariosMenu"
+        app:layout_constraintEnd_toEndOf="@+id/conectarVeterinariosMenu"
+        app:layout_constraintStart_toStartOf="@+id/conectarVeterinariosMenu"
+        app:srcCompat="@mipmap/logo_citas" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

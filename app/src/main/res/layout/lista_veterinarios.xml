@@ -48,7 +48,6 @@
         android:layout_height="75dp"
         android:layout_marginStart="10dp"
         android:scaleType="centerCrop"
-        android:src="@drawable/veterinario"
         app:layout_constraintBottom_toBottomOf="@+id/listaTexto2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

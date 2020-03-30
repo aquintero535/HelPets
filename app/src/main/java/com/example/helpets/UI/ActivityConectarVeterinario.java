@@ -27,14 +27,12 @@ import java.util.Map;
 public class ActivityConectarVeterinario extends AppCompatActivity {
 
     private ListView listaVeterinarios;
-    private List<String> listaPrueba;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_conectar_veterinario);
         listaVeterinarios = (ListView)findViewById(R.id.conectar_veterinarios_lista);
-        listaPrueba = new ArrayList<>();
 
         FirebaseFirestore db = FirebaseFirestore.getInstance();
         db.collection("veterinarios")
