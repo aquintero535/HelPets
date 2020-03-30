@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         /* Por motivos de prueba, cada vez que se inicie la aplicación la sesión de Google se
         cerrará.*/
         
-
+        /*
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder
                 (GoogleSignInOptions.DEFAULT_SIGN_IN).requestIdToken
                 (getString(R.string.default_web_client_id))
@@ -36,7 +36,7 @@ public class MainActivity extends AppCompatActivity {
         GoogleSignInClient googleSignInClient = GoogleSignIn.getClient(this, gso);
         googleSignInClient.signOut();
         sesionFirebase.signOut();
-
+        */
 
     }
 

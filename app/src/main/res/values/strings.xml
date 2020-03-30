@@ -8,6 +8,6 @@
     <string name="botonRegistrarse">Registrarse</string>
     <string name="txtvRedHelPets">Accede a más de 500 veterinarios disponibles para atender
         a tu mascota cuando lo necesites en la red HelPets.</string>
-
+    <string name="txtvConectarseVeterinario">Conecte con un veterinario</string>
 
 </resources>

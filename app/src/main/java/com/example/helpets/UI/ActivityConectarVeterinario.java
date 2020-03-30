@@ -5,8 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.Toast;
@@ -15,7 +13,7 @@ import com.example.helpets.R;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.android.material.snackbar.Snackbar;
+
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
@@ -70,31 +68,30 @@ public class ActivityConectarVeterinario extends AppCompatActivity {
     private void llenarLista(Task<QuerySnapshot> task){
         List<Map<String, String>> lista = new ArrayList<>();
 
-
         for (QueryDocumentSnapshot document : task.getResult()) {
             String nombre = document.getData().get("nombre").toString();
-            String apellido = document.getData().get("apellido").toString();
             HashMap<String, String> hashmap = new HashMap<String, String>();
-            hashmap.put("Nombre", nombre+" "+apellido);
+            hashmap.put("Nombre", nombre);
             hashmap.put("Clientes", "Clientes satisfechos: "+document.getData().get("clientes")
                     .toString());
             lista.add(hashmap);
-            //listaPrueba.add(nombre.concat(" "+apellido));
         }
-        /*
-            ArrayAdapter<String> adapter = new ArrayAdapter<String>
-                (ActivityConectarVeterinario.this,
-                        android.R.layout.simple_list_item_1,
-                        listaPrueba);
 
-         */
+        /* DATOS DE PRUEBA */
+        for (int i=0;i<10;i++){
+            HashMap<String,String> pruebaHashmap = new HashMap<>();
+            pruebaHashmap.put("Nombre", "Adrián");
+            pruebaHashmap.put("Clientes", "Clientes satisfechos: 33");
+            lista.add(pruebaHashmap);
+        }
+        /* FIN DATOS DE PRUEBA */
+
         SimpleAdapter adapter = new SimpleAdapter(ActivityConectarVeterinario.this,
                 lista,
                 R.layout.lista_veterinarios,
                 new String[]{"Nombre", "Clientes"},
                 new int[]{R.id.listaTexto1, R.id.listaTexto2}
         );
-
         listaVeterinarios.setAdapter(adapter);
     }
 }
