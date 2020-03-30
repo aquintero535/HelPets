@@ -49,11 +49,12 @@ public class MainActivity extends AppCompatActivity {
                 //Si el usuario no ha iniciado sesión en Google y Firebase, lo envía al Activity
                 //de inicio de sesión. De haberlo hecho, lo envía al menú principal.
                 if (GoogleSignIn.getLastSignedInAccount(MainActivity.this) == null
-                        && sesionFirebase.getCurrentUser() == null){
+                        || sesionFirebase.getCurrentUser() == null){
                     startActivity(new Intent(MainActivity.this,
                             ActivityInicioSesion.class));
                     finish();
                 } else{
+                    System.out.println("USUARIO: "+sesionFirebase.getCurrentUser().getDisplayName());
                     startActivity(new Intent(MainActivity.this,
                             ActivityMenuPrincipal.class));
                     finish();

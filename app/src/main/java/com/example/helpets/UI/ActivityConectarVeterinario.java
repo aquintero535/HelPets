@@ -56,7 +56,7 @@ public class ActivityConectarVeterinario extends AppCompatActivity {
         super.onResume();
         FirebaseAuth sesionFirebase = FirebaseAuth.getInstance();
         if (GoogleSignIn.getLastSignedInAccount(ActivityConectarVeterinario.this) == null
-                && sesionFirebase.getCurrentUser() == null){
+                || sesionFirebase.getCurrentUser() == null){
             startActivity(new Intent(ActivityConectarVeterinario.this,
                     ActivityInicioSesion.class));
             finish();

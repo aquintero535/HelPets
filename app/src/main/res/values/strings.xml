@@ -9,6 +9,12 @@
     <string name="txtvRedHelPets">Accede a más de 500 veterinarios disponibles para atender
         a tu mascota cuando lo necesites en la red HelPets.</string>
     <string name="txtvConectarseVeterinario">Conecte con un veterinario</string>
+    <string name="txtvBuzon">Para comunicarte con nosotros para cualquier consulta,
+        queja o sugerencia, llenar el siguiente formulario</string>
+    <string name="txtvNombre">Nombre y apellido</string>
+    <string name="txtvTelefono">Telefono</string>
+    <string name="txtvCorreo">Correo electrónico</string>
+    <string name="txtvMensaje">Mensaje</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

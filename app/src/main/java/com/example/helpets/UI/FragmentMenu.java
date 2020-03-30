@@ -2,11 +2,15 @@ package com.example.helpets.UI;
 
 import android.os.Bundle;
 
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.Toast;
 
 import com.example.helpets.R;
 
@@ -20,6 +24,7 @@ public class FragmentMenu extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    private Button botonMenu;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -61,5 +66,16 @@ public class FragmentMenu extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_menu, container, false);
+    }
+
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState){
+       botonMenu = (Button)getView().findViewById(R.id.botonMenu);
+       botonMenu.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View v) {
+               Toast.makeText(getContext(), "Prueba exitosa", Toast.LENGTH_SHORT).show();
+           }
+       });
     }
 }

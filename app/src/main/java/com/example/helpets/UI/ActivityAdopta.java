@@ -78,7 +78,7 @@ public class ActivityAdopta extends AppCompatActivity {
         super.onResume();
         FirebaseAuth sesionFirebase = FirebaseAuth.getInstance();
         if (GoogleSignIn.getLastSignedInAccount(ActivityAdopta.this) == null
-                && sesionFirebase.getCurrentUser() == null){
+                || sesionFirebase.getCurrentUser() == null){
             startActivity(new Intent(ActivityAdopta.this,
                     ActivityInicioSesion.class));
             finish();

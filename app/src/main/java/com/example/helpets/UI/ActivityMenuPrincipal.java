@@ -9,6 +9,8 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.helpets.R;
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.firebase.auth.FirebaseAuth;
 
 public class ActivityMenuPrincipal extends AppCompatActivity implements View.OnClickListener {
 
@@ -37,6 +39,18 @@ public class ActivityMenuPrincipal extends AppCompatActivity implements View.OnC
             case R.id.botonAdopta:
                 startActivity(new Intent(ActivityMenuPrincipal.this, ActivityAdopta.class));
                 break;
+        }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        FirebaseAuth sesionFirebase = FirebaseAuth.getInstance();
+        if (GoogleSignIn.getLastSignedInAccount(ActivityMenuPrincipal.this) == null
+                || sesionFirebase.getCurrentUser() == null){
+            startActivity(new Intent(ActivityMenuPrincipal.this,
+                    ActivityInicioSesion.class));
+            finish();
         }
     }
 }
