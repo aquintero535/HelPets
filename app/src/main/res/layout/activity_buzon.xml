@@ -57,6 +57,7 @@
         android:id="@+id/scrollView2"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:layout_marginBottom="22dp"
         app:layout_constraintBottom_toBottomOf="@+id/fondoBuzon"
         app:layout_constraintEnd_toEndOf="@id/marcoBuzon"
         app:layout_constraintStart_toStartOf="@id/marcoBuzon"
@@ -70,16 +71,16 @@
             <TextView
                 android:id="@+id/textoBuzon"
                 android:layout_width="match_parent"
-                android:layout_height="70dp"
+                android:layout_height="match_parent"
                 android:clickable="false"
-                android:paddingTop="6dp"
+                android:padding="10dp"
                 android:text="@string/txtvBuzon"
                 android:textAlignment="center"
                 android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="48dp"
+                android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
@@ -125,7 +126,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
@@ -171,7 +172,7 @@
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
                 <androidx.constraintlayout.widget.ConstraintLayout
@@ -252,10 +253,11 @@
 
                 <EditText
                     android:id="@+id/campoMensaje"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
                     android:layout_weight="1"
                     android:ems="10"
+                    android:hint="@string/formularioContactoMensajeHint"
                     android:inputType="textMultiLine"
                     android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
 
@@ -264,7 +266,7 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/consLayoutBotonEnviar"
                 android:layout_width="match_parent"
-                android:layout_height="70dp">
+                android:layout_height="wrap_content">
 
                 <Button
                     android:id="@+id/botonEnviar"
