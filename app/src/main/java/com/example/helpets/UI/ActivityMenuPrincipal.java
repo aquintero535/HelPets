@@ -1,4 +1,4 @@
-package com.example.helpets.UI;
+package com.example.helpets.ui;
 
 import android.content.Intent;
 import android.os.Bundle;

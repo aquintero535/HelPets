@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UI.ActivityAdopta">
+    tools:context=".ui.ActivityAdopta">
 
     <ImageView
         android:id="@+id/fondoAdopta"
@@ -33,7 +33,7 @@
 
     <fragment
         android:id="@+id/fragmentMenuAdopta"
-        android:name="com.example.helpets.UI.FragmentMenu"
+        android:name="com.example.helpets.ui.FragmentMenu"
         tools:layout="@layout/fragment_menu"
         android:layout_width="0dp"
         android:layout_height="100dp"

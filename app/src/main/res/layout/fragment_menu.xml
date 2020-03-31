@@ -5,7 +5,7 @@
     android:id="@+id/contenedorMenu"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".UI.FragmentMenu">
+    tools:context=".ui.FragmentMenu">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout

@@ -10,12 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".ui.ActivityConsultaVeterinario"></activity>
-        <activity android:name=".UI.ActivityBuzon" />
-        <activity android:name=".UI.ActivityAdopta" />
-        <activity android:name=".UI.ActivityConectarVeterinario" />
-        <activity android:name=".UI.ActivityInicioSesion" />
-        <activity android:name=".UI.ActivityMenuPrincipal" />
-        <activity android:name=".UI.MainActivity">
+        <activity android:name=".ui.ActivityBuzon" />
+        <activity android:name=".ui.ActivityAdopta" />
+        <activity android:name=".ui.ActivityConectarVeterinario" />
+        <activity android:name=".ui.ActivityInicioSesion" />
+        <activity android:name=".ui.ActivityMenuPrincipal" />
+        <activity android:name=".ui.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

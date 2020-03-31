@@ -1,4 +1,4 @@
-package com.example.helpets.UI;
+package com.example.helpets.ui;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -51,12 +51,12 @@ public class MainActivity extends AppCompatActivity {
                 if (GoogleSignIn.getLastSignedInAccount(MainActivity.this) == null
                         || sesionFirebase.getCurrentUser() == null){
                     startActivity(new Intent(MainActivity.this,
-                            com.example.helpets.UI.ActivityInicioSesion.class));
+                            ActivityInicioSesion.class));
                     finish();
                 } else{
                     System.out.println("USUARIO: "+sesionFirebase.getCurrentUser().getDisplayName());
                     startActivity(new Intent(MainActivity.this,
-                            com.example.helpets.UI.ActivityMenuPrincipal.class));
+                            ActivityMenuPrincipal.class));
                     finish();
                 }
             }

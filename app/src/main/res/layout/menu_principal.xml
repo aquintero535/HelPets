@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/layoutMenuPrincipal"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".UI.MainActivity">
+    android:layout_height="match_parent" >
 
     <ImageView
         android:id="@+id/fondoInicio2"
@@ -84,7 +83,7 @@
 
     <fragment
         android:id="@+id/fragment"
-        android:name="com.example.helpets.UI.FragmentMenu"
+        android:name="com.example.helpets.ui.FragmentMenu"
         android:layout_width="0dp"
         android:layout_height="100dp"
         app:layout_constraintEnd_toEndOf="parent"

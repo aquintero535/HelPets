@@ -1,4 +1,4 @@
-package com.example.helpets.UI;
+package com.example.helpets.ui;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;

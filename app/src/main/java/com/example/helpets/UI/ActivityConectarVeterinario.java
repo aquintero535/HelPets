@@ -1,4 +1,4 @@
-package com.example.helpets.UI;
+package com.example.helpets.ui;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -64,7 +64,7 @@ public class ActivityConectarVeterinario extends AppCompatActivity
         if (GoogleSignIn.getLastSignedInAccount(ActivityConectarVeterinario.this) == null
                 || sesionFirebase.getCurrentUser() == null){
             startActivity(new Intent(ActivityConectarVeterinario.this,
-                    com.example.helpets.UI.ActivityInicioSesion.class));
+                    com.example.helpets.ui.ActivityInicioSesion.class));
             finish();
         }
     }
