@@ -16,7 +16,8 @@ import com.example.helpets.adapter.Mensaje;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class ActivityConsultaVeterinario extends AppCompatActivity implements View.OnClickListener {
+public class ActivityConsultaVeterinario extends AppCompatActivity
+        implements View.OnClickListener {
 
     private CircleImageView fotoPerfil;
     private TextView nombreVeterinario;
@@ -42,6 +43,13 @@ public class ActivityConsultaVeterinario extends AppCompatActivity implements Vi
 
         botonEnviarChat.setOnClickListener(this);
 
+        adaptador.registerAdapterDataObserver(new RecyclerView.AdapterDataObserver() {
+            @Override
+            public void onItemRangeInserted(int positionStart, int itemCount) {
+                super.onItemRangeInserted(positionStart, itemCount);
+                setScrollbar();
+            }
+        });
     }
 
     @Override
@@ -53,5 +61,9 @@ public class ActivityConsultaVeterinario extends AppCompatActivity implements Vi
                 "1",
                 "3:21 pm"));
 
+    }
+
+    private void setScrollbar(){
+        rvMensajes.scrollToPosition(adaptador.getItemCount()-1);
     }
 }
