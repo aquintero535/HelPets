@@ -35,41 +35,52 @@ public class ActivityBuzon extends AppCompatActivity {
         campoCorreo = (EditText)findViewById(R.id.campoCorreo);
         campoMensaje = (EditText)findViewById(R.id.campoMensaje);
         botonEnviar = (Button)findViewById(R.id.botonEnviar);
-
         botonEnviar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 enviarMensaje();
             }
         });
-
     }
 
     private void enviarMensaje(){
-        Map<String, String> mensaje = new HashMap<>();
-        mensaje.put("nombre", campoNombre.getText().toString());
-        mensaje.put("telefono", campoTelefono.getText().toString());
-        mensaje.put("correo", campoCorreo.getText().toString());
-        mensaje.put("mensaje", campoMensaje.getText().toString());
+        String nombre = campoNombre.getText().toString();
+        String telefono = campoTelefono.getText().toString();
+        String correo = campoCorreo.getText().toString();
+        String textoMensaje = campoMensaje.getText().toString();
+        if (!(nombre.isEmpty() || telefono.isEmpty() || correo.isEmpty() || textoMensaje.isEmpty())){
+            Map<String, String> mensaje = new HashMap<>();
+            mensaje.put("nombre", campoNombre.getText().toString());
+            mensaje.put("telefono", campoTelefono.getText().toString());
+            mensaje.put("correo", campoCorreo.getText().toString());
+            mensaje.put("mensaje", campoMensaje.getText().toString());
 
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
-        db.collection("mensajes")
-                .add(mensaje)
-                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                    @Override
-                    public void onSuccess(DocumentReference documentReference) {
-                        setResult(500);
-                        finish();
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(ActivityBuzon.this,
-                                "Error desconocido: no se pudo enviar tu mensaje.",
-                                Toast.LENGTH_SHORT)
-                                .show();
-                    }
-                });
+            FirebaseFirestore db = FirebaseFirestore.getInstance();
+            db.collection("mensajes")
+                    .add(mensaje)
+                    .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                        @Override
+                        public void onSuccess(DocumentReference documentReference) {
+                            setResult(500);
+                            finish();
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Snackbar.make(findViewById(R.id.layoutBuzon),
+                                    "Ha ocurrido un error al enviar tu mensaje",
+                                    Snackbar.LENGTH_SHORT)
+                                    .show();
+                        }
+                    });
+        } else{
+            Toast.makeText(ActivityBuzon.this,
+                    "Por favor, llena todos los campos.",
+                    Toast.LENGTH_SHORT)
+                    .show();
+        }
     }
+
+
 }
