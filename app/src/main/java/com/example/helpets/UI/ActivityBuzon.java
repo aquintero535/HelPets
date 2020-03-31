@@ -56,7 +56,7 @@ public class ActivityBuzon extends AppCompatActivity {
             mensaje.put("mensaje", campoMensaje.getText().toString());
 
             FirebaseFirestore db = FirebaseFirestore.getInstance();
-            db.collection("mensajes")
+            db.collection("contacto")
                     .add(mensaje)
                     .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                         @Override

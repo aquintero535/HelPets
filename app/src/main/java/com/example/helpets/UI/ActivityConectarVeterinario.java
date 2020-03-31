@@ -81,15 +81,6 @@ public class ActivityConectarVeterinario extends AppCompatActivity
             lista.add(hashmap);
         }
 
-        /* DATOS DE PRUEBA */
-        for (int i=0;i<10;i++){
-            HashMap<String,String> pruebaHashmap = new HashMap<>();
-            pruebaHashmap.put("Nombre", "Adrián");
-            pruebaHashmap.put("Clientes", "Clientes satisfechos: 33");
-            lista.add(pruebaHashmap);
-        }
-        /* FIN DATOS DE PRUEBA */
-
         SimpleAdapter adapter = new SimpleAdapter(ActivityConectarVeterinario.this,
                 lista,
                 R.layout.lista_veterinarios,
