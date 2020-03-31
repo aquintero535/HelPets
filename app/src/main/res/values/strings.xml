@@ -15,6 +15,8 @@
     <string name="txtvTelefono">Telefono</string>
     <string name="txtvCorreo">Correo electrónico</string>
     <string name="txtvMensaje">Mensaje</string>
+    <string name="campoMensajeChat">Escribe un mensaje</string>
+    <string name="botonEnviar">Enviar</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

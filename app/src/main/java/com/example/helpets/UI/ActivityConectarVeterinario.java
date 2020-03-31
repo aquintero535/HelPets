@@ -5,11 +5,14 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.SimpleAdapter;
 import android.widget.Toast;
 
 import com.example.helpets.R;
+import com.example.helpets.ui.ActivityConsultaVeterinario;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -24,7 +27,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class ActivityConectarVeterinario extends AppCompatActivity {
+public class ActivityConectarVeterinario extends AppCompatActivity
+        implements AdapterView.OnItemClickListener {
 
     private ListView listaVeterinarios;
 
@@ -49,6 +53,8 @@ public class ActivityConectarVeterinario extends AppCompatActivity {
                         }
                     }
                 });
+
+        listaVeterinarios.setOnItemClickListener(this);
     }
 
     @Override
@@ -91,5 +97,11 @@ public class ActivityConectarVeterinario extends AppCompatActivity {
                 new int[]{R.id.listaTexto1, R.id.listaTexto2}
         );
         listaVeterinarios.setAdapter(adapter);
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        startActivity(new Intent(ActivityConectarVeterinario.this,
+                ActivityConsultaVeterinario.class));
     }
 }
