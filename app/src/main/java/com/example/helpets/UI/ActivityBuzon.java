@@ -1,14 +1,23 @@
 package com.example.helpets.UI;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import com.example.helpets.R;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.FirebaseFirestore;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class ActivityBuzon extends AppCompatActivity {
 
@@ -30,10 +39,37 @@ public class ActivityBuzon extends AppCompatActivity {
         botonEnviar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                setResult(500);
-                finish();
+                enviarMensaje();
             }
         });
 
+    }
+
+    private void enviarMensaje(){
+        Map<String, String> mensaje = new HashMap<>();
+        mensaje.put("nombre", campoNombre.getText().toString());
+        mensaje.put("telefono", campoTelefono.getText().toString());
+        mensaje.put("correo", campoCorreo.getText().toString());
+        mensaje.put("mensaje", campoMensaje.getText().toString());
+
+        FirebaseFirestore db = FirebaseFirestore.getInstance();
+        db.collection("mensajes")
+                .add(mensaje)
+                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                    @Override
+                    public void onSuccess(DocumentReference documentReference) {
+                        setResult(500);
+                        finish();
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(ActivityBuzon.this,
+                                "Error desconocido: no se pudo enviar tu mensaje.",
+                                Toast.LENGTH_SHORT)
+                                .show();
+                    }
+                });
     }
 }
