@@ -58,7 +58,7 @@ public class ActivityConectarVeterinario extends AppCompatActivity {
         if (GoogleSignIn.getLastSignedInAccount(ActivityConectarVeterinario.this) == null
                 || sesionFirebase.getCurrentUser() == null){
             startActivity(new Intent(ActivityConectarVeterinario.this,
-                    ActivityInicioSesion.class));
+                    com.example.helpets.UI.ActivityInicioSesion.class));
             finish();
         }
     }

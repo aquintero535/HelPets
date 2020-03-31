@@ -9,7 +9,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".UI.ActivityBuzon"></activity>
+        <activity android:name=".ui.ActivityConsultaVeterinario"></activity>
+        <activity android:name=".UI.ActivityBuzon" />
         <activity android:name=".UI.ActivityAdopta" />
         <activity android:name=".UI.ActivityConectarVeterinario" />
         <activity android:name=".UI.ActivityInicioSesion" />

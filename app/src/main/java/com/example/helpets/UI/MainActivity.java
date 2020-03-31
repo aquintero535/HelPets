@@ -51,12 +51,12 @@ public class MainActivity extends AppCompatActivity {
                 if (GoogleSignIn.getLastSignedInAccount(MainActivity.this) == null
                         || sesionFirebase.getCurrentUser() == null){
                     startActivity(new Intent(MainActivity.this,
-                            ActivityInicioSesion.class));
+                            com.example.helpets.UI.ActivityInicioSesion.class));
                     finish();
                 } else{
                     System.out.println("USUARIO: "+sesionFirebase.getCurrentUser().getDisplayName());
                     startActivity(new Intent(MainActivity.this,
-                            ActivityMenuPrincipal.class));
+                            com.example.helpets.UI.ActivityMenuPrincipal.class));
                     finish();
                 }
             }
