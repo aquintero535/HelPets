@@ -1,26 +1,35 @@
 package com.example.helpets.ui;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.helpets.R;
 import com.example.helpets.adapter.AdaptadorMensajes;
 import com.example.helpets.adapter.Mensaje;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QuerySnapshot;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -32,9 +41,14 @@ public class ActivityConsultaVeterinario extends AppCompatActivity
     private RecyclerView rvMensajes;
     private EditText campoMensajeChat;
     private Button botonEnviarChat;
-    private AdaptadorMensajes adaptador;
+    private ImageButton botonEnviarImagen;
+    private FirebaseStorage storage;
+    private StorageReference storageReference;
 
+
+    private AdaptadorMensajes adaptador;
     private FirebaseFirestore db;
+    private static final int ENVIAR_FOTO = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,18 +59,20 @@ public class ActivityConsultaVeterinario extends AppCompatActivity
         rvMensajes = (RecyclerView)findViewById(R.id.rvMensajes);
         campoMensajeChat = (EditText)findViewById(R.id.campoMensajeChat);
         botonEnviarChat = (Button)findViewById(R.id.botonEnviarChat);
+        storage = FirebaseStorage.getInstance();
+
 
         adaptador = new AdaptadorMensajes(this);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         rvMensajes.setLayoutManager(linearLayoutManager);
         rvMensajes.setAdapter(adaptador);
+        botonEnviarImagen = (ImageButton)findViewById(R.id.botonEnviarImagen);
+        botonEnviarChat.setOnClickListener(this);
+        botonEnviarImagen.setOnClickListener(this);
 
         db = FirebaseFirestore.getInstance();
-
         db.collection("chat").addSnapshotListener(this);
 
-
-        botonEnviarChat.setOnClickListener(this);
         adaptador.registerAdapterDataObserver(new RecyclerView.AdapterDataObserver() {
             @Override
             public void onItemRangeInserted(int positionStart, int itemCount) {
@@ -68,14 +84,24 @@ public class ActivityConsultaVeterinario extends AppCompatActivity
 
     @Override
     public void onClick(View v) {
-        db.collection("chat").add(new Mensaje(
-                nombreVeterinario.getText().toString(),
-                campoMensajeChat.getText().toString(),
-                "",
-                "1",
-                "3:21 pm"));
-
-        campoMensajeChat.setText("");
+        switch(v.getId()){
+            case R.id.botonEnviarChat:
+                db.collection("chat").add(new Mensaje(
+                        nombreVeterinario.getText().toString(),
+                        campoMensajeChat.getText().toString(),
+                        "",
+                        "1",
+                        "3:21 pm"));
+                campoMensajeChat.setText("");
+                break;
+            case R.id.botonEnviarImagen:
+                Intent intentGaleria = new Intent(Intent.ACTION_GET_CONTENT);
+                intentGaleria.setType("image/jpeg");
+                intentGaleria.putExtra(Intent.EXTRA_LOCAL_ONLY, true);
+                startActivityForResult(Intent.createChooser
+                        (intentGaleria, "Selecciona una foto"), ENVIAR_FOTO);
+                break;
+        }
     }
 
     private void setScrollbar(){
@@ -88,9 +114,54 @@ public class ActivityConsultaVeterinario extends AppCompatActivity
             if (documentChange.getType() == DocumentChange.Type.ADDED){
                 Mensaje mensaje = documentChange.getDocument().toObject(Mensaje.class);
                 adaptador.aniadirMensaje(mensaje);
-                Toast.makeText(ActivityConsultaVeterinario.this, "Mensaje enviado", Toast.LENGTH_SHORT).show();
             }
         }
 
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == ENVIAR_FOTO  && resultCode == RESULT_OK){
+            Uri uri = data.getData();
+            storageReference = storage.getReference("chat_imagenes");
+            final StorageReference fotoReferencia = storageReference.child
+                    (uri.getLastPathSegment());
+
+            //Listener para subir la imagen.
+            fotoReferencia.putFile(uri).addOnSuccessListener(this,
+                    new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                            //Listener para obtener la URL de la imagen.
+                            fotoReferencia.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                @Override
+                                public void onSuccess(Uri uri) {
+                                    Mensaje mensajeFoto = new Mensaje
+                                            (nombreVeterinario.getText().toString(),
+                                                    "Ha enviado una foto",
+                                                    "",
+                                                    "2",
+                                                    "7:49 p.m.",
+                                                    uri.toString());
+
+                                    db.collection("chat").add(mensajeFoto);
+                                }
+                            });
+
+
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    Toast.makeText
+                            (ActivityConsultaVeterinario.this,
+                                    "No se pudo subir la imagen",
+                                    Toast.LENGTH_SHORT)
+                            .show();
+                    System.out.println(e.getMessage());
+                }
+            });
+        }
     }
 }

@@ -1,6 +1,7 @@
 package com.example.helpets.adapter;
 
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.recyclerview.widget.RecyclerView;
@@ -15,6 +16,7 @@ public class HolderMensaje extends RecyclerView.ViewHolder {
     private TextView mensajeChat;
     private TextView hora;
     private CircleImageView fotoPerfilMensaje;
+    private ImageView mensajeImagen;
 
     public HolderMensaje(View itemView){
         super(itemView);
@@ -22,6 +24,7 @@ public class HolderMensaje extends RecyclerView.ViewHolder {
         mensajeChat = (TextView)itemView.findViewById(R.id.txtvMensaje);
         hora = (TextView)itemView.findViewById(R.id.txtvHora);
         fotoPerfilMensaje = (CircleImageView) itemView.findViewById(R.id.fotoPerfilMensaje);
+        mensajeImagen = (ImageView)itemView.findViewById(R.id.mensajeImagen);
     }
 
     public TextView getNombreUsuario() {
@@ -54,5 +57,13 @@ public class HolderMensaje extends RecyclerView.ViewHolder {
 
     public void setFotoPerfilMensaje(CircleImageView fotoPerfilMensaje) {
         this.fotoPerfilMensaje = fotoPerfilMensaje;
+    }
+
+    public ImageView getMensajeImagen() {
+        return mensajeImagen;
+    }
+
+    public void setMensajeImagen(ImageView mensajeImagen) {
+        this.mensajeImagen = mensajeImagen;
     }
 }

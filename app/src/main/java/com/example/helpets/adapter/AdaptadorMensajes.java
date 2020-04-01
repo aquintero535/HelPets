@@ -8,12 +8,11 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.helpets.R;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import javax.crypto.AEADBadTagException;
 
 public class AdaptadorMensajes extends RecyclerView.Adapter<HolderMensaje> {
 
@@ -45,7 +44,15 @@ public class AdaptadorMensajes extends RecyclerView.Adapter<HolderMensaje> {
         holder.getNombreUsuario().setText(listaMensajes.get(position).getNombreUsuario());
         holder.getMensajeChat().setText(listaMensajes.get(position).getMensaje());
         holder.getHora().setText(listaMensajes.get(position).getHora());
-
+        if (listaMensajes.get(position).getTipoMensaje().equals("2")){
+            holder.getMensajeImagen().setVisibility(View.VISIBLE);
+            holder.getMensajeChat().setVisibility(View.VISIBLE);
+            Glide.with(contexto).load(listaMensajes.get(position).getUrlFoto()).into
+                    (holder.getMensajeImagen());
+        } else if (listaMensajes.get(position).getTipoMensaje().equals("1")){
+            holder.getMensajeImagen().setVisibility(View.GONE);
+            holder.getMensajeChat().setVisibility(View.VISIBLE);
+        }
     }
 
     @Override

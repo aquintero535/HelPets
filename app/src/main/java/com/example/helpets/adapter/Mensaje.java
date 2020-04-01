@@ -7,13 +7,25 @@ public class Mensaje {
     private String fotoPerfil;
     private String tipoMensaje;
     private String hora;
+    private String urlFoto;
 
-    public Mensaje(String nombreUsuario, String mensaje, String fotoPerfil, String tipoMensaje, String hora) {
+    public Mensaje(String nombreUsuario, String mensaje, String fotoPerfil, String tipoMensaje,
+                   String hora) {
         this.nombreUsuario = nombreUsuario;
         this.mensaje = mensaje;
         this.fotoPerfil = fotoPerfil;
         this.tipoMensaje = tipoMensaje;
         this.hora = hora;
+    }
+
+    public Mensaje(String nombreUsuario, String mensaje, String fotoPerfil, String tipoMensaje,
+                   String hora, String urlFoto) {
+        this.nombreUsuario = nombreUsuario;
+        this.mensaje = mensaje;
+        this.fotoPerfil = fotoPerfil;
+        this.tipoMensaje = tipoMensaje;
+        this.hora = hora;
+        this.urlFoto = urlFoto;
     }
 
     public Mensaje() {
@@ -57,5 +69,13 @@ public class Mensaje {
 
     public void setHora(String hora) {
         this.hora = hora;
+    }
+
+    public String getUrlFoto() {
+        return urlFoto;
+    }
+
+    public void setUrlFoto(String urlFoto) {
+        this.urlFoto = urlFoto;
     }
 }
