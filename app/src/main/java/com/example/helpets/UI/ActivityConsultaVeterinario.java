@@ -21,15 +21,18 @@ import com.example.helpets.adapter.AdaptadorMensajes;
 import com.example.helpets.adapter.Mensaje;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.Timestamp;
 import com.google.firebase.firestore.DocumentChange;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.FirebaseFirestoreSettings;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+
+import java.text.DateFormat;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
@@ -59,9 +62,8 @@ public class ActivityConsultaVeterinario extends AppCompatActivity
         rvMensajes = (RecyclerView)findViewById(R.id.rvMensajes);
         campoMensajeChat = (EditText)findViewById(R.id.campoMensajeChat);
         botonEnviarChat = (Button)findViewById(R.id.botonEnviarChat);
-        storage = FirebaseStorage.getInstance();
 
-
+        storage = FirebaseStorage.getInstance(); //Base de datos de imágenes.
         adaptador = new AdaptadorMensajes(this);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         rvMensajes.setLayoutManager(linearLayoutManager);
@@ -70,9 +72,14 @@ public class ActivityConsultaVeterinario extends AppCompatActivity
         botonEnviarChat.setOnClickListener(this);
         botonEnviarImagen.setOnClickListener(this);
 
+
+        //Obtengo la instancia de la base de datos.
         db = FirebaseFirestore.getInstance();
+        //Listener para detectar cambios en la base de datos. (onEvent)
         db.collection("chat").addSnapshotListener(this);
 
+        //Detecta algún cambio en el adaptador (la lista de mensajes) para que la lista
+        //se desplaze hacia abajo al recibir un nuevo mensaje.
         adaptador.registerAdapterDataObserver(new RecyclerView.AdapterDataObserver() {
             @Override
             public void onItemRangeInserted(int positionStart, int itemCount) {
@@ -91,7 +98,7 @@ public class ActivityConsultaVeterinario extends AppCompatActivity
                         campoMensajeChat.getText().toString(),
                         "",
                         "1",
-                        "3:21 pm"));
+                        DateFormat.getTimeInstance().format(Timestamp.now().toDate())));
                 campoMensajeChat.setText("");
                 break;
             case R.id.botonEnviarImagen:
@@ -108,6 +115,8 @@ public class ActivityConsultaVeterinario extends AppCompatActivity
         rvMensajes.scrollToPosition(adaptador.getItemCount()-1);
     }
 
+    //Obtiene el mensaje nuevo en la base de datos, lo cambia a la clase Mensaje
+    // y lo envía al adaptador.
     @Override
     public void onEvent(@Nullable QuerySnapshot queryDocumentSnapshots, @Nullable FirebaseFirestoreException e) {
         for (DocumentChange documentChange : queryDocumentSnapshots.getDocumentChanges()){
@@ -119,6 +128,7 @@ public class ActivityConsultaVeterinario extends AppCompatActivity
 
     }
 
+    //Método que se ejecuta al enviar una imagen.
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -134,7 +144,8 @@ public class ActivityConsultaVeterinario extends AppCompatActivity
                         @Override
                         public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                             //Listener para obtener la URL de la imagen.
-                            fotoReferencia.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                            fotoReferencia.getDownloadUrl()
+                                    .addOnSuccessListener(new OnSuccessListener<Uri>() {
                                 @Override
                                 public void onSuccess(Uri uri) {
                                     Mensaje mensajeFoto = new Mensaje
@@ -142,9 +153,9 @@ public class ActivityConsultaVeterinario extends AppCompatActivity
                                                     "Ha enviado una foto",
                                                     "",
                                                     "2",
-                                                    "7:49 p.m.",
+                                                    DateFormat.getTimeInstance().format
+                                                            (Timestamp.now().toDate()),
                                                     uri.toString());
-
                                     db.collection("chat").add(mensajeFoto);
                                 }
                             });

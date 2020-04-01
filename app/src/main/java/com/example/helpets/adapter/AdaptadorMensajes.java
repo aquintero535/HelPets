@@ -23,9 +23,10 @@ public class AdaptadorMensajes extends RecyclerView.Adapter<HolderMensaje> {
         this.contexto = contexto;
     }
 
+    //Añade un mensaje a la lista de mensajes.
     public void aniadirMensaje(Mensaje mensaje){
         listaMensajes.add(mensaje);
-        notifyItemInserted(listaMensajes.size());
+        notifyItemInserted(listaMensajes.size()); //Actualiza el RecyclerView.
     }
 
     @NonNull
