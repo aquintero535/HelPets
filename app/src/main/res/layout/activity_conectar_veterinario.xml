@@ -20,50 +20,73 @@
     <fragment
         android:id="@+id/conectarVeterinariosMenu"
         android:name="com.example.helpets.ui.FragmentMenu"
-        tools:layout="@layout/fragment_menu"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        app:layout_constraintBottom_toTopOf="@+id/marcoListaVeterinarios"
+        android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/fondoListaVeterinarios" />
+        app:layout_constraintTop_toTopOf="@+id/fondoListaVeterinarios"
+        tools:layout="@layout/fragment_menu" />
 
     <ImageView
-        android:id="@+id/marcoListaVeterinarios"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:paddingLeft="5dp"
-        android:paddingRight="5dp"
-        android:scaleType="fitXY"
-        app:layout_constraintBottom_toBottomOf="@id/conectar_veterinarios_lista"
-        app:layout_constraintEnd_toEndOf="@id/fondoListaVeterinarios"
-        app:layout_constraintStart_toStartOf="@id/fondoListaVeterinarios"
-        app:layout_constraintTop_toTopOf="@id/conectar_veterinarios_lista"
-        app:srcCompat="@mipmap/marco_lista_veterinarios" />
+        android:id="@+id/ivLogoCitas"
+        android:layout_width="92dp"
+        android:layout_height="46dp"
+        app:layout_constraintBottom_toTopOf="@+id/conslayoutLista"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@mipmap/logo_citas" />
 
-    <ListView
-        android:id="@+id/conectar_veterinarios_lista"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/conslayoutLista"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="5dp"
-        android:layout_marginTop="120dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0">
+        app:layout_constraintTop_toBottomOf="@id/conectarVeterinariosMenu">
 
-    </ListView>
+        <ImageView
+            android:id="@+id/marcoListaVeterinarios"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:scaleType="fitXY"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@mipmap/marco_lista_veterinarios" />
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="92dp"
-        android:layout_height="46dp"
-        app:layout_constraintBottom_toBottomOf="@+id/conectarVeterinariosMenu"
-        app:layout_constraintEnd_toEndOf="@+id/conectarVeterinariosMenu"
-        app:layout_constraintStart_toStartOf="@+id/conectarVeterinariosMenu"
-        app:srcCompat="@mipmap/logo_citas" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <TextView
+                android:id="@+id/txtvConectarVeterinario"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:layout_marginBottom="10dp"
+                android:text="@string/txtvConectarVeterinario"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textColor="@color/colorDarkGreenHelpets" />
+
+            <ListView
+                android:id="@+id/conectar_veterinarios_lista"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+            </ListView>
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

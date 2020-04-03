@@ -18,6 +18,7 @@
     <string name="campoMensajeChat">Escribe un mensaje</string>
     <string name="botonEnviar">Enviar</string>
     <string name="formularioContactoMensajeHint">Escribe aquí un mensaje</string>
+    <string name="txtvConectarVeterinario">Conecte con un veterinario</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
