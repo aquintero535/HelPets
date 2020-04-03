@@ -20,10 +20,11 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
         android:id="@+id/constraintLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -31,93 +32,93 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="1.0">
 
-        <ImageView
-            android:id="@+id/imagenLogo"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="24dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/txtvBienvenido"
-            app:srcCompat="@mipmap/helpets_logo" />
-
         <TextView
             android:id="@+id/txtvBienvenido"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
             android:text="@string/txtvBienvenido"
-            android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.497"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
 
         <ImageView
-            android:id="@+id/formaEslogan"
-            android:layout_width="wrap_content"
+            android:id="@+id/imagenLogo"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
-            android:layout_marginBottom="220dp"
-            app:layout_constraintBottom_toTopOf="@+id/formaRedHelpets"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imagenLogo"
-            app:layout_constraintVertical_bias="0.287"
-            app:srcCompat="@mipmap/cuadro_eslogan" />
+            android:layout_marginTop="24dp"
+            app:srcCompat="@mipmap/helpets_logo" />
 
-        <TextView
-            android:id="@+id/txtvEslogan"
-            android:layout_width="227dp"
-            android:layout_height="146dp"
-            android:foregroundTint="#F8F8F8"
-            android:text="@string/txtvEslogan"
-            android:textAppearance="@style/TextAppearance.AppCompat.Large"
-            android:textColor="@android:color/background_light"
-            app:layout_constraintBottom_toBottomOf="@+id/formaEslogan"
-            app:layout_constraintEnd_toEndOf="@+id/formaEslogan"
-            app:layout_constraintStart_toStartOf="@+id/formaEslogan"
-            app:layout_constraintTop_toTopOf="@+id/formaEslogan"
-            app:layout_constraintVertical_bias="1.0" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp">
+
+            <ImageView
+                android:id="@+id/formaEslogan"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@mipmap/cuadro_eslogan" />
+
+            <TextView
+                android:id="@+id/txtvEslogan"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:foregroundTint="#F8F8F8"
+                android:gravity="center"
+                android:text="@string/txtvEslogan"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Large"
+                android:textColor="@android:color/background_light"
+                app:layout_constraintBottom_toBottomOf="@id/formaEslogan"
+                app:layout_constraintEnd_toEndOf="@id/formaEslogan"
+                app:layout_constraintStart_toStartOf="@id/formaEslogan"
+                app:layout_constraintTop_toTopOf="@id/formaEslogan" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <com.google.android.gms.common.SignInButton
             android:id="@+id/sign_in_button"
-            android:layout_width="142dp"
-            android:layout_height="55dp"
-            android:layout_marginTop="56dp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/formaEslogan" />
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="50dp" />
 
-        <ImageView
-            android:id="@+id/formaRedHelpets"
-            android:layout_width="0dp"
-            android:layout_height="82dp"
-            android:adjustViewBounds="false"
-            android:cropToPadding="false"
-            android:scaleType="fitXY"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="parent"
-            app:srcCompat="@mipmap/forma_red_helpets" />
-
-        <TextView
-            android:id="@+id/txtvRedHelpets"
-            android:layout_width="0dp"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginBottom="5dp"
-            android:text="@string/txtvRedHelPets"
-            android:textAlignment="center"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="@android:color/holo_green_dark"
-            app:layout_constraintBottom_toBottomOf="@+id/formaRedHelpets"
-            app:layout_constraintEnd_toEndOf="@+id/formaRedHelpets"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/formaRedHelpets"
-            app:layout_constraintVertical_bias="0.592" />
+            android:layout_gravity="bottom"
+            android:layout_weight="1">
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <ImageView
+                android:id="@+id/formaRedHelpets"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="false"
+                android:cropToPadding="false"
+                android:scaleType="fitXY"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:srcCompat="@mipmap/forma_red_helpets" />
+
+            <TextView
+                android:id="@+id/txtvRedHelpets"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:gravity="center"
+                android:text="@string/txtvRedHelPets"
+                android:textAlignment="center"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body2"
+                android:textColor="@android:color/holo_green_dark"
+                app:layout_constraintBottom_toBottomOf="@id/formaRedHelpets"
+                app:layout_constraintLeft_toLeftOf="@id/formaRedHelpets"
+                app:layout_constraintRight_toRightOf="@id/formaRedHelpets"
+                app:layout_constraintTop_toTopOf="@id/formaRedHelpets" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

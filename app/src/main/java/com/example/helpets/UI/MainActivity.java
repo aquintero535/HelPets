@@ -1,10 +1,12 @@
 package com.example.helpets.ui;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.widget.Toast;
 
 import com.example.helpets.R;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -24,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         sesionFirebase = FirebaseAuth.getInstance();
+
         /* Por motivos de prueba, cada vez que se inicie la aplicación la sesión de Google se
         cerrará.*/
         
