@@ -31,6 +31,7 @@ public class ActivityConectarVeterinario extends AppCompatActivity
         implements AdapterView.OnItemClickListener {
 
     private ListView listaVeterinarios;
+    private List<Map<String, String>> lista;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,7 +71,7 @@ public class ActivityConectarVeterinario extends AppCompatActivity
     }
 
     private void llenarLista(Task<QuerySnapshot> task){
-        List<Map<String, String>> lista = new ArrayList<>();
+        lista = new ArrayList<>();
 
         for (QueryDocumentSnapshot document : task.getResult()) {
             String nombre = document.getData().get("nombre").toString();
@@ -78,6 +79,7 @@ public class ActivityConectarVeterinario extends AppCompatActivity
             hashmap.put("Nombre", nombre);
             hashmap.put("Clientes", "Clientes satisfechos: "+document.getData().get("clientes")
                     .toString());
+            hashmap.put("idVeterinario", document.getData().get("idVeterinario").toString());
             lista.add(hashmap);
         }
 
@@ -92,7 +94,16 @@ public class ActivityConectarVeterinario extends AppCompatActivity
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        startActivity(new Intent(ActivityConectarVeterinario.this,
-                ActivityConsultaVeterinario.class));
+        Intent consultaVeterinaria = new Intent(ActivityConectarVeterinario.this,
+                ActivityConsultaVeterinario.class);
+        consultaVeterinaria.putExtra("idUsuario",
+                FirebaseAuth.getInstance().getCurrentUser().getUid());
+        consultaVeterinaria.putExtra("nombreUsuario",
+                FirebaseAuth.getInstance().getCurrentUser().getDisplayName());
+        consultaVeterinaria.putExtra("idVeterinario", lista.get(position).get("idVeterinario"));
+        consultaVeterinaria.putExtra("nombreVeterinario", lista.get(position).get("Nombre"));
+        startActivity(consultaVeterinaria);
+
+
     }
 }

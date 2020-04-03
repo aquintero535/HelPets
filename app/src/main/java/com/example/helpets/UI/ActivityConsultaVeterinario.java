@@ -22,6 +22,8 @@ import com.example.helpets.adapter.Mensaje;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.Timestamp;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
@@ -47,6 +49,12 @@ public class ActivityConsultaVeterinario extends AppCompatActivity
     private FirebaseStorage storage;
     private StorageReference storageReference;
 
+    //Identificadores del usuario y el veterinario.
+    private String idVeterinario;
+    private String idUsuario;
+    private String strNombreVeterinario;
+    private String nombreUsuario;
+
     private AdaptadorMensajes adaptador;
     private FirebaseFirestore db;
     private static final int ENVIAR_FOTO = 1;
@@ -70,6 +78,13 @@ public class ActivityConsultaVeterinario extends AppCompatActivity
         botonEnviarChat.setOnClickListener(this);
         botonEnviarImagen.setOnClickListener(this);
 
+
+        //Identificadores de usuario
+        idUsuario = getIntent().getStringExtra("idUsuario");
+        idVeterinario = getIntent().getStringExtra("idVeterinario");
+        strNombreVeterinario = getIntent().getStringExtra("nombreVeterinario");
+        nombreUsuario = getIntent().getStringExtra("nombreUsuario");
+        nombreVeterinario.setText(strNombreVeterinario);
 
         //Obtengo la instancia de la base de datos.
         db = FirebaseFirestore.getInstance();
@@ -97,7 +112,9 @@ public class ActivityConsultaVeterinario extends AppCompatActivity
                             campoMensajeChat.getText().toString(),
                             "",
                             "1",
-                            DateFormat.getTimeInstance().format(Timestamp.now().toDate())));
+                            DateFormat.getTimeInstance().format(Timestamp.now().toDate()),
+                            idUsuario,
+                            idVeterinario));
                     campoMensajeChat.setText("");
                 }
                 break;
@@ -124,7 +141,13 @@ public class ActivityConsultaVeterinario extends AppCompatActivity
         for (DocumentChange documentChange : queryDocumentSnapshots.getDocumentChanges()){
             if (documentChange.getType() == DocumentChange.Type.ADDED){
                 Mensaje mensaje = documentChange.getDocument().toObject(Mensaje.class);
-                adaptador.aniadirMensaje(mensaje);
+                if(mensaje == null){
+                    System.out.println("MENSAJE NULL");
+                }
+                if (mensaje.getIdUsuario().equals(idUsuario)
+                        && mensaje.getIdVeterinario().equals(idVeterinario)) {
+                    adaptador.aniadirMensaje(mensaje);
+                }
             }
         }
 
@@ -157,7 +180,9 @@ public class ActivityConsultaVeterinario extends AppCompatActivity
                                                     "2",
                                                     DateFormat.getTimeInstance().format
                                                             (Timestamp.now().toDate()),
-                                                    uri.toString());
+                                                    uri.toString(),
+                                                    idUsuario,
+                                                    idVeterinario);
                                     db.collection("chat").add(mensajeFoto);
                                 }
                             });
