@@ -26,7 +26,6 @@ import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
-import com.google.firebase.firestore.FirebaseFirestoreSettings;
 import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
@@ -47,7 +46,6 @@ public class ActivityConsultaVeterinario extends AppCompatActivity
     private ImageButton botonEnviarImagen;
     private FirebaseStorage storage;
     private StorageReference storageReference;
-
 
     private AdaptadorMensajes adaptador;
     private FirebaseFirestore db;
@@ -108,6 +106,7 @@ public class ActivityConsultaVeterinario extends AppCompatActivity
                 startActivityForResult(Intent.createChooser
                         (intentGaleria, "Selecciona una foto"), ENVIAR_FOTO);
                 break;
+
         }
     }
 
@@ -118,7 +117,8 @@ public class ActivityConsultaVeterinario extends AppCompatActivity
     //Obtiene el mensaje nuevo en la base de datos, lo cambia a la clase Mensaje
     // y lo envía al adaptador.
     @Override
-    public void onEvent(@Nullable QuerySnapshot queryDocumentSnapshots, @Nullable FirebaseFirestoreException e) {
+    public void onEvent(@Nullable QuerySnapshot queryDocumentSnapshots,
+                        @Nullable FirebaseFirestoreException e) {
         for (DocumentChange documentChange : queryDocumentSnapshots.getDocumentChanges()){
             if (documentChange.getType() == DocumentChange.Type.ADDED){
                 Mensaje mensaje = documentChange.getDocument().toObject(Mensaje.class);
@@ -159,8 +159,6 @@ public class ActivityConsultaVeterinario extends AppCompatActivity
                                     db.collection("chat").add(mensajeFoto);
                                 }
                             });
-
-
                         }
                     }).addOnFailureListener(new OnFailureListener() {
                 @Override

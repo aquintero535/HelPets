@@ -13,14 +13,14 @@
         android:layout_height="100dp">
 
         <ImageView
-            android:id="@+id/imageView3"
+            android:id="@+id/logoHelpets"
             android:layout_width="168dp"
             android:layout_height="57dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.503"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/barraEstado"
             app:srcCompat="@mipmap/helpets_logo" />
 
         <Button
@@ -28,10 +28,40 @@
             android:layout_width="47dp"
             android:layout_height="45dp"
             android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
             android:background="@mipmap/menu_button"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/barraEstado" />
+
+        <ImageView
+            android:id="@+id/barraEstado"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:scaleType="fitXY"
+            android:src="@drawable/barra_estado"
+            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/barraEstadoUsuario"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:text="Hola Edixo"
+            app:layout_constraintBottom_toBottomOf="@id/barraEstado"
+            app:layout_constraintEnd_toEndOf="@+id/barraEstado"
+            app:layout_constraintTop_toTopOf="@+id/barraEstado" />
+
+        <TextView
+            android:id="@+id/barraEstadoFecha"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="Fecha"
+            app:layout_constraintBottom_toBottomOf="@id/barraEstado"
+            app:layout_constraintStart_toStartOf="@id/barraEstado"
+            app:layout_constraintTop_toTopOf="@id/barraEstado" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>

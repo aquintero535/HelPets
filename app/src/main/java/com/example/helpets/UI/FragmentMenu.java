@@ -10,9 +10,19 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.helpets.R;
+import com.google.firebase.FirebaseApp;
+import com.google.firebase.FirebaseOptions;
+import com.google.firebase.Timestamp;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+
+import org.w3c.dom.Text;
+
+import java.text.DateFormat;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -25,6 +35,8 @@ public class FragmentMenu extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
     private Button botonMenu;
+    private TextView estadoFecha;
+    private TextView estadoUsuario;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -77,5 +89,14 @@ public class FragmentMenu extends Fragment {
                Toast.makeText(getContext(), "Prueba exitosa", Toast.LENGTH_SHORT).show();
            }
        });
+        estadoFecha = (TextView)view.findViewById(R.id.barraEstadoFecha);
+        estadoUsuario = (TextView)view.findViewById(R.id.barraEstadoUsuario);
+        estadoUsuario.setText("Hola "+FirebaseAuth.getInstance().getCurrentUser().getDisplayName());
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        estadoFecha.setText(DateFormat.getDateTimeInstance().format(Timestamp.now().toDate()));
     }
 }
