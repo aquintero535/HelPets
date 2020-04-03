@@ -91,13 +91,15 @@ public class ActivityConsultaVeterinario extends AppCompatActivity
     public void onClick(View v) {
         switch(v.getId()){
             case R.id.botonEnviarChat:
-                db.collection("chat").add(new Mensaje(
-                        nombreVeterinario.getText().toString(),
-                        campoMensajeChat.getText().toString(),
-                        "",
-                        "1",
-                        DateFormat.getTimeInstance().format(Timestamp.now().toDate())));
-                campoMensajeChat.setText("");
+                if (!campoMensajeChat.getText().toString().isEmpty()) {
+                    db.collection("chat").add(new Mensaje(
+                            nombreVeterinario.getText().toString(),
+                            campoMensajeChat.getText().toString(),
+                            "",
+                            "1",
+                            DateFormat.getTimeInstance().format(Timestamp.now().toDate())));
+                    campoMensajeChat.setText("");
+                }
                 break;
             case R.id.botonEnviarImagen:
                 Intent intentGaleria = new Intent(Intent.ACTION_GET_CONTENT);
