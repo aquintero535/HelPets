@@ -51,7 +51,7 @@
         app:layout_constraintEnd_toEndOf="@id/fondoBuzon"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/fragmentoMenuBuzon"
-        app:srcCompat="@mipmap/marco_lista_veterinarios" />
+        app:srcCompat="@drawable/marco_fondo_buzon" />
 
     <ScrollView
         android:id="@+id/scrollView2"
@@ -105,19 +105,21 @@
                         android:layout_height="wrap_content"
                         android:text="@string/txtvNombre"
                         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-                        android:textColor="@color/design_default_color_secondary_variant"
+                        android:textColor="@color/colorDarkGreenHelpets"
                         app:layout_constraintBottom_toBottomOf="@+id/cuadroNombre"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="@+id/cuadroNombre" />
+                        app:layout_constraintEnd_toEndOf="@id/cuadroNombre"
+                        app:layout_constraintStart_toStartOf="@id/cuadroNombre"
+                        app:layout_constraintTop_toTopOf="@id/cuadroNombre" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <EditText
                     android:id="@+id/campoNombre"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
+                    android:layout_margin="5dp"
                     android:layout_weight="1"
+                    android:background="@drawable/marco_campos_buzon"
                     android:ems="10"
                     android:inputType="textPersonName"
                     android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
@@ -151,19 +153,21 @@
                         android:layout_height="wrap_content"
                         android:text="@string/txtvTelefono"
                         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-                        android:textColor="@color/design_default_color_secondary_variant"
+                        android:textColor="@color/colorDarkGreenHelpets"
                         app:layout_constraintBottom_toBottomOf="@+id/cuadroTelefono"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="@id/cuadroTelefono"
+                        app:layout_constraintStart_toStartOf="@id/cuadroTelefono"
                         app:layout_constraintTop_toTopOf="@+id/cuadroTelefono" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <EditText
                     android:id="@+id/campoTelefono"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
+                    android:layout_margin="5dp"
                     android:layout_weight="1"
+                    android:background="@drawable/marco_campos_buzon"
                     android:ems="10"
                     android:inputType="phone"
                     android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
@@ -193,23 +197,25 @@
 
                     <TextView
                         android:id="@+id/textoCorreo"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="121dp"
+                        android:layout_height="18dp"
                         android:text="@string/txtvCorreo"
                         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-                        android:textColor="@color/design_default_color_secondary_variant"
+                        android:textColor="@color/colorDarkGreenHelpets"
                         app:layout_constraintBottom_toBottomOf="@+id/cuadroCorreo"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="@id/cuadroCorreo"
+                        app:layout_constraintStart_toStartOf="@id/cuadroCorreo"
                         app:layout_constraintTop_toTopOf="@+id/cuadroCorreo" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <EditText
                     android:id="@+id/campoCorreo"
-                    android:layout_width="match_parent"
+                    android:layout_width="0dp"
                     android:layout_height="match_parent"
+                    android:layout_margin="5dp"
                     android:layout_weight="1"
+                    android:background="@drawable/marco_campos_buzon"
                     android:ems="10"
                     android:inputType="textEmailAddress"
                     android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
@@ -239,14 +245,14 @@
 
                     <TextView
                         android:id="@+id/textoMensaje"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="55dp"
+                        android:layout_height="17dp"
                         android:text="@string/txtvMensaje"
                         android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-                        android:textColor="@color/design_default_color_secondary_variant"
+                        android:textColor="@color/colorDarkGreenHelpets"
                         app:layout_constraintBottom_toBottomOf="@+id/cuadroMensaje"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="@id/cuadroMensaje"
+                        app:layout_constraintStart_toStartOf="@id/cuadroMensaje"
                         app:layout_constraintTop_toTopOf="@+id/cuadroMensaje" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
@@ -255,7 +261,9 @@
                     android:id="@+id/campoMensaje"
                     android:layout_width="0dp"
                     android:layout_height="match_parent"
+                    android:layout_margin="10dp"
                     android:layout_weight="1"
+                    android:background="@drawable/marco_campomensaje_buzon"
                     android:ems="10"
                     android:hint="@string/formularioContactoMensajeHint"
                     android:inputType="textMultiLine"

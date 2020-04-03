@@ -13,6 +13,7 @@ import com.example.helpets.R;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -54,6 +55,7 @@ public class ActivityBuzon extends AppCompatActivity {
             mensaje.put("telefono", campoTelefono.getText().toString());
             mensaje.put("correo", campoCorreo.getText().toString());
             mensaje.put("mensaje", campoMensaje.getText().toString());
+            mensaje.put("idUsuario", FirebaseAuth.getInstance().getCurrentUser().getUid());
 
             FirebaseFirestore db = FirebaseFirestore.getInstance();
             db.collection("contacto")
