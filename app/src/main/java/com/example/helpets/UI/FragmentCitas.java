@@ -84,7 +84,6 @@ public class FragmentCitas extends Fragment implements View.OnClickListener {
         switch(v.getId()){
             case R.id.botonCitas24Hr:
                 startActivity(new Intent(getContext(), ActivityConectarVeterinario.class));
-                getActivity().finish();
                 break;
         }
     }

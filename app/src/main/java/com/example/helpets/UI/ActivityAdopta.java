@@ -2,6 +2,9 @@ package com.example.helpets.ui;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
+import androidx.lifecycle.ViewModelProvider;
+import androidx.lifecycle.ViewModelProviders;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,6 +13,7 @@ import android.widget.SimpleAdapter;
 import android.widget.Toast;
 
 import com.example.helpets.R;
+import com.example.helpets.viewmodel.ViewModelAdoptar;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -25,53 +29,22 @@ import java.util.Map;
 
 public class ActivityAdopta extends AppCompatActivity {
 
-    private ListView listaAdopcion;
+    private Fragment fragmentListaAdopcion, fragmentFormularioAdopcion;
+    private ViewModelAdoptar viewModelAdoptar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_adopta);
-        listaAdopcion = (ListView)findViewById(R.id.listaAdopta);
 
-        FirebaseFirestore db = FirebaseFirestore.getInstance();
-        db.collection("adopcion")
-                .get()
-                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-                    @Override
-                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
-                        if (task.isSuccessful()) {
-                            llenarLista(task);
-                        } else{
-                            Toast.makeText(ActivityAdopta.this,
-                                    "Error al conectar a la base de datos,",
-                                    Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                });
+        //Fragment de lista de adopción.
+        fragmentListaAdopcion = new FragmentListaAdopcion();
+        getSupportFragmentManager().beginTransaction().replace
+                (R.id.contenedorFragmentsAdoptar, fragmentListaAdopcion).commit();
+
     }
 
-    private void llenarLista(Task<QuerySnapshot> task){
-        List<Map<String, String>> lista = new ArrayList<>();
 
-        for (QueryDocumentSnapshot document : task.getResult()) {
-            String nombre = "Nombre: ".concat(document.getData().get("nombre").toString());
-            String edad = "Edad: ".concat(document.getData().get("edad").toString());
-            String vacunas = "Vacunas: ".concat((Boolean)(document.getData().get("vacunas"))?"Sí":"No");
-            HashMap<String, String> hashmap = new HashMap<String, String>();
-            hashmap.put("Nombre", nombre);
-            hashmap.put("Edad", edad);
-            hashmap.put("Vacunas", vacunas);
-            lista.add(hashmap);
-        }
-
-        SimpleAdapter adapter = new SimpleAdapter(ActivityAdopta.this,
-                lista,
-                R.layout.lista_adopcion,
-                new String[]{"Nombre", "Edad", "Vacunas"},
-                new int[]{R.id.adopcionItemNombre, R.id.adopcionItemEdad, R.id.adopcionItemVacunas}
-        );
-        listaAdopcion.setAdapter(adapter);
-    }
 
     @Override
     protected void onResume() {
