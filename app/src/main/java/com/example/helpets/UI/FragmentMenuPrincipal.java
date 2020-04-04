@@ -104,7 +104,7 @@ public class FragmentMenuPrincipal extends Fragment implements View.OnClickListe
                 break;
 
             case R.id.botonAdopta:
-                startActivity(new Intent(getContext(), ActivityAdopta.class));
+                startActivityForResult(new Intent(getContext(), ActivityAdopta.class), 678);
                 break;
             case R.id.botonBuzon:
                 startActivityForResult(new Intent(getContext(), ActivityBuzon.class), MESSAGE_SENT);

@@ -173,7 +173,7 @@
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:ems="7"
-                                android:inputType="textPersonName"
+                                android:inputType="phone"
                                 app:layout_constraintBottom_toBottomOf="@id/marcoCampoTelefonoFormulario"
                                 app:layout_constraintEnd_toEndOf="@id/marcoCampoTelefonoFormulario"
                                 app:layout_constraintStart_toStartOf="@id/marcoCampoTelefonoFormulario"
