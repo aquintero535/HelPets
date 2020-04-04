@@ -19,7 +19,7 @@
 
     <fragment
         android:id="@+id/conectarVeterinariosMenu"
-        android:name="com.example.helpets.ui.FragmentMenu"
+        android:name="com.example.helpets.ui.FragmentBarraEstado"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"

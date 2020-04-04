@@ -33,7 +33,7 @@
 
     <fragment
         android:id="@+id/fragmentMenuAdopta"
-        android:name="com.example.helpets.ui.FragmentMenu"
+        android:name="com.example.helpets.ui.FragmentBarraEstado"
         tools:layout="@layout/fragment_menu"
         android:layout_width="0dp"
         android:layout_height="100dp"

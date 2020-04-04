@@ -5,7 +5,7 @@
     android:id="@+id/contenedorMenu"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.FragmentMenu">
+    tools:context=".ui.FragmentBarraEstado">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -48,7 +48,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="10dp"
-            android:text="Hola Edixo"
             app:layout_constraintBottom_toBottomOf="@id/barraEstado"
             app:layout_constraintEnd_toEndOf="@+id/barraEstado"
             app:layout_constraintTop_toTopOf="@+id/barraEstado" />
@@ -58,7 +57,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:text="Fecha"
             app:layout_constraintBottom_toBottomOf="@id/barraEstado"
             app:layout_constraintStart_toStartOf="@id/barraEstado"
             app:layout_constraintTop_toTopOf="@id/barraEstado" />
