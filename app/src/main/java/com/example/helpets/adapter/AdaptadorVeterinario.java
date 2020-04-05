@@ -1,53 +1,54 @@
 package com.example.helpets.adapter;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
+
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.helpets.R;
 
 import java.util.List;
 
-import de.hdodenhof.circleimageview.CircleImageView;
 
-public class AdaptadorVeterinario extends ArrayAdapter<Veterinario> {
 
-    public AppCompatActivity appCompatActivity;
-    private TextView nombreVeterinario;
-    private TextView clientesSatisfechos;
-    private CircleImageView imagenPerfilVeterinario;
+public class AdaptadorVeterinario extends RecyclerView.Adapter<HolderVeterinario> {
+
     private List<Veterinario> listaVeterinarios;
+    private Context contexto;
+    private RecyclerViewClickListener recyclerViewClickListener;
 
-    public AdaptadorVeterinario(AppCompatActivity contexto, List<Veterinario> lista){
-        super(contexto, R.layout.lista_veterinarios, lista);
-        appCompatActivity = contexto;
+    public AdaptadorVeterinario(Context contexto, List<Veterinario> lista,
+                                RecyclerViewClickListener listener){
+        this.contexto = contexto;
         listaVeterinarios = lista;
+        recyclerViewClickListener = listener;
     }
 
     @NonNull
     @Override
-    public View getView(int position, @Nullable View convertView, @NonNull ViewGroup parent) {
-        LayoutInflater inflater = appCompatActivity.getLayoutInflater();
-        View item = inflater.inflate(R.layout.lista_veterinarios, null);
-        nombreVeterinario = (TextView)item.findViewById(R.id.listaTexto1);
-        clientesSatisfechos = (TextView)item.findViewById(R.id.listaTexto2);
-        imagenPerfilVeterinario = (CircleImageView)item.findViewById(R.id.imgPerfilVeterinario);
+    public HolderVeterinario onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        View item = LayoutInflater
+                .from(contexto)
+                .inflate(R.layout.lista_veterinarios, parent, false);
+        return new HolderVeterinario(item, recyclerViewClickListener);
+    }
 
-        //Establece el nombre, los clientes y la imagen de perfil del veterinario en los componentes
-        //del UI.
-        nombreVeterinario.setText(listaVeterinarios.get(position).getNombreVeterinario());
-        clientesSatisfechos.setText(listaVeterinarios.get(position).getClientes());
-        Glide.with(item)
+    @Override
+    public void onBindViewHolder(@NonNull HolderVeterinario holder, int position) {
+        holder.getNombreVeterinario().setText(listaVeterinarios.get(position).getNombreVeterinario());
+        holder.getClientesSatisfechos().setText(listaVeterinarios.get(position).getClientes());
+        Glide.with(contexto)
                 .load(listaVeterinarios.get(position).getFotoPerfil())
-                .into(imagenPerfilVeterinario);
+                .into(holder.getImagenPerfilVeterinario());
+    }
 
-        return item;
+    @Override
+    public int getItemCount() {
+        return listaVeterinarios.size();
     }
 }

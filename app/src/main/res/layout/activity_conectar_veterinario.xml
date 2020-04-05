@@ -79,12 +79,12 @@
                 android:textAppearance="@style/TextAppearance.AppCompat.Large"
                 android:textColor="@color/colorDarkGreenHelpets" />
 
-            <ListView
+            <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/conectar_veterinarios_lista"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent">
 
-            </ListView>
+            </androidx.recyclerview.widget.RecyclerView>
         </LinearLayout>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
