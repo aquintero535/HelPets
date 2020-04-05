@@ -12,6 +12,8 @@ import android.widget.SimpleAdapter;
 import android.widget.Toast;
 
 import com.example.helpets.R;
+import com.example.helpets.adapter.AdaptadorVeterinario;
+import com.example.helpets.adapter.Veterinario;
 import com.example.helpets.ui.ActivityConsultaVeterinario;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -31,7 +33,7 @@ public class ActivityConectarVeterinario extends AppCompatActivity
         implements AdapterView.OnItemClickListener {
 
     private ListView listaVeterinarios;
-    private List<Map<String, String>> lista;
+    private List<Veterinario> lista = new ArrayList<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,25 +73,17 @@ public class ActivityConectarVeterinario extends AppCompatActivity
     }
 
     private void llenarLista(Task<QuerySnapshot> task){
-        lista = new ArrayList<>();
-
         for (QueryDocumentSnapshot document : task.getResult()) {
             String nombre = document.getData().get("nombre").toString();
-            HashMap<String, String> hashmap = new HashMap<String, String>();
-            hashmap.put("Nombre", nombre);
-            hashmap.put("Clientes", "Clientes satisfechos: "+document.getData().get("clientes")
-                    .toString());
-            hashmap.put("idVeterinario", document.getData().get("idVeterinario").toString());
-            lista.add(hashmap);
+            String clientes = "Clientes satisfechos: "+document.getData().get("clientes").toString();
+            String imagenPerfil = document.getData().get("fotoPerfil").toString();
+            String idVeterinario = document.getData().get("idVeterinario").toString();
+            lista.add(new Veterinario(nombre, clientes, imagenPerfil, idVeterinario));
         }
 
-        SimpleAdapter adapter = new SimpleAdapter(ActivityConectarVeterinario.this,
-                lista,
-                R.layout.lista_veterinarios,
-                new String[]{"Nombre", "Clientes"},
-                new int[]{R.id.listaTexto1, R.id.listaTexto2}
-        );
-        listaVeterinarios.setAdapter(adapter);
+        AdaptadorVeterinario adaptadorVeterinario = new AdaptadorVeterinario(this, lista);
+        listaVeterinarios.setAdapter(adaptadorVeterinario);
+
     }
 
     @Override
@@ -100,10 +94,8 @@ public class ActivityConectarVeterinario extends AppCompatActivity
                 FirebaseAuth.getInstance().getCurrentUser().getUid());
         consultaVeterinaria.putExtra("nombreUsuario",
                 FirebaseAuth.getInstance().getCurrentUser().getDisplayName());
-        consultaVeterinaria.putExtra("idVeterinario", lista.get(position).get("idVeterinario"));
-        consultaVeterinaria.putExtra("nombreVeterinario", lista.get(position).get("Nombre"));
+        consultaVeterinaria.putExtra("idVeterinario", lista.get(position).getIdVeterinario());
+        consultaVeterinaria.putExtra("nombreVeterinario", lista.get(position).getNombreVeterinario());
         startActivity(consultaVeterinaria);
-
-
     }
 }
