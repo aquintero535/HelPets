@@ -6,6 +6,8 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +18,11 @@ import android.widget.SimpleAdapter;
 import android.widget.Toast;
 
 import com.example.helpets.R;
+import com.example.helpets.adapter.AdaptadorMascotas;
+import com.example.helpets.adapter.AdaptadorVeterinario;
+import com.example.helpets.adapter.Mascota;
+import com.example.helpets.adapter.RecyclerViewClickListener;
+import com.example.helpets.adapter.ViewHolderMascotas;
 import com.example.helpets.viewmodel.ViewModelAdoptar;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -33,10 +40,11 @@ import java.util.Map;
  * Use the {@link FragmentListaAdopcion#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class FragmentListaAdopcion extends Fragment implements AdapterView.OnItemClickListener {
+public class FragmentListaAdopcion extends Fragment {
 
     private ViewModelAdoptar viewModelAdoptar;
-    private ListView listaAdopcion;
+    private RecyclerView listaAdopcion;
+    private RecyclerViewClickListener listener;
 
     public FragmentListaAdopcion() {
         // Required empty public constructor
@@ -54,9 +62,10 @@ public class FragmentListaAdopcion extends Fragment implements AdapterView.OnIte
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         viewModelAdoptar = new ViewModelProvider(getActivity()).get(ViewModelAdoptar.class);
-        listaAdopcion = (ListView)view.findViewById(R.id.listaAdopta);
+        listaAdopcion = (RecyclerView)view.findViewById(R.id.listaAdopta);
+        listaAdopcion.setLayoutManager(new LinearLayoutManager(getContext()));
         viewModelAdoptar.setDb(FirebaseFirestore.getInstance());
-        viewModelAdoptar.getDb().collection("adopcion")
+        viewModelAdoptar.getDb().collection("mascotas")
                 .get()
                 .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                     @Override
@@ -70,7 +79,19 @@ public class FragmentListaAdopcion extends Fragment implements AdapterView.OnIte
                         }
                     }
                 });
-        listaAdopcion.setOnItemClickListener(this);
+
+        listener = new RecyclerViewClickListener() {
+            @Override
+            public void onClick(View view, int position) {
+                viewModelAdoptar.setMascotaSeleccionada
+                        (viewModelAdoptar
+                                .getListaAdopcion()
+                                .get(position)
+                                .getIdMascota());
+                getActivity().getSupportFragmentManager().beginTransaction().replace
+                        (R.id.contenedorFragmentsAdoptar, new FragmentFormularioAdopcion()).commit();
+            }
+        };
     }
 
     private void llenarLista(Task<QuerySnapshot> task){
@@ -79,31 +100,14 @@ public class FragmentListaAdopcion extends Fragment implements AdapterView.OnIte
             String edad = "Edad: ".concat(document.getData().get("edad").toString());
             String vacunas = "Vacunas: ".concat
                     ((Boolean)(document.getData().get("vacunas"))?"Sí":"No");
-            HashMap<String, String> hashmap = new HashMap<String, String>();
-            hashmap.put("Nombre", nombre);
-            hashmap.put("Edad", edad);
-            hashmap.put("Vacunas", vacunas);
-            hashmap.put("idDocumento", document.getId());
-            viewModelAdoptar.getListaAdopcion().add(hashmap);
+            String idMascota = document.getId();
+            String imgMascota = document.getData().get("img").toString();
+            viewModelAdoptar.getListaAdopcion()
+                    .add(new Mascota
+                            (nombre, edad, vacunas, idMascota, imgMascota));
         }
-
-        SimpleAdapter adapter = new SimpleAdapter(getContext(),
-                viewModelAdoptar.getListaAdopcion(),
-                R.layout.lista_adopcion,
-                new String[]{"Nombre", "Edad", "Vacunas"},
-                new int[]{R.id.adopcionItemNombre, R.id.adopcionItemEdad, R.id.adopcionItemVacunas}
-        );
-        listaAdopcion.setAdapter(adapter);
-    }
-
-    @Override
-    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        viewModelAdoptar.setMascotaSeleccionada
-                (viewModelAdoptar
-                        .getListaAdopcion()
-                        .get(position)
-                        .get("idDocumento"));
-        getActivity().getSupportFragmentManager().beginTransaction().replace
-                (R.id.contenedorFragmentsAdoptar, new FragmentFormularioAdopcion()).commit();
+        AdaptadorMascotas adaptadorMascotas = new AdaptadorMascotas
+                (viewModelAdoptar.getListaAdopcion(), getContext(), listener);
+        listaAdopcion.setAdapter(adaptadorMascotas);
     }
 }

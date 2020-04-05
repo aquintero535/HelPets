@@ -2,6 +2,7 @@ package com.example.helpets.viewmodel;
 
 import androidx.lifecycle.ViewModel;
 
+import com.example.helpets.adapter.Mascota;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
@@ -11,17 +12,17 @@ import java.util.Map;
 public class ViewModelAdoptar extends ViewModel {
 
     private FirebaseFirestore db;
-    private List<Map<String, String>> listaAdopcion = new ArrayList<>();
+    private List<Mascota> listaAdopcion = new ArrayList<>();
     private String mascotaSeleccionada; //ID del documento de la mascota escogida.
 
     public ViewModelAdoptar(){
     }
 
-    public List<Map<String, String>> getListaAdopcion() {
+    public List<Mascota> getListaAdopcion() {
         return listaAdopcion;
     }
 
-    public void setListaAdopcion(List<Map<String, String>> listaAdopcion) {
+    public void setListaAdopcion(List<Mascota> listaAdopcion) {
         this.listaAdopcion = listaAdopcion;
     }
 
