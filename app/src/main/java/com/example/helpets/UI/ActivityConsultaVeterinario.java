@@ -16,6 +16,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.example.helpets.R;
 import com.example.helpets.adapter.AdaptadorMensajes;
 import com.example.helpets.adapter.Mensaje;
@@ -79,7 +80,9 @@ public class ActivityConsultaVeterinario extends AppCompatActivity
         botonEnviarImagen = (ImageButton)findViewById(R.id.botonEnviarImagen);
         botonEnviarChat.setOnClickListener(this);
         botonEnviarImagen.setOnClickListener(this);
-
+        Glide.with(this)
+                .load(getIntent().getStringExtra("imgPerfilVeterinario"))
+                .into(fotoPerfil);
 
         //Identificadores de usuario
         idUsuario = getIntent().getStringExtra("idUsuario");
@@ -87,6 +90,8 @@ public class ActivityConsultaVeterinario extends AppCompatActivity
         strNombreVeterinario = getIntent().getStringExtra("nombreVeterinario");
         nombreUsuario = getIntent().getStringExtra("nombreUsuario");
         nombreVeterinario.setText(strNombreVeterinario);
+
+
 
         //Obtengo la instancia de la base de datos.
         db = FirebaseFirestore.getInstance();
@@ -119,7 +124,7 @@ public class ActivityConsultaVeterinario extends AppCompatActivity
                             .add(new Mensaje(
                             nombreUsuario,
                             campoMensajeChat.getText().toString(),
-                            "",
+                            FirebaseAuth.getInstance().getCurrentUser().getPhotoUrl().toString(),
                             "1",
                             DateFormat.getTimeInstance().format(Timestamp.now().toDate()),
                             idUsuario,
@@ -178,7 +183,8 @@ public class ActivityConsultaVeterinario extends AppCompatActivity
                                     Mensaje mensajeFoto = new Mensaje
                                             (nombreUsuario,
                                                     "Ha enviado una foto",
-                                                    "",
+                                                    FirebaseAuth.getInstance().getCurrentUser()
+                                                            .getPhotoUrl().toString(),
                                                     "2",
                                                     DateFormat.getTimeInstance().format
                                                             (Timestamp.now().toDate()),

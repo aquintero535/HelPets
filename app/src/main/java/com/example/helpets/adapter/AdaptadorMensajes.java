@@ -45,6 +45,8 @@ public class AdaptadorMensajes extends RecyclerView.Adapter<HolderMensaje> {
         holder.getNombreUsuario().setText(listaMensajes.get(position).getNombreUsuario());
         holder.getMensajeChat().setText(listaMensajes.get(position).getMensaje());
         holder.getHora().setText(listaMensajes.get(position).getHora());
+        Glide.with(contexto).load(listaMensajes.get(position).getFotoPerfil())
+                .into(holder.getFotoPerfilMensaje());
         if (listaMensajes.get(position).getTipoMensaje().equals("2")){
             holder.getMensajeImagen().setVisibility(View.VISIBLE);
             holder.getMensajeChat().setVisibility(View.VISIBLE);

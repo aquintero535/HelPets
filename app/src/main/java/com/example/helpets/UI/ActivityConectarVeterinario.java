@@ -72,6 +72,7 @@ public class ActivityConectarVeterinario extends AppCompatActivity {
                         FirebaseAuth.getInstance().getCurrentUser().getDisplayName());
                 consultaVeterinaria.putExtra("idVeterinario", lista.get(position).getIdVeterinario());
                 consultaVeterinaria.putExtra("nombreVeterinario", lista.get(position).getNombreVeterinario());
+                consultaVeterinaria.putExtra("imgPerfilVeterinario", lista.get(position).getFotoPerfil());
                 startActivity(consultaVeterinaria);
             }
         };
