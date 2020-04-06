@@ -4,10 +4,12 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.helpets.R;
@@ -26,16 +28,17 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
 
-public class ActivityInicioSesion extends AppCompatActivity {
+public class ActivityInicioSesion extends AppCompatActivity implements View.OnClickListener {
 
     private SignInButton botonIniciarSesion;
+    private Button botonRegistro;
     private GoogleSignInClient googleSignInClient;
     private FirebaseAuth mAuth;
-    private FirebaseUser usuario;
     private static final int RC_SIGN_IN = 9001;
     private static final String TAG = "GoogleActivity";
     private ConstraintLayout constraintLayout;
 
+    @SuppressLint("WrongViewCast")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,12 +56,9 @@ public class ActivityInicioSesion extends AppCompatActivity {
 
         mAuth = FirebaseAuth.getInstance();
         botonIniciarSesion = findViewById(R.id.sign_in_button);
-        botonIniciarSesion.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                iniciarSesion();
-            }
-        });
+        botonIniciarSesion.setOnClickListener(this);
+        botonRegistro = (Button)findViewById(R.id.botonIniciarRegistro);
+        botonRegistro.setOnClickListener(this);
 
     }
 
@@ -99,7 +99,6 @@ public class ActivityInicioSesion extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()){
                             Log.d(TAG, "signInWithCredentials");
-                            usuario = mAuth.getCurrentUser();
                             Toast.makeText(ActivityInicioSesion.this,
                                     "Sesión iniciada",
                                     Toast.LENGTH_SHORT)
@@ -118,5 +117,20 @@ public class ActivityInicioSesion extends AppCompatActivity {
                         }
                     }
                 });
+    }
+
+    @Override
+    public void onClick(View v) {
+        Toast.makeText(ActivityInicioSesion.this, "Test", Toast.LENGTH_SHORT).show();
+        switch(v.getId()){
+            case R.id.sign_in_button:
+                iniciarSesion();
+                break;
+            case R.id.botonIniciarRegistro:
+                startActivity(new Intent(ActivityInicioSesion.this,
+                        ActivityRegistro.class));
+                finish();
+                break;
+        }
     }
 }

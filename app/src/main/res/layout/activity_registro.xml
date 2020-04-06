@@ -1,0 +1,589 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.ActivityRegistro">
+
+    <ImageView
+        android:id="@+id/fondoRegistro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="centerCrop"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@mipmap/fondo_inicio" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/logoHelpetsRegistro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            app:srcCompat="@mipmap/helpets_logo" />
+
+        <TextView
+            android:id="@+id/txtvFormularioRegistro"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:text="@string/txtvFormularioRegistro"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large"
+            android:textColor="@color/colorDarkGreenHelpets" />
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_margin="5dp">
+
+                    <ImageView
+                        android:id="@+id/marcoFormularioRegistro"
+                        android:layout_width="0dp"
+                        android:layout_height="0dp"
+                        android:scaleType="fitXY"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:srcCompat="@drawable/marco_formulario_registro" />
+
+                    <LinearLayout
+                        android:id="@+id/linearLayout2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        app:layout_constraintBottom_toBottomOf="@id/marcoFormularioRegistro"
+                        app:layout_constraintEnd_toEndOf="@id/marcoFormularioRegistro"
+                        app:layout_constraintStart_toStartOf="@id/marcoFormularioRegistro"
+                        app:layout_constraintTop_toTopOf="@id/marcoFormularioRegistro">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:baselineAligned="false"
+                            android:orientation="horizontal">
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="1">
+
+                                <ImageView
+                                    android:id="@+id/cuadroNombreFormulario"
+                                    android:layout_width="0dp"
+                                    android:layout_height="0dp"
+                                    android:src="@drawable/cuadro_texto_formulario_adopcion"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    app:layout_constraintVertical_bias="0.0" />
+
+                                <TextView
+                                    android:id="@+id/txtvNombreFormulario"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="Nombre y apellido"
+                                    android:textColor="@color/colorDarkGreenHelpets"
+                                    app:layout_constraintBottom_toBottomOf="@id/cuadroNombreFormulario"
+                                    app:layout_constraintEnd_toEndOf="@id/cuadroNombreFormulario"
+                                    app:layout_constraintStart_toStartOf="@id/cuadroNombreFormulario"
+                                    app:layout_constraintTop_toTopOf="@id/cuadroNombreFormulario" />
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1">
+
+                                <ImageView
+                                    android:id="@+id/marcoCampoNombreFormulario"
+                                    android:layout_width="0dp"
+                                    android:layout_height="0dp"
+                                    android:src="@drawable/cuadro_texto_formulario_adopcion2"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <EditText
+                                    android:id="@+id/campoNombreRegistro"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:ems="7"
+                                    android:inputType="textPersonName"
+                                    app:layout_constraintBottom_toBottomOf="@id/marcoCampoNombreFormulario"
+                                    app:layout_constraintEnd_toEndOf="@id/marcoCampoNombreFormulario"
+                                    app:layout_constraintStart_toStartOf="@id/marcoCampoNombreFormulario"
+                                    app:layout_constraintTop_toTopOf="@id/marcoCampoNombreFormulario" />
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:baselineAligned="false"
+                            android:orientation="horizontal">
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="1">
+
+                                <ImageView
+                                    android:id="@+id/cuadroTelefonoFormulario"
+                                    android:layout_width="0dp"
+                                    android:layout_height="0dp"
+                                    android:src="@drawable/cuadro_texto_formulario_adopcion"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    app:layout_constraintVertical_bias="0.0" />
+
+                                <TextView
+                                    android:id="@+id/txtvTelefonoFormulario"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/txtvTeléfonoFormulario"
+                                    android:textColor="@color/colorDarkGreenHelpets"
+                                    app:layout_constraintBottom_toBottomOf="@id/cuadroTelefonoFormulario"
+                                    app:layout_constraintEnd_toEndOf="@id/cuadroTelefonoFormulario"
+                                    app:layout_constraintStart_toStartOf="@id/cuadroTelefonoFormulario"
+                                    app:layout_constraintTop_toTopOf="@id/cuadroTelefonoFormulario" />
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1">
+
+                                <ImageView
+                                    android:id="@+id/marcoCampoTelefonoFormulario"
+                                    android:layout_width="0dp"
+                                    android:layout_height="0dp"
+                                    android:src="@drawable/cuadro_texto_formulario_adopcion2"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <EditText
+                                    android:id="@+id/campoTelefonoRegistro"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:ems="7"
+                                    android:inputType="phone"
+                                    app:layout_constraintBottom_toBottomOf="@id/marcoCampoTelefonoFormulario"
+                                    app:layout_constraintEnd_toEndOf="@id/marcoCampoTelefonoFormulario"
+                                    app:layout_constraintStart_toStartOf="@id/marcoCampoTelefonoFormulario"
+                                    app:layout_constraintTop_toTopOf="@id/marcoCampoTelefonoFormulario" />
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:baselineAligned="false"
+                            android:orientation="horizontal">
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="1">
+
+                                <ImageView
+                                    android:id="@+id/cuadroCorreoFormulario"
+                                    android:layout_width="0dp"
+                                    android:layout_height="0dp"
+                                    android:src="@drawable/cuadro_texto_formulario_adopcion"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    app:layout_constraintVertical_bias="0.0" />
+
+                                <TextView
+                                    android:id="@+id/txtvCorreoFormulario"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/txtvCorreoFormulario"
+                                    android:textColor="@color/colorDarkGreenHelpets"
+                                    app:layout_constraintBottom_toBottomOf="@id/cuadroCorreoFormulario"
+                                    app:layout_constraintEnd_toEndOf="@id/cuadroCorreoFormulario"
+                                    app:layout_constraintStart_toStartOf="@id/cuadroCorreoFormulario"
+                                    app:layout_constraintTop_toTopOf="@id/cuadroCorreoFormulario" />
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1">
+
+                                <ImageView
+                                    android:id="@+id/marcoCampoCorreoFormulario"
+                                    android:layout_width="0dp"
+                                    android:layout_height="0dp"
+                                    android:src="@drawable/cuadro_texto_formulario_adopcion2"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <EditText
+                                    android:id="@+id/campoCorreoRegistro"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:ems="7"
+                                    android:inputType="textPersonName"
+                                    app:layout_constraintBottom_toBottomOf="@id/marcoCampoCorreoFormulario"
+                                    app:layout_constraintEnd_toEndOf="@id/marcoCampoCorreoFormulario"
+                                    app:layout_constraintStart_toStartOf="@id/marcoCampoCorreoFormulario"
+                                    app:layout_constraintTop_toTopOf="@id/marcoCampoCorreoFormulario" />
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:baselineAligned="false"
+                            android:orientation="horizontal">
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="1">
+
+                                <ImageView
+                                    android:id="@+id/cuadroDireccionFormulario"
+                                    android:layout_width="0dp"
+                                    android:layout_height="0dp"
+                                    android:src="@drawable/cuadro_texto_formulario_adopcion"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    app:layout_constraintVertical_bias="0.0" />
+
+                                <TextView
+                                    android:id="@+id/txtvDireccionFormulario"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/txtvDireccionFormulario"
+                                    android:textColor="@color/colorDarkGreenHelpets"
+                                    app:layout_constraintBottom_toBottomOf="@+id/cuadroDireccionFormulario"
+                                    app:layout_constraintEnd_toEndOf="@+id/cuadroDireccionFormulario"
+                                    app:layout_constraintStart_toStartOf="@+id/cuadroDireccionFormulario"
+                                    app:layout_constraintTop_toTopOf="@+id/cuadroDireccionFormulario" />
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1">
+
+                                <ImageView
+                                    android:id="@+id/marcoCampoDireccionFormulario"
+                                    android:layout_width="0dp"
+                                    android:layout_height="0dp"
+                                    android:src="@drawable/cuadro_texto_formulario_adopcion2"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <EditText
+                                    android:id="@+id/campoDireccionRegistro"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:ems="7"
+                                    android:inputType="textPersonName"
+                                    app:layout_constraintBottom_toBottomOf="@+id/marcoCampoDireccionFormulario"
+                                    app:layout_constraintEnd_toEndOf="@+id/marcoCampoDireccionFormulario"
+                                    app:layout_constraintStart_toStartOf="@+id/marcoCampoDireccionFormulario"
+                                    app:layout_constraintTop_toTopOf="@+id/marcoCampoDireccionFormulario" />
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:baselineAligned="false"
+                            android:orientation="horizontal">
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="1">
+
+                                <ImageView
+                                    android:id="@+id/cuadroMascotaFormulario"
+                                    android:layout_width="0dp"
+                                    android:layout_height="0dp"
+                                    android:src="@drawable/cuadro_texto_formulario_adopcion"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    app:layout_constraintVertical_bias="0.0" />
+
+                                <TextView
+                                    android:id="@+id/txtvTipoMascota"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/txtvTipoMascota"
+                                    android:textColor="@color/colorDarkGreenHelpets"
+                                    app:layout_constraintBottom_toBottomOf="@id/cuadroMascotaFormulario"
+                                    app:layout_constraintEnd_toEndOf="@id/cuadroMascotaFormulario"
+                                    app:layout_constraintStart_toStartOf="@id/cuadroMascotaFormulario"
+                                    app:layout_constraintTop_toTopOf="@id/cuadroMascotaFormulario" />
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1">
+
+                                <ImageView
+                                    android:id="@+id/marcoCampoMascotaFormulario"
+                                    android:layout_width="0dp"
+                                    android:layout_height="0dp"
+                                    android:src="@drawable/cuadro_texto_formulario_adopcion2"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <EditText
+                                    android:id="@+id/campoTipoMascotaRegistro"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:ems="7"
+                                    android:inputType="textPersonName"
+                                    app:layout_constraintBottom_toBottomOf="@+id/marcoCampoMascotaFormulario"
+                                    app:layout_constraintEnd_toEndOf="@+id/marcoCampoMascotaFormulario"
+                                    app:layout_constraintStart_toStartOf="@+id/marcoCampoMascotaFormulario"
+                                    app:layout_constraintTop_toTopOf="@+id/marcoCampoMascotaFormulario" />
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:baselineAligned="false"
+                            android:orientation="horizontal">
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="1">
+
+                                <ImageView
+                                    android:id="@+id/cuadroMotivoFormulario"
+                                    android:layout_width="0dp"
+                                    android:layout_height="0dp"
+                                    android:src="@drawable/cuadro_texto_formulario_adopcion"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    app:layout_constraintVertical_bias="0.0" />
+
+                                <TextView
+                                    android:id="@+id/txtvNombreMascotaRegistro"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/txtvNombreMascota"
+                                    android:textColor="@color/colorDarkGreenHelpets"
+                                    app:layout_constraintBottom_toBottomOf="@id/cuadroMotivoFormulario"
+                                    app:layout_constraintEnd_toEndOf="@+id/cuadroMotivoFormulario"
+                                    app:layout_constraintStart_toStartOf="@+id/cuadroMotivoFormulario"
+                                    app:layout_constraintTop_toTopOf="@+id/cuadroMotivoFormulario" />
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1">
+
+                                <ImageView
+                                    android:id="@+id/marcoCampoMotivoFormulario"
+                                    android:layout_width="0dp"
+                                    android:layout_height="0dp"
+                                    android:src="@drawable/cuadro_texto_formulario_adopcion2"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <EditText
+                                    android:id="@+id/campoNombreMascotaRegistro"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:ems="7"
+                                    android:inputType="textPersonName"
+                                    app:layout_constraintBottom_toBottomOf="@id/marcoCampoMotivoFormulario"
+                                    app:layout_constraintEnd_toEndOf="@id/marcoCampoMotivoFormulario"
+                                    app:layout_constraintStart_toStartOf="@id/marcoCampoMotivoFormulario"
+                                    app:layout_constraintTop_toTopOf="@id/marcoCampoMotivoFormulario" />
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="5dp"
+                            android:layout_marginBottom="5dp"
+                            android:baselineAligned="false"
+                            android:orientation="horizontal">
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_marginEnd="10dp"
+                                android:layout_weight="1">
+
+                                <ImageView
+                                    android:id="@+id/cuadroPoderAdquisitivoFormulario"
+                                    android:layout_width="0dp"
+                                    android:layout_height="0dp"
+                                    android:src="@drawable/cuadro_texto_formulario_adopcion"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent"
+                                    app:layout_constraintVertical_bias="0.0" />
+
+                                <TextView
+                                    android:id="@+id/txtvEdadMascotaRegistro"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="@string/txtvEdadMascota"
+                                    android:textColor="@color/colorDarkGreenHelpets"
+                                    app:layout_constraintBottom_toBottomOf="@+id/cuadroPoderAdquisitivoFormulario"
+                                    app:layout_constraintEnd_toEndOf="@+id/cuadroPoderAdquisitivoFormulario"
+                                    app:layout_constraintStart_toStartOf="@+id/cuadroPoderAdquisitivoFormulario"
+                                    app:layout_constraintTop_toTopOf="@+id/cuadroPoderAdquisitivoFormulario" />
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                            <androidx.constraintlayout.widget.ConstraintLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1">
+
+                                <ImageView
+                                    android:id="@+id/marcoCampoPoderFormulario"
+                                    android:layout_width="0dp"
+                                    android:layout_height="0dp"
+                                    android:src="@drawable/cuadro_texto_formulario_adopcion2"
+                                    app:layout_constraintBottom_toBottomOf="parent"
+                                    app:layout_constraintEnd_toEndOf="parent"
+                                    app:layout_constraintStart_toStartOf="parent"
+                                    app:layout_constraintTop_toTopOf="parent" />
+
+                                <EditText
+                                    android:id="@+id/campoEdadMascotaRegistro"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:ems="7"
+                                    android:inputType="textPersonName"
+                                    app:layout_constraintBottom_toBottomOf="@id/marcoCampoPoderFormulario"
+                                    app:layout_constraintEnd_toEndOf="@id/marcoCampoPoderFormulario"
+                                    app:layout_constraintStart_toStartOf="@id/marcoCampoPoderFormulario"
+                                    app:layout_constraintTop_toTopOf="@id/marcoCampoPoderFormulario" />
+
+                            </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        </LinearLayout>
+
+                    </LinearLayout>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <ImageButton
+                    android:id="@+id/botonEnviarRegistro"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:background="@drawable/boton_enviar_formulario_adopcion" />
+
+                <CheckBox
+                    android:id="@+id/checkBox"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:text="@string/CheckBoxRegistro"
+                    android:textAppearance="@style/TextAppearance.AppCompat.Medium" />
+
+                <ImageView
+                    android:id="@+id/textoFondoRegistro"
+                    android:layout_width="match_parent"
+                    android:layout_height="0dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="10dp"
+                    android:layout_weight="1"
+                    android:adjustViewBounds="false"
+                    app:srcCompat="@drawable/texto_fondo_formulario_registro" />
+            </LinearLayout>
+        </ScrollView>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
