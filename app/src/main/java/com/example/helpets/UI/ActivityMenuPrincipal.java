@@ -29,8 +29,7 @@ public class ActivityMenuPrincipal extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
         FirebaseAuth sesionFirebase = FirebaseAuth.getInstance();
-        if (GoogleSignIn.getLastSignedInAccount(ActivityMenuPrincipal.this) == null
-                || sesionFirebase.getCurrentUser() == null){
+        if (sesionFirebase.getCurrentUser() == null){
             startActivity(new Intent(ActivityMenuPrincipal.this,
                     ActivityInicioSesion.class));
             finish();

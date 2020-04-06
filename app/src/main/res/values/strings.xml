@@ -29,6 +29,7 @@
     <string name="txtvPoderAdquisitivoFormulario">Poder adquisitivo</string>
     <string name="txtvReferenciaPersonalFormulario">Referencia personal</string>
 
+    <string name="txtvContraseniaRegistro">Contraseña</string>
     <string name="txtvFormularioRegistro">Formulario de registro</string>
     <string name="txtvTipoMascota">Tipo de mascota</string>
     <string name="txtvNombreMascota">Nombre de la mascota</string>

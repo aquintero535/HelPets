@@ -307,15 +307,15 @@
                                     app:layout_constraintVertical_bias="0.0" />
 
                                 <TextView
-                                    android:id="@+id/txtvDireccionFormulario"
+                                    android:id="@+id/txtvContraseniaFormulario"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text="@string/txtvDireccionFormulario"
+                                    android:text="@string/txtvContraseniaRegistro"
                                     android:textColor="@color/colorDarkGreenHelpets"
-                                    app:layout_constraintBottom_toBottomOf="@+id/cuadroDireccionFormulario"
-                                    app:layout_constraintEnd_toEndOf="@+id/cuadroDireccionFormulario"
-                                    app:layout_constraintStart_toStartOf="@+id/cuadroDireccionFormulario"
-                                    app:layout_constraintTop_toTopOf="@+id/cuadroDireccionFormulario" />
+                                    app:layout_constraintBottom_toBottomOf="@id/cuadroDireccionFormulario"
+                                    app:layout_constraintEnd_toEndOf="@id/cuadroDireccionFormulario"
+                                    app:layout_constraintStart_toStartOf="@id/cuadroDireccionFormulario"
+                                    app:layout_constraintTop_toTopOf="@id/cuadroDireccionFormulario" />
                             </androidx.constraintlayout.widget.ConstraintLayout>
 
                             <androidx.constraintlayout.widget.ConstraintLayout
@@ -334,11 +334,11 @@
                                     app:layout_constraintTop_toTopOf="parent" />
 
                                 <EditText
-                                    android:id="@+id/campoDireccionRegistro"
+                                    android:id="@+id/campoContraseniaRegistro"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:ems="7"
-                                    android:inputType="textPersonName"
+                                    android:inputType="textPassword"
                                     app:layout_constraintBottom_toBottomOf="@+id/marcoCampoDireccionFormulario"
                                     app:layout_constraintEnd_toEndOf="@+id/marcoCampoDireccionFormulario"
                                     app:layout_constraintStart_toStartOf="@+id/marcoCampoDireccionFormulario"
@@ -563,7 +563,7 @@
                     android:background="@drawable/boton_enviar_formulario_adopcion" />
 
                 <CheckBox
-                    android:id="@+id/checkBox"
+                    android:id="@+id/politicasServicioHelpets"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
