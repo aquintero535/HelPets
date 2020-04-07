@@ -91,7 +91,8 @@ public class ActivityConsultaVeterinario extends AppCompatActivity
         nombreUsuario = getIntent().getStringExtra("nombreUsuario");
         nombreVeterinario.setText(strNombreVeterinario);
 
-
+        //Asigna un ID único para un documento que guardará los mensajes de la sala de chat.
+        idChat = idChat();
 
         //Obtengo la instancia de la base de datos.
         db = FirebaseFirestore.getInstance();
@@ -191,7 +192,10 @@ public class ActivityConsultaVeterinario extends AppCompatActivity
                                                     uri.toString(),
                                                     idUsuario,
                                                     idVeterinario);
-                                    db.collection("chat").add(mensajeFoto);
+                                    db.collection("chat")
+                                            .document(idChat)
+                                            .collection("mensajes")
+                                            .add(mensajeFoto);
                                 }
                             });
                         }
