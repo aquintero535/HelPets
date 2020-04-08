@@ -1,8 +1,5 @@
 package com.example.helpets.ui;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
@@ -12,14 +9,17 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+
 import com.example.helpets.R;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
-import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.HashMap;
@@ -98,6 +98,11 @@ public class ActivityRegistro extends AppCompatActivity implements View.OnClickL
                         if (task.isSuccessful()){
                             nuevoUsuario.put("uid", task.getResult().getUser().getUid());
                             subirUsuarioDB();
+                        } else{
+                            Snackbar.make(findViewById(R.id.activityRegistro), "Ha ocurrido" +
+                                    " un error al registrarte. " +
+                                    "Verifica que tus datos sean correctos.", Snackbar.LENGTH_SHORT)
+                                    .show();
                         }
                     }
                 });

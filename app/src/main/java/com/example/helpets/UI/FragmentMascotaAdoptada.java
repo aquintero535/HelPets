@@ -1,7 +1,5 @@
 package com.example.helpets.ui;
 
-import android.content.Intent;
-import android.media.Image;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;

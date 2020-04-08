@@ -8,8 +8,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.helpets.R;
 
-import org.w3c.dom.Text;
-
 import de.hdodenhof.circleimageview.CircleImageView;
 
 public class ViewHolderMascotas extends RecyclerView.ViewHolder implements View.OnClickListener {
