@@ -7,16 +7,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.MotionEvent;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.Toast;
 
 import com.example.helpets.R;
 import com.example.helpets.adapter.AdaptadorVeterinario;
 import com.example.helpets.adapter.RecyclerViewClickListener;
-import com.example.helpets.adapter.Veterinario;
-import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.example.helpets.model.Veterinario;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 

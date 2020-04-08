@@ -1,4 +1,4 @@
-package com.example.helpets.adapter;
+package com.example.helpets.model;
 
 public class Veterinario {
 

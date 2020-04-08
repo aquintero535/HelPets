@@ -11,6 +11,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -18,17 +19,14 @@ import android.widget.Toast;
 import com.example.helpets.R;
 import com.example.helpets.viewmodel.ViewModelAdoptar;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.firestore.DocumentReference;
 
 import java.util.HashMap;
 import java.util.Map;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link FragmentFormularioAdopcion#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class FragmentFormularioAdopcion extends Fragment implements View.OnClickListener {
 
     private ViewModelAdoptar viewModelAdoptar;
@@ -41,7 +39,7 @@ public class FragmentFormularioAdopcion extends Fragment implements View.OnClick
     private EditText campoPoderAdquisitivoFormulario;
     private EditText campoReferenciaPersonalFormulario;
     private Button botonEnviarFormulario;
-    private final int FORMULARIO_ENVIADO = 678;
+    private CheckBox politicasAdopcion;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -63,6 +61,7 @@ public class FragmentFormularioAdopcion extends Fragment implements View.OnClick
         campoPoderAdquisitivoFormulario = (EditText)view.findViewById(R.id.campoPoderAdquisitivoFormulario);
         campoReferenciaPersonalFormulario = (EditText)view.findViewById(R.id.campoReferenciaPersonalFormulario);
         botonEnviarFormulario = (Button)view.findViewById(R.id.botonEnviarFormulario);
+        politicasAdopcion = (CheckBox)view.findViewById(R.id.politicasAdopcion);
         botonEnviarFormulario.setOnClickListener(this);
     }
 
@@ -81,26 +80,37 @@ public class FragmentFormularioAdopcion extends Fragment implements View.OnClick
         if (!(nombre.isEmpty() && telefono.isEmpty() && correo.isEmpty() && direccion.isEmpty() &&
         mascota.isEmpty() && motivo.isEmpty() && poderAdquisitivo.isEmpty() &&
         referenciaPersonal.isEmpty())) {
-            Map<String, String> formulario = new HashMap<>();
-
-            formulario.put("nombre", nombre);
-            formulario.put("telefono", telefono);
-            formulario.put("correo", correo);
-            formulario.put("direccion", direccion);
-            formulario.put("nombre_mascota", mascota);
-            formulario.put("mascota_ID", viewModelAdoptar.getMascotaSeleccionada());
-            formulario.put("motivo", motivo);
-            formulario.put("poder_adquisitivo", poderAdquisitivo);
-            formulario.put("referencia_personal", referenciaPersonal);
-            viewModelAdoptar.getDb().collection("formularios_adopcion")
-                    .add(formulario)
-                    .addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
-                        @Override
-                        public void onComplete(@NonNull Task<DocumentReference> task) {
-                            getActivity().setResult(FORMULARIO_ENVIADO);
-                            getActivity().finish();
-                        }
-                    });
+            if (politicasAdopcion.isChecked()) {
+                Map<String, String> formulario = new HashMap<>();
+                formulario.put("nombre", nombre);
+                formulario.put("telefono", telefono);
+                formulario.put("correo", correo);
+                formulario.put("direccion", direccion);
+                formulario.put("nombre_mascota", mascota);
+                formulario.put("mascota_ID", viewModelAdoptar.getMascotaSeleccionada());
+                formulario.put("motivo", motivo);
+                formulario.put("poder_adquisitivo", poderAdquisitivo);
+                formulario.put("referencia_personal", referenciaPersonal);
+                viewModelAdoptar.getDb().collection("formularios_adopcion")
+                        .add(formulario)
+                        .addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
+                            @Override
+                            public void onComplete(@NonNull Task<DocumentReference> task) {
+                                getActivity().getSupportFragmentManager().beginTransaction()
+                                        .replace(R.id.contenedorFragmentsAdoptar, new FragmentMascotaAdoptada())
+                                        .commit();
+                            }
+                        }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Snackbar.make(getView(), "Ha ocurrido un error al enviar el formulario.",
+                                Snackbar.LENGTH_SHORT).show();
+                    }
+                });
+            } else{
+                Toast.makeText(getContext(), "Acepte las políticas de adopción para" +
+                        " continuar.", Toast.LENGTH_SHORT).show();
+            }
         } else{
             Toast.makeText(getContext(), "Rellene todos los campos.", Toast.LENGTH_SHORT).show();
         }

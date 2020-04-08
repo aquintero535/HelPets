@@ -95,7 +95,7 @@
                                 android:id="@+id/marcoCampoNombreFormulario"
                                 android:layout_width="0dp"
                                 android:layout_height="0dp"
-                                android:src="@drawable/cuadro_texto_formulario_adopcion2"
+                                android:src="@drawable/cuadro_campo_texto"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
@@ -162,7 +162,7 @@
                                 android:id="@+id/marcoCampoTelefonoFormulario"
                                 android:layout_width="0dp"
                                 android:layout_height="0dp"
-                                android:src="@drawable/cuadro_texto_formulario_adopcion2"
+                                android:src="@drawable/cuadro_campo_texto"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
@@ -229,7 +229,7 @@
                                 android:id="@+id/marcoCampoCorreoFormulario"
                                 android:layout_width="0dp"
                                 android:layout_height="0dp"
-                                android:src="@drawable/cuadro_texto_formulario_adopcion2"
+                                android:src="@drawable/cuadro_campo_texto"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
@@ -296,7 +296,7 @@
                                 android:id="@+id/marcoCampoDireccionFormulario"
                                 android:layout_width="0dp"
                                 android:layout_height="0dp"
-                                android:src="@drawable/cuadro_texto_formulario_adopcion2"
+                                android:src="@drawable/cuadro_campo_texto"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
@@ -363,7 +363,7 @@
                                 android:id="@+id/marcoCampoMascotaFormulario"
                                 android:layout_width="0dp"
                                 android:layout_height="0dp"
-                                android:src="@drawable/cuadro_texto_formulario_adopcion2"
+                                android:src="@drawable/cuadro_campo_texto"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
@@ -430,7 +430,7 @@
                                 android:id="@+id/marcoCampoMotivoFormulario"
                                 android:layout_width="0dp"
                                 android:layout_height="0dp"
-                                android:src="@drawable/cuadro_texto_formulario_adopcion2"
+                                android:src="@drawable/cuadro_campo_texto"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
@@ -497,7 +497,7 @@
                                 android:id="@+id/marcoCampoPoderFormulario"
                                 android:layout_width="0dp"
                                 android:layout_height="0dp"
-                                android:src="@drawable/cuadro_texto_formulario_adopcion2"
+                                android:src="@drawable/cuadro_campo_texto"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
@@ -564,7 +564,7 @@
                                 android:id="@+id/marcoCampoReferenciaPersonalFormulario"
                                 android:layout_width="0dp"
                                 android:layout_height="0dp"
-                                android:src="@drawable/cuadro_texto_formulario_adopcion2"
+                                android:src="@drawable/cuadro_campo_texto"
                                 app:layout_constraintBottom_toBottomOf="parent"
                                 app:layout_constraintEnd_toEndOf="parent"
                                 app:layout_constraintStart_toStartOf="parent"
@@ -587,6 +587,15 @@
 
                 </LinearLayout>
             </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <CheckBox
+                android:id="@+id/politicasAdopcion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:checked="false"
+                android:text="@string/textoPoliticasAdopcion"
+                android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
             <Button
                 android:id="@+id/botonEnviarFormulario"

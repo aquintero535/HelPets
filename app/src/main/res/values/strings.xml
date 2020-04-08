@@ -39,7 +39,14 @@
     <string name="buzonMensajeEnviado">Gracias por contactarnos, su solicitud ha sido recibida con
         éxito, nos pondremos en contacto a la brevedad posible para brindarle un mejor servicio.
     </string>
+    <string name="textoMascotaAdoptada">Gracias por querer brindarle un hogar
+        a nuestras mascotas, su solicitud ha sido recibida con éxito, estaremos
+        contactandole a la brevedad posible.</string>
+    <string name="textoMascotaAdoptada2">Toda la información esta siendo confirmada y evaluada por
+        nuestros especialistas.</string>
 
+    <string name="textoPoliticasAdopcion">Acepto las políticas de adopción del servicio de
+        HelPets</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

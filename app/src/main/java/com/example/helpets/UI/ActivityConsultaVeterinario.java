@@ -19,7 +19,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.example.helpets.R;
 import com.example.helpets.adapter.AdaptadorMensajes;
-import com.example.helpets.adapter.Mensaje;
+import com.example.helpets.model.Mensaje;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.Timestamp;

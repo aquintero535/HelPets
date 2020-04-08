@@ -10,6 +10,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.example.helpets.R;
+import com.example.helpets.model.Mascota;
 
 import java.util.List;
 

@@ -12,28 +12,18 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ListView;
-import android.widget.SimpleAdapter;
 import android.widget.Toast;
 
 import com.example.helpets.R;
 import com.example.helpets.adapter.AdaptadorMascotas;
-import com.example.helpets.adapter.AdaptadorVeterinario;
-import com.example.helpets.adapter.Mascota;
+import com.example.helpets.model.Mascota;
 import com.example.helpets.adapter.RecyclerViewClickListener;
-import com.example.helpets.adapter.ViewHolderMascotas;
 import com.example.helpets.viewmodel.ViewModelAdoptar;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
-
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 
 public class FragmentListaAdopcion extends Fragment {
 

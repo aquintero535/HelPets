@@ -62,7 +62,7 @@ public class FragmentBuzonB extends Fragment implements View.OnClickListener {
 
     @Override
     public void onClick(View v) {
-        startActivity(new Intent(getActivity(), ActivityMenuPrincipal.class));
+        getActivity().setResult(ActivityMenuPrincipal.MENSAJE_ENVIADO);
         getActivity().finish();
     }
 }

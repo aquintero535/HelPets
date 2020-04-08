@@ -1,14 +1,12 @@
 package com.example.helpets.viewmodel;
 
-import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.example.helpets.adapter.Mascota;
+import com.example.helpets.model.Mascota;
 import com.google.firebase.firestore.FirebaseFirestore;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 public class ViewModelAdoptar extends ViewModel {
 

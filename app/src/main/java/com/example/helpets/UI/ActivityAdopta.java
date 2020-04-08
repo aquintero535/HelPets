@@ -29,8 +29,7 @@ import java.util.Map;
 
 public class ActivityAdopta extends AppCompatActivity {
 
-    private Fragment fragmentListaAdopcion, fragmentFormularioAdopcion;
-    private ViewModelAdoptar viewModelAdoptar;
+    private Fragment fragmentListaAdopcion;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +38,7 @@ public class ActivityAdopta extends AppCompatActivity {
 
         //Fragment de lista de adopción.
         fragmentListaAdopcion = new FragmentListaAdopcion();
-        getSupportFragmentManager().beginTransaction().replace
+        getSupportFragmentManager().beginTransaction().add
                 (R.id.contenedorFragmentsAdoptar, fragmentListaAdopcion).commit();
 
     }

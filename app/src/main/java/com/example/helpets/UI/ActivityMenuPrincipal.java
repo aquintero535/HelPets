@@ -15,8 +15,8 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class ActivityMenuPrincipal extends AppCompatActivity {
 
-    private final int MESSAGE_SENT = 500;
-    private final int FORMULARIO_ENVIADO = 678;
+    public static final int MENSAJE_ENVIADO = 500;
+    public static final int FORMULARIO_ENVIADO = 678;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,7 +39,7 @@ public class ActivityMenuPrincipal extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data){
         super.onActivityResult(requestCode, resultCode, null);
         switch (resultCode){
-            case MESSAGE_SENT:
+            case MENSAJE_ENVIADO:
                 Snackbar.make(findViewById(R.id.layoutMenuPrincipal),
                         "Tu mensaje ha sido enviado.",
                         Snackbar.LENGTH_LONG)
