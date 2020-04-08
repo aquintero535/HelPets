@@ -10,13 +10,13 @@ import com.example.helpets.R;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class HolderVeterinario extends RecyclerView.ViewHolder implements View.OnClickListener {
+public class ViewHolderVeterinario extends RecyclerView.ViewHolder implements View.OnClickListener {
     private  TextView nombreVeterinario;
     private  TextView clientesSatisfechos;
     private  CircleImageView imagenPerfilVeterinario;
     private RecyclerViewClickListener recyclerViewClickListener;
 
-    public HolderVeterinario(View item, RecyclerViewClickListener listener){
+    public ViewHolderVeterinario(View item, RecyclerViewClickListener listener){
         super(item);
         nombreVeterinario = (TextView)item.findViewById(R.id.listaTexto1);
         clientesSatisfechos = (TextView)item.findViewById(R.id.listaTexto2);

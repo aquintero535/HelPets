@@ -40,5 +40,4 @@ public class ActivityInicioSesion extends AppCompatActivity {
                 (R.id.fragmentInicioSesion, new FragmentInicioSesionA()).commit();
     }
 
-
 }

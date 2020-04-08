@@ -66,13 +66,16 @@ public class ActivityConectarVeterinario extends AppCompatActivity {
             public void onClick(View view, int position) {
                 Intent consultaVeterinaria = new Intent(ActivityConectarVeterinario.this,
                         ActivityConsultaVeterinario.class);
-                consultaVeterinaria.putExtra("idUsuario",
+                consultaVeterinaria.putExtra(ActivityConsultaVeterinario.ID_USUARIO,
                         FirebaseAuth.getInstance().getCurrentUser().getUid());
-                consultaVeterinaria.putExtra("nombreUsuario",
+                consultaVeterinaria.putExtra(ActivityConsultaVeterinario.NOMBRE_USUARIO,
                         FirebaseAuth.getInstance().getCurrentUser().getDisplayName());
-                consultaVeterinaria.putExtra("idVeterinario", lista.get(position).getIdVeterinario());
-                consultaVeterinaria.putExtra("nombreVeterinario", lista.get(position).getNombreVeterinario());
-                consultaVeterinaria.putExtra("imgPerfilVeterinario", lista.get(position).getFotoPerfil());
+                consultaVeterinaria.putExtra(ActivityConsultaVeterinario.ID_VETERINARIO,
+                        lista.get(position).getIdVeterinario());
+                consultaVeterinaria.putExtra(ActivityConsultaVeterinario.NOMBRE_VETERINARIO,
+                        lista.get(position).getNombreVeterinario());
+                consultaVeterinaria.putExtra(ActivityConsultaVeterinario.IMG_PERFIL_VETERINARIO,
+                        lista.get(position).getFotoPerfil());
                 startActivity(consultaVeterinaria);
             }
         };
@@ -89,16 +92,14 @@ public class ActivityConectarVeterinario extends AppCompatActivity {
         }
     }
 
-    //Obtiene los datos de los documentos y los coloca en un Lista de objetos Veterinario.
+    //Obtiene los datos de los documentos y los coloca en una Lista de objetos Veterinario.
     private void llenarLista(Task<QuerySnapshot> task){
         for (QueryDocumentSnapshot document : task.getResult()) {
-            String nombre = document.getData().get("nombre").toString();
-            String clientes = "Clientes satisfechos: "+document.getData().get("clientes").toString();
-            String imagenPerfil = document.getData().get("fotoPerfil").toString();
-            String idVeterinario = document.getData().get("idVeterinario").toString();
-            lista.add(new Veterinario(nombre, clientes, imagenPerfil, idVeterinario));
+            Veterinario itemVeterinario = document.toObject(Veterinario.class);
+            lista.add(itemVeterinario);
         }
-        AdaptadorVeterinario adaptadorVeterinario = new AdaptadorVeterinario(this, lista, listener);
+        AdaptadorVeterinario adaptadorVeterinario = new AdaptadorVeterinario
+                (this, lista, listener);
         listaVeterinarios.setAdapter(adaptadorVeterinario);
     }
 }

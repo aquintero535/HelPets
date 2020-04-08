@@ -4,16 +4,19 @@ public class Mascota {
 
     private String nombre;
     private String edad;
-    private String vacunas;
+    private boolean vacunas;
     private String idMascota;
     private String imagenMascota;
 
-    public Mascota(String nombre, String edad, String vacunas, String idMascota, String imagenMascota) {
+    public Mascota(String nombre, String edad, boolean vacunas, String idMascota, String imagenMascota) {
         this.nombre = nombre;
         this.edad = edad;
         this.vacunas = vacunas;
         this.idMascota = idMascota;
         this.imagenMascota = imagenMascota;
+    }
+
+    public Mascota(){
     }
 
     public String getNombre() {
@@ -32,11 +35,11 @@ public class Mascota {
         this.edad = edad;
     }
 
-    public String getVacunas() {
+    public boolean getVacunas() {
         return vacunas;
     }
 
-    public void setVacunas(String vacunas) {
+    public void setVacunas(boolean vacunas) {
         this.vacunas = vacunas;
     }
 

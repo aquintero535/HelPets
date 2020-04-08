@@ -15,8 +15,7 @@ import com.example.helpets.R;
 import java.util.List;
 
 
-
-public class AdaptadorVeterinario extends RecyclerView.Adapter<HolderVeterinario> {
+public class AdaptadorVeterinario extends RecyclerView.Adapter<ViewHolderVeterinario> {
 
     private List<Veterinario> listaVeterinarios;
     private Context contexto;
@@ -31,17 +30,17 @@ public class AdaptadorVeterinario extends RecyclerView.Adapter<HolderVeterinario
 
     @NonNull
     @Override
-    public HolderVeterinario onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ViewHolderVeterinario onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View item = LayoutInflater
                 .from(contexto)
                 .inflate(R.layout.lista_veterinarios, parent, false);
-        return new HolderVeterinario(item, recyclerViewClickListener);
+        return new ViewHolderVeterinario(item, recyclerViewClickListener);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull HolderVeterinario holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolderVeterinario holder, int position) {
         holder.getNombreVeterinario().setText(listaVeterinarios.get(position).getNombreVeterinario());
-        holder.getClientesSatisfechos().setText(listaVeterinarios.get(position).getClientes());
+        holder.getClientesSatisfechos().setText("Clientes: "+listaVeterinarios.get(position).getClientes());
         Glide.with(contexto)
                 .load(listaVeterinarios.get(position).getFotoPerfil())
                 .into(holder.getImagenPerfilVeterinario());

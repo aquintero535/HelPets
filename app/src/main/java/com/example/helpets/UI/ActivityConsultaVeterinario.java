@@ -60,7 +60,14 @@ public class ActivityConsultaVeterinario extends AppCompatActivity
 
     private AdaptadorMensajes adaptador;
     private FirebaseFirestore db;
+
+    //Constantes
     private static final int ENVIAR_FOTO = 1;
+    public static final String ID_VETERINARIO = "id_veterinario";
+    public static final String IMG_PERFIL_VETERINARIO = "imagen_perfil_veterinario";
+    public static final String ID_USUARIO = "id_usuario";
+    public static final String NOMBRE_VETERINARIO = "nombre_veterinario";
+    public static final String NOMBRE_USUARIO = "nombre_usuario";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -81,14 +88,14 @@ public class ActivityConsultaVeterinario extends AppCompatActivity
         botonEnviarChat.setOnClickListener(this);
         botonEnviarImagen.setOnClickListener(this);
         Glide.with(this)
-                .load(getIntent().getStringExtra("imgPerfilVeterinario"))
+                .load(getIntent().getStringExtra(IMG_PERFIL_VETERINARIO))
                 .into(fotoPerfil);
 
         //Identificadores de usuario
-        idUsuario = getIntent().getStringExtra("idUsuario");
-        idVeterinario = getIntent().getStringExtra("idVeterinario");
-        strNombreVeterinario = getIntent().getStringExtra("nombreVeterinario");
-        nombreUsuario = getIntent().getStringExtra("nombreUsuario");
+        idUsuario = getIntent().getStringExtra(ID_USUARIO);
+        idVeterinario = getIntent().getStringExtra(ID_VETERINARIO);
+        strNombreVeterinario = getIntent().getStringExtra(NOMBRE_VETERINARIO);
+        nombreUsuario = getIntent().getStringExtra(NOMBRE_USUARIO);
         nombreVeterinario.setText(strNombreVeterinario);
 
         //Asigna un ID único para un documento que guardará los mensajes de la sala de chat.

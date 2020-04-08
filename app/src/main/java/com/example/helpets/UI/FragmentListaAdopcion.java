@@ -35,11 +35,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link FragmentListaAdopcion#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class FragmentListaAdopcion extends Fragment {
 
     private ViewModelAdoptar viewModelAdoptar;
@@ -96,15 +91,9 @@ public class FragmentListaAdopcion extends Fragment {
 
     private void llenarLista(Task<QuerySnapshot> task){
         for (QueryDocumentSnapshot document : task.getResult()) {
-            String nombre = "Nombre: ".concat(document.getData().get("nombre").toString());
-            String edad = "Edad: ".concat(document.getData().get("edad").toString());
-            String vacunas = "Vacunas: ".concat
-                    ((Boolean)(document.getData().get("vacunas"))?"Sí":"No");
-            String idMascota = document.getId();
-            String imgMascota = document.getData().get("img").toString();
+            Mascota itemMascota = document.toObject(Mascota.class);
             viewModelAdoptar.getListaAdopcion()
-                    .add(new Mascota
-                            (nombre, edad, vacunas, idMascota, imgMascota));
+                    .add(itemMascota);
         }
         AdaptadorMascotas adaptadorMascotas = new AdaptadorMascotas
                 (viewModelAdoptar.getListaAdopcion(), getContext(), listener);

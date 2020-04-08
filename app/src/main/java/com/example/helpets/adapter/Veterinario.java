@@ -7,12 +7,15 @@ public class Veterinario {
     private String fotoPerfil;
     private String idVeterinario;
 
-    public Veterinario(String nombreVeterinario, String clientes, String fotoPerfil, String idVeterinario) {
+    public Veterinario(String nombreVeterinario, String clientes, String fotoPerfil,
+                       String idVeterinario) {
         this.nombreVeterinario = nombreVeterinario;
         this.clientes = clientes;
         this.fotoPerfil = fotoPerfil;
         this.idVeterinario = idVeterinario;
     }
+
+    public Veterinario() { }
 
     public String getNombreVeterinario() {
         return nombreVeterinario;

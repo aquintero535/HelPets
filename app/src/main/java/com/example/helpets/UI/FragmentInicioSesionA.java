@@ -28,11 +28,6 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.GoogleAuthProvider;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link FragmentInicioSesionA#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class FragmentInicioSesionA extends Fragment implements View.OnClickListener {
 
     private SignInButton botonIniciarSesionGoogle;

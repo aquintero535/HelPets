@@ -37,9 +37,11 @@ public class AdaptadorMascotas extends RecyclerView.Adapter<ViewHolderMascotas> 
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolderMascotas holder, int position) {
-        holder.getNombreMascota().setText(listaMascotas.get(position).getNombre());
-        holder.getEdadMascota().setText(listaMascotas.get(position).getEdad());
-        holder.getVacunasMascota().setText(listaMascotas.get(position).getVacunas());
+        holder.getNombreMascota().setText("Nombre: "+listaMascotas.get(position).getNombre());
+        holder.getEdadMascota().setText("Edad: "+listaMascotas.get(position).getEdad());
+
+        holder.getVacunasMascota().setText
+                ("Vacunas: ".concat((listaMascotas.get(position).getVacunas())?"Sí":"No"));
         Glide.with(contexto)
                 .load(listaMascotas.get(position).getImagenMascota())
                 .into(holder.getImagenMascota());

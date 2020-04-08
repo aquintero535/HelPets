@@ -14,7 +14,7 @@ import com.example.helpets.R;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AdaptadorMensajes extends RecyclerView.Adapter<HolderMensaje> {
+public class AdaptadorMensajes extends RecyclerView.Adapter<ViewHolderMensaje> {
 
     private List<Mensaje> listaMensajes = new ArrayList<>();
     private Context contexto;
@@ -31,17 +31,17 @@ public class AdaptadorMensajes extends RecyclerView.Adapter<HolderMensaje> {
 
     @NonNull
     @Override
-    public HolderMensaje onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public ViewHolderMensaje onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater
                 .from(contexto)
                 .inflate(R.layout.mensajes_consulta_layout,
                         parent,
                         false);
-        return new HolderMensaje(view);
+        return new ViewHolderMensaje(view);
     }
 
     @Override
-    public void onBindViewHolder(@NonNull HolderMensaje holder, int position) {
+    public void onBindViewHolder(@NonNull ViewHolderMensaje holder, int position) {
         holder.getNombreUsuario().setText(listaMensajes.get(position).getNombreUsuario());
         holder.getMensajeChat().setText(listaMensajes.get(position).getMensaje());
         holder.getHora().setText(listaMensajes.get(position).getHora());

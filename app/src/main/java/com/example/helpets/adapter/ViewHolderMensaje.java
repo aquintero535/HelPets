@@ -10,7 +10,7 @@ import com.example.helpets.R;
 
 import de.hdodenhof.circleimageview.CircleImageView;
 
-public class HolderMensaje extends RecyclerView.ViewHolder {
+public class ViewHolderMensaje extends RecyclerView.ViewHolder {
 
     private TextView nombreUsuario;
     private TextView mensajeChat;
@@ -18,7 +18,7 @@ public class HolderMensaje extends RecyclerView.ViewHolder {
     private CircleImageView fotoPerfilMensaje;
     private ImageView mensajeImagen;
 
-    public HolderMensaje(View itemView){
+    public ViewHolderMensaje(View itemView){
         super(itemView);
         nombreUsuario = (TextView)itemView.findViewById(R.id.txtvNombreUsuario);
         mensajeChat = (TextView)itemView.findViewById(R.id.txtvMensaje);
