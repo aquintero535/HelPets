@@ -22,7 +22,7 @@
         android:id="@+id/logoBuzon"
         android:layout_width="126dp"
         android:layout_height="51dp"
-        app:layout_constraintBottom_toTopOf="@id/marcoBuzon"
+        app:layout_constraintBottom_toTopOf="@+id/fragmentBuzon"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.444"
         app:layout_constraintStart_toStartOf="parent"
@@ -32,263 +32,29 @@
         android:id="@+id/fragmentoMenuBuzon"
         android:name="com.example.helpets.ui.FragmentBarraEstado"
         android:layout_width="0dp"
-        android:layout_height="100dp"
+        android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/fondoBuzon"
         tools:layout="@layout/fragment_menu" />
 
+    <FrameLayout
+        android:id="@+id/fragmentBuzon"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        app:layout_constraintEnd_toEndOf="@+id/fondoBuzon"
+        app:layout_constraintStart_toStartOf="@+id/fondoBuzon"
+        app:layout_constraintTop_toBottomOf="@+id/fragmentoMenuBuzon" />
+
     <ImageView
-        android:id="@+id/marcoBuzon"
+        android:id="@+id/textoFondoBuzon"
         android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="6dp"
-        android:layout_marginTop="25dp"
-        android:layout_marginEnd="6dp"
-        android:layout_marginBottom="20dp"
-        android:scaleType="fitXY"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="@+id/fondoBuzon"
-        app:layout_constraintEnd_toEndOf="@id/fondoBuzon"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/fragmentoMenuBuzon"
-        app:srcCompat="@drawable/marco_fondo_buzon" />
-
-    <ScrollView
-        android:id="@+id/scrollView2"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginBottom="22dp"
-        app:layout_constraintBottom_toBottomOf="@+id/fondoBuzon"
-        app:layout_constraintEnd_toEndOf="@id/marcoBuzon"
-        app:layout_constraintStart_toStartOf="@id/marcoBuzon"
-        app:layout_constraintTop_toTopOf="@+id/marcoBuzon">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/textoBuzon"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:clickable="false"
-                android:padding="10dp"
-                android:text="@string/txtvBuzon"
-                android:textAlignment="center"
-                android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="141dp"
-                    android:layout_height="match_parent">
-
-                    <ImageView
-                        android:id="@+id/cuadroNombre"
-                        android:layout_width="136dp"
-                        android:layout_height="47dp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="1.0"
-                        app:layout_constraintStart_toEndOf="@+id/textoNombre"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.0"
-                        app:srcCompat="@mipmap/cuadro_formulario" />
-
-                    <TextView
-                        android:id="@+id/textoNombre"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/txtvNombre"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-                        android:textColor="@color/colorDarkGreenHelpets"
-                        app:layout_constraintBottom_toBottomOf="@+id/cuadroNombre"
-                        app:layout_constraintEnd_toEndOf="@id/cuadroNombre"
-                        app:layout_constraintStart_toStartOf="@id/cuadroNombre"
-                        app:layout_constraintTop_toTopOf="@id/cuadroNombre" />
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-                <EditText
-                    android:id="@+id/campoNombre"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_margin="5dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/marco_campos_buzon"
-                    android:ems="10"
-                    android:inputType="textPersonName"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="141dp"
-                    android:layout_height="match_parent">
-
-                    <ImageView
-                        android:id="@+id/cuadroTelefono"
-                        android:layout_width="136dp"
-                        android:layout_height="47dp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="1.0"
-                        app:layout_constraintStart_toEndOf="@+id/textoTelefono"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.0"
-                        app:srcCompat="@mipmap/cuadro_formulario" />
-
-                    <TextView
-                        android:id="@+id/textoTelefono"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="@string/txtvTelefono"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-                        android:textColor="@color/colorDarkGreenHelpets"
-                        app:layout_constraintBottom_toBottomOf="@+id/cuadroTelefono"
-                        app:layout_constraintEnd_toEndOf="@id/cuadroTelefono"
-                        app:layout_constraintStart_toStartOf="@id/cuadroTelefono"
-                        app:layout_constraintTop_toTopOf="@+id/cuadroTelefono" />
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-                <EditText
-                    android:id="@+id/campoTelefono"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_margin="5dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/marco_campos_buzon"
-                    android:ems="10"
-                    android:inputType="phone"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="141dp"
-                    android:layout_height="match_parent">
-
-                    <ImageView
-                        android:id="@+id/cuadroCorreo"
-                        android:layout_width="136dp"
-                        android:layout_height="47dp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="1.0"
-                        app:layout_constraintStart_toEndOf="@+id/textoCorreo"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.0"
-                        app:srcCompat="@mipmap/cuadro_formulario" />
-
-                    <TextView
-                        android:id="@+id/textoCorreo"
-                        android:layout_width="121dp"
-                        android:layout_height="18dp"
-                        android:text="@string/txtvCorreo"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-                        android:textColor="@color/colorDarkGreenHelpets"
-                        app:layout_constraintBottom_toBottomOf="@+id/cuadroCorreo"
-                        app:layout_constraintEnd_toEndOf="@id/cuadroCorreo"
-                        app:layout_constraintStart_toStartOf="@id/cuadroCorreo"
-                        app:layout_constraintTop_toTopOf="@+id/cuadroCorreo" />
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-                <EditText
-                    android:id="@+id/campoCorreo"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_margin="5dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/marco_campos_buzon"
-                    android:ems="10"
-                    android:inputType="textEmailAddress"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="200dp"
-                android:orientation="horizontal">
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="141dp"
-                    android:layout_height="match_parent">
-
-                    <ImageView
-                        android:id="@+id/cuadroMensaje"
-                        android:layout_width="136dp"
-                        android:layout_height="47dp"
-                        app:layout_constraintBottom_toBottomOf="parent"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="1.0"
-                        app:layout_constraintStart_toEndOf="@+id/textoMensaje"
-                        app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintVertical_bias="0.0"
-                        app:srcCompat="@mipmap/cuadro_formulario" />
-
-                    <TextView
-                        android:id="@+id/textoMensaje"
-                        android:layout_width="55dp"
-                        android:layout_height="17dp"
-                        android:text="@string/txtvMensaje"
-                        android:textAppearance="@style/TextAppearance.AppCompat.Body2"
-                        android:textColor="@color/colorDarkGreenHelpets"
-                        app:layout_constraintBottom_toBottomOf="@+id/cuadroMensaje"
-                        app:layout_constraintEnd_toEndOf="@id/cuadroMensaje"
-                        app:layout_constraintStart_toStartOf="@id/cuadroMensaje"
-                        app:layout_constraintTop_toTopOf="@+id/cuadroMensaje" />
-
-                </androidx.constraintlayout.widget.ConstraintLayout>
-
-                <EditText
-                    android:id="@+id/campoMensaje"
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_margin="10dp"
-                    android:layout_weight="1"
-                    android:background="@drawable/marco_campomensaje_buzon"
-                    android:ems="10"
-                    android:hint="@string/formularioContactoMensajeHint"
-                    android:inputType="textMultiLine"
-                    android:textAppearance="@style/TextAppearance.AppCompat.Body2" />
-
-            </LinearLayout>
-
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:id="@+id/consLayoutBotonEnviar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <Button
-                    android:id="@+id/botonEnviar"
-                    style="@style/Widget.AppCompat.Button"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:background="@mipmap/boton_enviar"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
-            </androidx.constraintlayout.widget.ConstraintLayout>
-
-        </LinearLayout>
-    </ScrollView>
+        app:layout_constraintTop_toBottomOf="@+id/fragmentBuzon"
+        app:srcCompat="@drawable/texto_fondo_buzon" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
