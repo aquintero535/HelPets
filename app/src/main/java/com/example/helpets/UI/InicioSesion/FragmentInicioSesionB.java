@@ -1,4 +1,4 @@
-package com.example.helpets.ui;
+package com.example.helpets.ui.InicioSesion;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,6 +15,7 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.helpets.R;
+import com.example.helpets.ui.Menu.ActivityMenuPrincipal;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;

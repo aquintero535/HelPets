@@ -1,4 +1,4 @@
-package com.example.helpets.ui;
+package com.example.helpets.ui.CitasVeterinarias;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,6 +14,7 @@ import com.example.helpets.R;
 import com.example.helpets.adapter.AdaptadorVeterinario;
 import com.example.helpets.adapter.RecyclerViewClickListener;
 import com.example.helpets.model.Veterinario;
+import com.example.helpets.ui.InicioSesion.ActivityInicioSesion;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 
@@ -84,7 +85,7 @@ public class ActivityConectarVeterinario extends AppCompatActivity {
         FirebaseAuth sesionFirebase = FirebaseAuth.getInstance();
         if (sesionFirebase.getCurrentUser() == null){
             startActivity(new Intent(ActivityConectarVeterinario.this,
-                    com.example.helpets.ui.ActivityInicioSesion.class));
+                    ActivityInicioSesion.class));
             finish();
         }
     }

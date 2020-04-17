@@ -1,4 +1,4 @@
-package com.example.helpets.ui;
+package com.example.helpets.ui.InicioSesion;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -13,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.helpets.R;
+import com.example.helpets.ui.Menu.ActivityMenuPrincipal;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.snackbar.Snackbar;

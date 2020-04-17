@@ -1,4 +1,4 @@
-package com.example.helpets.ui;
+package com.example.helpets;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,7 +6,8 @@ import android.os.Handler;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.helpets.R;
+import com.example.helpets.ui.InicioSesion.ActivityInicioSesion;
+import com.example.helpets.ui.Menu.ActivityMenuPrincipal;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {
@@ -30,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
+                Usuario.obtenerDatosUsuario();
                 //Si el usuario no ha iniciado sesión en Google y Firebase, lo envía al Activity
                 //de inicio de sesión. De haberlo hecho, lo envía al menú principal.
                 if (sesionFirebase.getCurrentUser() == null){
