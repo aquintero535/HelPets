@@ -1,19 +1,26 @@
 package com.example.helpets.ui.Opciones;
 
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 import androidx.preference.PreferenceFragmentCompat;
 import com.example.helpets.R;
+import com.firebase.ui.auth.AuthUI;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.material.snackbar.Snackbar;
+import com.google.firebase.FirebaseException;
+import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.UserProfileChangeRequest;
+
+import static android.app.Activity.RESULT_OK;
 
 public class FragmentOpciones extends PreferenceFragmentCompat implements SharedPreferences.OnSharedPreferenceChangeListener {
 
@@ -33,7 +40,7 @@ public class FragmentOpciones extends PreferenceFragmentCompat implements Shared
     }
 
 
-    //Llama a Firebase para subir los nuevos datos del usuario.
+    //Llama a Firebase para realizar los cambios a la cuenta del usuario.
     @Override
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
         FirebaseUser usuario = FirebaseAuth.getInstance().getCurrentUser();
@@ -58,20 +65,20 @@ public class FragmentOpciones extends PreferenceFragmentCompat implements Shared
                 }
             });
         } else if(key.equals(CORREO_USUARIO)){ //El usuario cambia su correo electrónico
-            usuario.updateEmail(sharedPreferences.getString(key,null))
+            usuario.updateEmail(sharedPreferences.getString(key, null))
                     .addOnSuccessListener(new OnSuccessListener<Void>() {
                         @Override
                         public void onSuccess(Void aVoid) {
                             Snackbar.make(getActivity().findViewById(R.id.contenedorOpciones),
-                                    "Correo electrónico cambiado correctamente",
+                                    "Correo electrónico actualizado correctamente",
                                     Snackbar.LENGTH_SHORT).show();
                         }
                     }).addOnFailureListener(new OnFailureListener() {
                 @Override
                 public void onFailure(@NonNull Exception e) {
                     Snackbar.make(getActivity().findViewById(R.id.contenedorOpciones),
-                            "Ha ocurrido un error al cambiar tu correo.",
-                            Snackbar.LENGTH_SHORT).show();
+                            e.getMessage(),
+                            Snackbar.LENGTH_LONG).show();
                 }
             });
         } else if(key.equals(CONTRASENIA)){ //El usuario cambia su contraseña.
@@ -86,8 +93,8 @@ public class FragmentOpciones extends PreferenceFragmentCompat implements Shared
                 @Override
                 public void onFailure(@NonNull Exception e) {
                     Snackbar.make(getActivity().findViewById(R.id.contenedorOpciones),
-                            "Ha ocurrido un error al cambiar tu contrasenia",
-                            Snackbar.LENGTH_SHORT).show();
+                            e.getMessage(),
+                            Snackbar.LENGTH_LONG).show();
                 }
             });
         }
@@ -104,4 +111,5 @@ public class FragmentOpciones extends PreferenceFragmentCompat implements Shared
         super.onPause();
         getPreferenceScreen().getSharedPreferences().unregisterOnSharedPreferenceChangeListener(this);
     }
+
 }

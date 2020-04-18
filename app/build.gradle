@@ -49,4 +49,6 @@ dependencies {
     implementation 'androidx.gridlayout:gridlayout:1.0.0'
     implementation 'androidx.preference:preference:1.0.0-rc02'
 
+    implementation 'com.firebaseui:firebase-ui-auth:4.3.1'
+
 }

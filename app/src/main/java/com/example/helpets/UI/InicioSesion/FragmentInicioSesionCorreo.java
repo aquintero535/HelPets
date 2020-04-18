@@ -21,7 +21,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class FragmentInicioSesionB extends Fragment implements View.OnClickListener {
+public class FragmentInicioSesionCorreo extends Fragment implements View.OnClickListener {
 
     private EditText campoCorreo, campoContrasenia;
     private Button botonIniciarSesion, botonNuevaCuenta;
@@ -31,7 +31,7 @@ public class FragmentInicioSesionB extends Fragment implements View.OnClickListe
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_inicio_sesion_b, container, false);
+        return inflater.inflate(R.layout.fragment_inicio_sesion_correo, container, false);
     }
 
     @Override
@@ -59,6 +59,7 @@ public class FragmentInicioSesionB extends Fragment implements View.OnClickListe
         }
     }
 
+    //Método que inicia la sesión con Firebase
     private void iniciarSesion(){
         sesion = FirebaseAuth.getInstance();
         String correo = campoCorreo.getText().toString();

@@ -1,5 +1,6 @@
 package com.example.helpets.ui.Opciones;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -17,10 +18,14 @@ import android.widget.TextView;
 import com.bumptech.glide.Glide;
 import com.example.helpets.MainActivity;
 import com.example.helpets.R;
+import com.firebase.ui.auth.AuthUI;
+import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
 import org.w3c.dom.Text;
+
+import static android.app.Activity.RESULT_OK;
 
 
 public class FragmentDetallesUsuario extends Fragment implements View.OnClickListener {
@@ -30,6 +35,7 @@ public class FragmentDetallesUsuario extends Fragment implements View.OnClickLis
     private Button botonOpcionesUsuario;
     private Button botonCerrarSesion;
     private Button botonCambiarFotoPerfil;
+    public static final int RC_SIGN_IN = 9001;
 
     public FragmentDetallesUsuario() {
         // Required empty public constructor
@@ -62,8 +68,7 @@ public class FragmentDetallesUsuario extends Fragment implements View.OnClickLis
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.botonOpcionesCuenta:
-                getActivity().getSupportFragmentManager().beginTransaction().replace
-                        (R.id.contenedorOpciones, new FragmentOpciones()).commit();
+                reautenticar();
                 break;
             case R.id.botonCambiarImagen:
                 break;
@@ -72,6 +77,26 @@ public class FragmentDetallesUsuario extends Fragment implements View.OnClickLis
                 getActivity().startActivity(new Intent(getActivity(), MainActivity.class));
                 getActivity().finish();
                 break;
+        }
+    }
+
+    private void reautenticar(){
+        Intent inicioSesion = AuthUI.getInstance().createSignInIntentBuilder().build();
+        startActivityForResult(inicioSesion, RC_SIGN_IN);
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == RC_SIGN_IN){
+            if (resultCode == RESULT_OK){
+                getActivity().getSupportFragmentManager().beginTransaction().replace
+                        (R.id.contenedorOpciones, new FragmentOpciones()).commit();
+            } else if (resultCode == Activity.RESULT_CANCELED){
+                Snackbar.make(getActivity().findViewById(R.id.contenedorOpciones),
+                        "Inicia sesión para cambiar las opciones de tu cuenta",
+                        Snackbar.LENGTH_LONG).show();
+            }
         }
     }
 }
