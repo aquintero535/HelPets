@@ -75,7 +75,7 @@ public class FragmentInicioSesionCorreo extends Fragment implements View.OnClick
                                 startActivity(new Intent(getActivity(), ActivityMenuPrincipal.class));
                                 getActivity().finish();
                             } else{
-                                Toast.makeText(getActivity(), "Inicio de sesión fallido",
+                                Toast.makeText(getActivity(), task.getException().getMessage(),
                                         Toast.LENGTH_SHORT).show();
                             }
                         }

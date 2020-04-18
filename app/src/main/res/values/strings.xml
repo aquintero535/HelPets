@@ -51,13 +51,15 @@
     <!-- Strings de las preferencias-->
     <string name="textoNombreUsuario">Nombre para mostrar</string>
     <string name="textoResumenNombreUsuario">Cambia tu nombre para mostrar</string>
-
     <string name="textoCorreoUsuario">Correo electrónico</string>
     <string name="textoResumenCorreoUsuario">Cambia tu correo electrónico</string>
-
     <string name="textoContraseniaHelpets">Contraseña</string>
     <string name="textoResumenContrasenia">Cambia tu contraseña de Helpets</string>
-
+    <string name="txtvNombreUsuarioPerfil">Nombre de usuario: </string>
+    <string name="txtvCorreoElectronicoPerfil">Correo electrónico: </string>
+    <string name="botonCambiarImagenPerfil">Cambiar imagen de perfil</string>
+    <string name="botonOpcionesCuenta">Opciones de tu cuenta</string>
+    <string name="botonCerrarSesion">Cerrar sesión</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
