@@ -1,4 +1,4 @@
-package com.example.helpets.ui;
+package com.example.helpets.ui.InicioSesion;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,6 +15,7 @@ import android.widget.Button;
 import android.widget.Toast;
 
 import com.example.helpets.R;
+import com.example.helpets.ui.Menu.ActivityMenuPrincipal;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
 import com.google.android.gms.auth.api.signin.GoogleSignInClient;
@@ -28,7 +29,7 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.GoogleAuthProvider;
 
-public class FragmentInicioSesionA extends Fragment implements View.OnClickListener {
+public class FragmentInicioSesionGoogle extends Fragment implements View.OnClickListener {
 
     private SignInButton botonIniciarSesionGoogle;
     private Button botonIniciarSesionCorreo;
@@ -41,7 +42,7 @@ public class FragmentInicioSesionA extends Fragment implements View.OnClickListe
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_inicio_sesion_a, container, false);
+        return inflater.inflate(R.layout.fragment_inicio_sesion_google, container, false);
     }
 
     @Override
@@ -131,7 +132,7 @@ public class FragmentInicioSesionA extends Fragment implements View.OnClickListe
                         .getSupportFragmentManager()
                         .beginTransaction()
                         .addToBackStack(null)
-                        .replace(R.id.fragmentInicioSesion, new FragmentInicioSesionB())
+                        .replace(R.id.fragmentInicioSesion, new FragmentInicioSesionCorreo())
                         .commit();
                 break;
         }

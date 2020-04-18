@@ -29,7 +29,7 @@
 
     <fragment
         android:id="@+id/fragmentMenuPrincipal"
-        android:name="com.example.helpets.ui.FragmentMenuPrincipal"
+        android:name="com.example.helpets.ui.Menu.FragmentMenuPrincipal"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="@+id/fondoInicio2"

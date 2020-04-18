@@ -1,4 +1,4 @@
-package com.example.helpets.ui;
+package com.example.helpets;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -6,7 +6,8 @@ import android.os.Handler;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.helpets.R;
+import com.example.helpets.ui.InicioSesion.ActivityInicioSesion;
+import com.example.helpets.ui.Menu.ActivityMenuPrincipal;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity {
@@ -37,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
                             ActivityInicioSesion.class));
                     finish();
                 } else{
+                    Usuario.obtenerDatosUsuario();
                     System.out.println("USUARIO: "+sesionFirebase.getCurrentUser().getDisplayName());
                     startActivity(new Intent(MainActivity.this,
                             ActivityMenuPrincipal.class));

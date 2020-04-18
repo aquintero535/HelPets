@@ -1,5 +1,6 @@
 package com.example.helpets.ui;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.Nullable;
@@ -13,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.helpets.R;
+import com.example.helpets.ui.Opciones.ActivityOpciones;
 import com.google.firebase.Timestamp;
 import com.google.firebase.auth.FirebaseAuth;
 
@@ -41,7 +43,7 @@ public class FragmentBarraEstado extends Fragment {
        botonMenu.setOnClickListener(new View.OnClickListener() {
            @Override
            public void onClick(View v) {
-               Toast.makeText(getContext(), "Prueba exitosa", Toast.LENGTH_SHORT).show();
+               getActivity().startActivity(new Intent(getActivity(), ActivityOpciones.class));
            }
        });
         estadoFecha = (TextView)view.findViewById(R.id.barraEstadoFecha);

@@ -1,4 +1,4 @@
-package com.example.helpets.ui;
+package com.example.helpets.ui.InicioSesion;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
@@ -16,7 +16,7 @@ public class ActivityInicioSesion extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inicio_sesion);
         getSupportFragmentManager().beginTransaction().replace
-                (R.id.fragmentInicioSesion, new FragmentInicioSesionA()).commit();
+                (R.id.fragmentInicioSesion, new FragmentInicioSesionGoogle()).commit();
     }
 
 }

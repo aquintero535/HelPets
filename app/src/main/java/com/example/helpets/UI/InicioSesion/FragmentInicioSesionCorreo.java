@@ -1,4 +1,4 @@
-package com.example.helpets.ui;
+package com.example.helpets.ui.InicioSesion;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,12 +15,13 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import com.example.helpets.R;
+import com.example.helpets.ui.Menu.ActivityMenuPrincipal;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class FragmentInicioSesionB extends Fragment implements View.OnClickListener {
+public class FragmentInicioSesionCorreo extends Fragment implements View.OnClickListener {
 
     private EditText campoCorreo, campoContrasenia;
     private Button botonIniciarSesion, botonNuevaCuenta;
@@ -30,7 +31,7 @@ public class FragmentInicioSesionB extends Fragment implements View.OnClickListe
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_inicio_sesion_b, container, false);
+        return inflater.inflate(R.layout.fragment_inicio_sesion_correo, container, false);
     }
 
     @Override
@@ -58,6 +59,7 @@ public class FragmentInicioSesionB extends Fragment implements View.OnClickListe
         }
     }
 
+    //Método que inicia la sesión con Firebase
     private void iniciarSesion(){
         sesion = FirebaseAuth.getInstance();
         String correo = campoCorreo.getText().toString();
@@ -73,7 +75,7 @@ public class FragmentInicioSesionB extends Fragment implements View.OnClickListe
                                 startActivity(new Intent(getActivity(), ActivityMenuPrincipal.class));
                                 getActivity().finish();
                             } else{
-                                Toast.makeText(getActivity(), "Inicio de sesión fallido",
+                                Toast.makeText(getActivity(), task.getException().getMessage(),
                                         Toast.LENGTH_SHORT).show();
                             }
                         }
