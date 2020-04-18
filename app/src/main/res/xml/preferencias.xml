@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+    <!--Nombre de usuario-->
+    <EditTextPreference
+        android:key="nombreUsuario"
+        android:title="@string/textoNombreUsuario"
+        android:summary="@string/textoResumenNombreUsuario"
+        android:selectAllOnFocus="true"
+        android:singleLine="true" />
+
+    <!--Correo del usuario-->
+    <EditTextPreference
+        android:key="correoUsuario"
+        android:title="@string/textoCorreoUsuario"
+        android:summary="@string/textoResumenCorreoUsuario"
+        android:selectAllOnFocus="true"
+        android:singleLine="true" />
+
+    <!--Contrasenia del usuario-->
+    <EditTextPreference
+        android:key="contraseniaHelpets"
+        android:title="@string/textoContraseniaHelpets"
+        android:summary="@string/textoResumenContrasenia"
+        android:selectAllOnFocus="true"
+        android:inputType="textWebPassword"
+        android:singleLine="true" />
+
+
+</PreferenceScreen>
