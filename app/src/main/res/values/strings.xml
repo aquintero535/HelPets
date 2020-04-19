@@ -60,6 +60,7 @@
     <string name="botonCambiarImagenPerfil">Cambiar imagen de perfil</string>
     <string name="botonOpcionesCuenta">Opciones de tu cuenta</string>
     <string name="botonCerrarSesion">Cerrar sesión</string>
+    <string name="txtvTipoUsuario">Tipo de usuario: </string>
 
     <string name="txtvModoVeterinario">Veterinario</string>
 

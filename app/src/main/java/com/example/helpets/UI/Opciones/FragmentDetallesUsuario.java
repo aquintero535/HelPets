@@ -21,6 +21,7 @@ import android.widget.Toast;
 import com.bumptech.glide.Glide;
 import com.example.helpets.MainActivity;
 import com.example.helpets.R;
+import com.example.helpets.Usuario;
 import com.firebase.ui.auth.AuthUI;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
@@ -42,6 +43,7 @@ public class FragmentDetallesUsuario extends Fragment implements View.OnClickLis
     private ImageView imagenPerfilUsuario;
     private TextView nombreUsuarioOpciones;
     private TextView correoPerfil;
+    private TextView tipoUsuario;
     private Button botonOpcionesUsuario;
     private Button botonCerrarSesion;
     private Button botonCambiarFotoPerfil;
@@ -68,6 +70,12 @@ public class FragmentDetallesUsuario extends Fragment implements View.OnClickLis
         imagenPerfilUsuario = (ImageView)view.findViewById(R.id.imagenPerfilUsuario);
         nombreUsuarioOpciones = (TextView)view.findViewById(R.id.txtvNombreUsuarioOpciones);
         correoPerfil = (TextView)view.findViewById(R.id.txtvCorreoPerfil);
+        tipoUsuario = (TextView)view.findViewById(R.id.txtvTipoUsuario);
+        if (Usuario.getTipoUsuario() == Usuario.VETERINARIO){
+            tipoUsuario.setText("Tipo de usuario: veterinario");
+        } else{
+            tipoUsuario.setText("Tipo de usuario: cliente");
+        }
         Glide.with(view).load(FirebaseAuth.getInstance().getCurrentUser().getPhotoUrl()).into(imagenPerfilUsuario);
         nombreUsuarioOpciones.setText("Nombre de usuario: "+usuario.getDisplayName());
         correoPerfil.setText(usuario.getEmail());
