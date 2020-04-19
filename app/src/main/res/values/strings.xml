@@ -61,6 +61,8 @@
     <string name="botonOpcionesCuenta">Opciones de tu cuenta</string>
     <string name="botonCerrarSesion">Cerrar sesión</string>
 
+    <string name="txtvModoVeterinario">Veterinario</string>
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 

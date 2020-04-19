@@ -3,6 +3,7 @@ package com.example.helpets;
 import androidx.annotation.NonNull;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
@@ -16,6 +17,7 @@ public class Usuario {
 
     private static int tipoUsuario;
     private static FirebaseUser usuario;
+    Callback callback;
 
 
     public Usuario(){
@@ -37,7 +39,8 @@ public class Usuario {
         Usuario.usuario = usuario;
     }
 
-    public static void obtenerDatosUsuario(){
+    //Llama a la base de datos para comprobar si el usuario es un cliente o un veterinario.
+    public void obtenerDatosUsuario(){
         FirebaseAuth sesionFirebase = FirebaseAuth.getInstance();
         Usuario.setUsuario(sesionFirebase.getCurrentUser());
         FirebaseFirestore db = FirebaseFirestore.getInstance();
@@ -50,13 +53,29 @@ public class Usuario {
                     try {
                         if (task.getResult().getBoolean("modoVeterinario").booleanValue()) {
                             tipoUsuario = VETERINARIO;
+                        } else{
+                            tipoUsuario = USUARIO;
                         }
+                        callback.datosObtenidos();
                     } catch (NullPointerException e){
                         e.printStackTrace();
                         tipoUsuario = USUARIO;
+                        callback.datosObtenidos();
                     }
                 }
             }
+        }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                tipoUsuario = USUARIO;
+                callback.datosNoObtenidos(e);
+            }
         });
     }
+
+    public void registrarCallback(Callback callback){
+        this.callback = callback;
+    }
+
+
 }

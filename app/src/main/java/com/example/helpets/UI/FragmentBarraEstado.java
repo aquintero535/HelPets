@@ -11,12 +11,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.helpets.R;
+import com.example.helpets.Usuario;
 import com.example.helpets.ui.Opciones.ActivityOpciones;
 import com.google.firebase.Timestamp;
 import com.google.firebase.auth.FirebaseAuth;
+
+import org.w3c.dom.Text;
 
 import java.text.DateFormat;
 
@@ -24,6 +26,7 @@ public class FragmentBarraEstado extends Fragment {
     private Button botonMenu;
     private TextView estadoFecha;
     private TextView estadoUsuario;
+    private TextView modoVeterinario;
 
 
     public FragmentBarraEstado() {
@@ -34,7 +37,7 @@ public class FragmentBarraEstado extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_menu, container, false);
+        return inflater.inflate(R.layout.fragment_barra_estado, container, false);
     }
 
     @Override
@@ -49,6 +52,12 @@ public class FragmentBarraEstado extends Fragment {
         estadoFecha = (TextView)view.findViewById(R.id.barraEstadoFecha);
         estadoUsuario = (TextView)view.findViewById(R.id.barraEstadoUsuario);
         estadoUsuario.setText("Hola "+FirebaseAuth.getInstance().getCurrentUser().getDisplayName());
+        modoVeterinario = (TextView)view.findViewById(R.id.txtvModoVeterinario);
+        if (Usuario.getTipoUsuario() == Usuario.VETERINARIO){
+            modoVeterinario.setVisibility(View.VISIBLE);
+        } else{
+            modoVeterinario.setVisibility(View.GONE);
+        }
     }
 
     @Override

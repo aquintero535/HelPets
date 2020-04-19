@@ -3,6 +3,7 @@ package com.example.helpets;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -10,7 +11,7 @@ import com.example.helpets.ui.InicioSesion.ActivityInicioSesion;
 import com.example.helpets.ui.Menu.ActivityMenuPrincipal;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements Callback {
 
     //La clase Main sirve como puente para el Activity del menú principal o el de inicio de sesión.
     //Contador de la pantalla del logo.
@@ -25,6 +26,10 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    //Método que se ejecuta después de 3000 milisegundos, para dar el efecto de Splash Screen.
+    //Primero comprueba si el usuario tiene una sesión iniciada. Si no, lo envía al Activity de
+    //inicio de sesión. Si la tiene, llama a la base de datos para comprobar si el usuario es
+    //un veterinario o un cliente, después continúa hacia el menú principal.
     @Override
     protected void onStart(){
         super.onStart();
@@ -38,15 +43,26 @@ public class MainActivity extends AppCompatActivity {
                             ActivityInicioSesion.class));
                     finish();
                 } else{
-                    Usuario.obtenerDatosUsuario();
-                    System.out.println("USUARIO: "+sesionFirebase.getCurrentUser().getDisplayName());
-                    startActivity(new Intent(MainActivity.this,
-                            ActivityMenuPrincipal.class));
-                    finish();
+                    Usuario usuario = new Usuario();
+                    usuario.obtenerDatosUsuario();
+                    usuario.registrarCallback(MainActivity.this);
                 }
             }
         }, TIEMPO);
-
     }
 
+    @Override
+    public void datosObtenidos() {
+        startActivity(new Intent(MainActivity.this,
+                ActivityMenuPrincipal.class));
+        finish();
+    }
+
+    @Override
+    public void datosNoObtenidos(Exception e) {
+        Toast.makeText(this, e.getMessage(), Toast.LENGTH_LONG).show();
+        startActivity(new Intent(MainActivity.this,
+                ActivityMenuPrincipal.class));
+        finish();
+    }
 }

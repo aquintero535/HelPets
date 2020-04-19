@@ -14,14 +14,16 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.example.helpets.Callback;
 import com.example.helpets.R;
+import com.example.helpets.Usuario;
 import com.example.helpets.ui.Menu.ActivityMenuPrincipal;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class FragmentInicioSesionCorreo extends Fragment implements View.OnClickListener {
+public class FragmentInicioSesionCorreo extends Fragment implements View.OnClickListener, Callback {
 
     private EditText campoCorreo, campoContrasenia;
     private Button botonIniciarSesion, botonNuevaCuenta;
@@ -70,10 +72,9 @@ public class FragmentInicioSesionCorreo extends Fragment implements View.OnClick
                         @Override
                         public void onComplete(@NonNull Task<AuthResult> task) {
                             if (task.isSuccessful()){
-                                Toast.makeText(getActivity(), "Sesión iniciada",
-                                        Toast.LENGTH_SHORT).show();
-                                startActivity(new Intent(getActivity(), ActivityMenuPrincipal.class));
-                                getActivity().finish();
+                                Usuario usuario = new Usuario();
+                                usuario.registrarCallback(FragmentInicioSesionCorreo.this);
+                                usuario.obtenerDatosUsuario();
                             } else{
                                 Toast.makeText(getActivity(), task.getException().getMessage(),
                                         Toast.LENGTH_SHORT).show();
@@ -84,5 +85,20 @@ public class FragmentInicioSesionCorreo extends Fragment implements View.OnClick
             Toast.makeText(getActivity(), "Por favor, llena todo los campos.", Toast.LENGTH_SHORT)
                     .show();
         }
+    }
+
+    @Override
+    public void datosObtenidos() {
+        Toast.makeText(getActivity(), "Sesión iniciada",
+                Toast.LENGTH_SHORT).show();
+        startActivity(new Intent(getActivity(), ActivityMenuPrincipal.class));
+        getActivity().finish();
+    }
+
+    @Override
+    public void datosNoObtenidos(Exception e) {
+        Toast.makeText(getActivity(), e.getMessage(), Toast.LENGTH_LONG).show();
+        startActivity(new Intent(getActivity(), ActivityMenuPrincipal.class));
+        getActivity().finish();
     }
 }

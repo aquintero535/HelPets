@@ -36,7 +36,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/fondoBuzon"
-        tools:layout="@layout/fragment_menu" />
+        tools:layout="@layout/fragment_barra_estado" />
 
     <FrameLayout
         android:id="@+id/fragmentBuzon"

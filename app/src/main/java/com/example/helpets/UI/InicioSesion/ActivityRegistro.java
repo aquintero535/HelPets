@@ -15,6 +15,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import com.example.helpets.R;
 import com.example.helpets.ui.Menu.ActivityMenuPrincipal;
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.AuthResult;
@@ -100,13 +101,21 @@ public class ActivityRegistro extends AppCompatActivity implements View.OnClickL
                             nuevoUsuario.put("uid", task.getResult().getUser().getUid());
                             subirUsuarioDB();
                         } else{
-                            Snackbar.make(findViewById(R.id.activityRegistro), "Ha ocurrido" +
-                                    " un error al registrarte. " +
-                                    "Verifica que tus datos sean correctos.", Snackbar.LENGTH_SHORT)
+                            Snackbar.make(findViewById(R.id.activityRegistro),
+                                    task.getException().getMessage(),
+                                    Snackbar.LENGTH_SHORT)
                                     .show();
                         }
                     }
-                });
+                }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Snackbar.make(findViewById(R.id.activityRegistro),
+                        e.getMessage(),
+                        Snackbar.LENGTH_SHORT)
+                        .show();
+            }
+        });
     }
 
     private void subirUsuarioDB(){
