@@ -14,12 +14,12 @@ import android.widget.ImageButton;
 import com.example.helpets.R;
 import com.example.helpets.ui.Menu.ActivityMenuPrincipal;
 
-public class FragmentBuzonB extends Fragment implements View.OnClickListener {
+public class FragmentBuzonEnviado extends Fragment implements View.OnClickListener {
 
 
     private ImageButton botonInicio;
 
-    public FragmentBuzonB() {
+    public FragmentBuzonEnviado() {
         // Required empty public constructor
     }
 
@@ -27,7 +27,7 @@ public class FragmentBuzonB extends Fragment implements View.OnClickListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_buzon_b, container, false);
+        return inflater.inflate(R.layout.fragment_buzon_enviado, container, false);
     }
 
     @Override

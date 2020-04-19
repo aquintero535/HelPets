@@ -26,7 +26,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 
-public class FragmentBuzonA extends Fragment implements View.OnClickListener {
+public class FragmentBuzonFormulario extends Fragment implements View.OnClickListener {
 
     private EditText campoNombre;
     private EditText campoTelefono;
@@ -35,7 +35,7 @@ public class FragmentBuzonA extends Fragment implements View.OnClickListener {
     private Button botonEnviar;
     private FrameLayout fragmentBuzon;
 
-    public FragmentBuzonA() {
+    public FragmentBuzonFormulario() {
         // Required empty public constructor
     }
 
@@ -43,7 +43,7 @@ public class FragmentBuzonA extends Fragment implements View.OnClickListener {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_buzon_a, container, false);
+        return inflater.inflate(R.layout.fragment_buzon_formulario, container, false);
     }
 
     @Override
@@ -82,7 +82,7 @@ public class FragmentBuzonA extends Fragment implements View.OnClickListener {
                         @Override
                         public void onSuccess(DocumentReference documentReference) {
                             getActivity().getSupportFragmentManager().beginTransaction()
-                                    .replace(R.id.fragmentBuzon, new FragmentBuzonB())
+                                    .replace(R.id.fragmentBuzon, new FragmentBuzonEnviado())
                                     .commit();
                         }
                     })
