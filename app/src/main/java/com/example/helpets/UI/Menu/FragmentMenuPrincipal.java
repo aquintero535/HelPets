@@ -17,12 +17,14 @@ import com.example.helpets.R;
 import com.example.helpets.ui.Adopcion.ActivityAdopta;
 import com.example.helpets.ui.Buzon.ActivityBuzon;
 import com.example.helpets.ui.CitasVeterinarias.FragmentCitas;
+import com.example.helpets.ui.Wikipets.ActivityWikipets;
 
 public class FragmentMenuPrincipal extends Fragment implements View.OnClickListener {
 
     private Button botonCitas;
     private Button botonAdoptar;
     private Button botonBuzon;
+    private Button botonWikipets;
     private final int MESSAGE_SENT = 500;
 
 
@@ -43,16 +45,16 @@ public class FragmentMenuPrincipal extends Fragment implements View.OnClickListe
         botonCitas = (Button)view.findViewById(R.id.botonCitas);
         botonAdoptar = (Button)view.findViewById(R.id.botonAdopta);
         botonBuzon = (Button)view.findViewById(R.id.botonBuzon);
+        botonWikipets = (Button)view.findViewById(R.id.botonWikipets);
 
         botonCitas.setOnClickListener(this);
         botonAdoptar.setOnClickListener(this);
         botonBuzon.setOnClickListener(this);
-
+        botonWikipets.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View v) {
-
         switch (v.getId()){
             case R.id.botonCitas:
                 Fragment nuevoFragment = new FragmentCitas();
@@ -67,9 +69,10 @@ public class FragmentMenuPrincipal extends Fragment implements View.OnClickListe
                 break;
             case R.id.botonBuzon:
                 startActivityForResult(new Intent(getContext(), ActivityBuzon.class), MESSAGE_SENT);
-
+                break;
+            case R.id.botonWikipets:
+                startActivity(new Intent(getContext(), ActivityWikipets.class));
+                break;
         }
     }
-
-
 }

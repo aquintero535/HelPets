@@ -64,6 +64,86 @@
 
     <string name="txtvModoVeterinario">Veterinario</string>
 
+    <!--Strings de Wikipets-->
+    <string name="pregunta0">¿Cómo le enseño a mi perro lo que quiero que haga?</string>
+    <string name="pregunta0Info">Aprender a educar a un perro es indispensable para la comunicación
+        entre el animal y su amo. Además, hará que pueda compartir muchas más experiencias con él.
+        Es importante saber que esto se logra con paciencia y diversión. Cuando el perro se
+        divierte aprendiendo logrará recordar más y no se sentirá estresado. También es
+        recomendable iniciar con trucos pequeños y premiarlo cuando haga las cosas bien.</string>
+
+    <string name="pregunta1">¿Por qué mi perro se come sus heces?</string>
+    <string name="pregunta1Info">De acuerdo con los medicos veterinarios, es común que los
+        cachorros que coman sus excrementos.
+        Sin embargo, es necesario prestar atención a la razón por la que lo hacen.
+        “Algunos lo hacen por aburrimiento o soledad, si pasan mucho tiempo solos juegan con todo
+        lo que tienen enfrente. También lo hacen por tener deficiencias alimenticias o por
+        curiosidad, ya que les sienten un olor apetecible. Incluso, algunas hembras, cuando
+        tienen a sus cachorros, lo hacen para tener limpia el área en donde están sus hijitos”.
+    </string>
+
+
+    <string name="pregunta2">¿Cada cuánto se baña a un gato?</string>
+    <string name="pregunta2Info">El baño no es agradable para todos los gatos, por lo que es
+        recomendable comenzar desde cachorro para que se vaya familiarizando con el agua. Según
+        Rodas, el tiempo en que se debe bañar a un gato depende de cómo reaccione su piel y el
+        pelaje. Al igual que los perros, se utiliza un jabón especial y lo ideal es bañarlos
+        entre 20 y 30 días.</string>
+
+    <string name="pregunta3">¿Qué significa el ronroneo de un gato?</string>
+    <string name="pregunta3Info">“Un gato ronronea cuando contra los músculos de la laringe y
+        el diafragma”, comenta Rodas. Esta expresión puede ser sinónimo de alegría o sumisión,
+        por lo que la mayoría lo hace cuando se les está preparando su alimento o cuando saben que
+        serán acariciados. En algunas ocasiones también significa miedo o dolor.
+        El ronroneo puede ser sinónimo de alegría o sumisión, por lo que la mayoría lo hace cuando
+        se les está preparando su alimento.
+    </string>
+
+    <string name="pregunta4">¿Por qué cantan las aves?</string>
+    <string name="pregunta4Info">“Se tiene la idea equivocada de que las aves cantan de felicidad.
+        La verdad es que lo hacen para marcar y defender territorio o para cortejar a su pareja.
+        En ocasiones también lo hacen para que las aves que están alrededor se enteren de su
+        presencia en el área”.</string>
+
+    <string name="pregunta5">¿Cuál es el lugar más adecuado para tener mi ave?</string>
+    <string name="pregunta5Info">El médico veterinario Luis González recomienda que las aves deben
+        estar en un lugar de la casa en donde reciban luz natural un par de horas al día, tomando
+        en cuenta que no debe ser en las horas en las que hay más calor. En época de frío, se debe
+        tapar su jaula debido a que la mayoría son muy susceptibles a las bajas temperaturas.
+        Las aves deben estar en un lugar de la casa en donde reciban luz natural un par de horas
+        al día.
+    </string>
+
+    <string name="pregunta6">¿Cuándo llevar a mi ave al veterinario?</string>
+    <string name="pregunta6Info">“Una de las características de las aves es que esconden a sus
+        dueños los síntomas de una enfermedad, por lo que es importante siempre prestarles
+        atención”; Lo recomendable es llevar el ave al veterinario mínimo una vez al año, para un
+        chequeo de rutina. Pero cuando usted observe cambio de color en las heces, plumaje
+        deslucido y ojos llorosos, son síntomas de problemas en la salud.</string>
+
+    <string name="pregunta7">¿Cuántas veces le doy de comer a mi pez?</string>
+    <string name="pregunta7Info">González comenta que para alimentar a un pez hay que prestar
+        atención a cómo lo harían ellos en su estado salvaje. Es decir, que se debe de dar pequeñas
+        dosis a lo largo del día, entre cuatro o seis veces, para darles una dosis pequeña.
+        “Lo mejor es darles un poco, si usted ve que sí se lo comen, les puede dar más. Cuando vea
+        que pierden el interés, ya no les dé”
+    </string>
+
+    <string name="pregunta8">¿Qué tamaño del acuario es el adecuado para mi pez?</string>
+    <string name="pregunta8Info">Lo principal que se debe tomar en cuenta al momento de elegir el
+        acuario es que sea de un tamaño en el que el pez pueda nadar con holgura. Por ejemplo, un
+        pez de 2.5 centímetros necesita un espacio de 4.5 litros de agua, por lo que mientras más
+        peces albergue, más litros de agua necesitará.
+        También debe tomar en cuenta que se colocan objetos, adornos, para que el pez se sienta cómodo en su hogar.
+    </string>
+
+    <string name="pregunta9">¿Un hámster debe hacer ejercicio?</string>
+    <string name="pregunta9Info">“El ejercicio es tan importante como la calidad de su
+        alimentación. Lo recomendable es sacarlo de la jaula una o dos veces al día para meterlo
+        en su bola de correr por 15 minutos, aproximadamente. Lo idea también es colocar una bola
+        dentro de su jaula y controlar que sí la utilice”.</string>
+
+
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
