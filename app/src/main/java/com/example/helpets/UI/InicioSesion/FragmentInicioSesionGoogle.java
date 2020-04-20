@@ -14,7 +14,9 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.Toast;
 
+import com.example.helpets.Callback;
 import com.example.helpets.R;
+import com.example.helpets.Usuario;
 import com.example.helpets.ui.Menu.ActivityMenuPrincipal;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount;
@@ -100,20 +102,23 @@ public class FragmentInicioSesionGoogle extends Fragment implements View.OnClick
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()){
-                            Log.d(TAG, "signInWithCredentials");
-                            Toast.makeText(getActivity(),
-                                    "Sesión iniciada",
-                                    Toast.LENGTH_SHORT)
-                                    .show();
-
-                            startActivity(new Intent
-                                    (getActivity(),
-                                            ActivityMenuPrincipal.class));
-                            getActivity().finish();
+                            Usuario usuario = new Usuario();
+                            usuario.obtenerDatosUsuario();
+                            usuario.registrarCallback(new Callback() {
+                                @Override
+                                public void datosObtenidos() {
+                                    llamarMenu();
+                                }
+                                @Override
+                                public void datosNoObtenidos(Exception e) {
+                                    Toast.makeText(getActivity(), e.getMessage(), Toast.LENGTH_LONG)
+                                            .show();
+                                    llamarMenu();
+                                }
+                            });
                         } else{
-                            Log.w(TAG, "signInWithCredential:failure", task.getException());
                             Toast.makeText(getActivity(),
-                                    "No se pudo iniciar sesión",
+                                    task.getException().getMessage(),
                                     Toast.LENGTH_SHORT)
                                     .show();
                         }
@@ -136,5 +141,16 @@ public class FragmentInicioSesionGoogle extends Fragment implements View.OnClick
                         .commit();
                 break;
         }
+    }
+
+    private void llamarMenu(){
+        Toast.makeText(getActivity(),
+                "Sesión iniciada",
+                Toast.LENGTH_SHORT)
+                .show();
+        startActivity(new Intent
+                (getActivity(),
+                        ActivityMenuPrincipal.class));
+        getActivity().finish();
     }
 }
