@@ -30,6 +30,7 @@ public class FragmentBuzonEnviado extends Fragment implements View.OnClickListen
         return inflater.inflate(R.layout.fragment_buzon_enviado, container, false);
     }
 
+    /* Inicia los componentes */
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -37,6 +38,9 @@ public class FragmentBuzonEnviado extends Fragment implements View.OnClickListen
         botonInicio.setOnClickListener(this);
     }
 
+    /* Al tocar un botón, regresa al menú principal y le envía un código de resultado para ejecutar
+    un método que muestra un Snackbar.
+     */
     @Override
     public void onClick(View v) {
         getActivity().setResult(ActivityMenuPrincipal.MENSAJE_ENVIADO);

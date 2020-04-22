@@ -46,6 +46,7 @@ public class FragmentFormularioAdopcion extends Fragment implements View.OnClick
         return inflater.inflate(R.layout.fragment_formulario_adopcion, container, false);
     }
 
+    //Inicia los componentes.
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -63,6 +64,11 @@ public class FragmentFormularioAdopcion extends Fragment implements View.OnClick
         botonEnviarFormulario.setOnClickListener(this);
     }
 
+    //Método que se ejecuta al tocar el botón Enviar. Obtiene los strings de los campos del
+    //formulario, y comprueba si están vacíos. Si lo están, o no se han aceptado las políticas de
+    //adopción de Helpets, muestra un Toast que avisa al usuario que debe rellenar los campos o
+    //aceptar las políticas. De haberlo hecho, envía a la base de datos un HashMap con todos los
+    //datos del formulario.
     @Override
     public void onClick(View v) {
         //Envía el formulario a la base de datos

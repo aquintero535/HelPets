@@ -36,6 +36,7 @@ public class FragmentInicioSesionCorreo extends Fragment implements View.OnClick
         return inflater.inflate(R.layout.fragment_inicio_sesion_correo, container, false);
     }
 
+    /* Inicia los componentes */
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -47,6 +48,9 @@ public class FragmentInicioSesionCorreo extends Fragment implements View.OnClick
         botonNuevaCuenta.setOnClickListener(this);
     }
 
+    /* Método que se ejecuta al tocar un botón. Uno es para iniciar sesión con el correo, el otro
+    es para iniciar el proceso de registro.
+     */
     @Override
     public void onClick(View v) {
         switch (v.getId()){
@@ -61,7 +65,10 @@ public class FragmentInicioSesionCorreo extends Fragment implements View.OnClick
         }
     }
 
-    //Método que inicia la sesión con Firebase
+    /* Método que inicia la sesión con Firebase. Obtiene el usuario y contraseña, comprueba si
+    están vacíos y llama al método de Firebase para  iniciar sesión. Después, llama al método
+    obtenerDatosUsuario, el cual a su regreso ejecutará datosObtenidos() o datosNoObtenidos()
+     */
     private void iniciarSesion(){
         sesion = FirebaseAuth.getInstance();
         String correo = campoCorreo.getText().toString();
@@ -87,6 +94,10 @@ public class FragmentInicioSesionCorreo extends Fragment implements View.OnClick
         }
     }
 
+
+    /* Métodos que se ejecutan después de llamar a Firebase para obtener algunos datos del usuario.
+    Obtenidos o no, de igual manera llama al menú principal.
+     */
     @Override
     public void datosObtenidos() {
         Toast.makeText(getActivity(), "Sesión iniciada",

@@ -53,6 +53,7 @@ public class FragmentMenuPrincipal extends Fragment implements View.OnClickListe
         botonWikipets.setOnClickListener(this);
     }
 
+    /* Inicia las actividades correspondientes según el botón que toque el usuario */
     @Override
     public void onClick(View v) {
         switch (v.getId()){

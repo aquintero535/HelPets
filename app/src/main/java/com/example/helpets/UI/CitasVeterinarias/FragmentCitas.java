@@ -38,6 +38,7 @@ public class FragmentCitas extends Fragment implements View.OnClickListener {
         botonCitas24Hr.setOnClickListener(this);
     }
 
+    /* Método que se ejecuta al tocar un botón. Comienza una nueva actividad */
     @Override
     public void onClick(View v) {
         switch(v.getId()){

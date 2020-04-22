@@ -16,6 +16,8 @@ public class ActivityBuzon extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState)  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_buzon);
+
+        //Coloca el fragmento del formulario de contacto.
         getSupportFragmentManager().beginTransaction().add
                 (R.id.fragmentBuzon, new FragmentBuzonFormulario()).commit();
     }

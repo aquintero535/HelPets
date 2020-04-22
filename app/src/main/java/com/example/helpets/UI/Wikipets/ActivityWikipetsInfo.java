@@ -29,7 +29,7 @@ public class ActivityWikipetsInfo extends AppCompatActivity implements View.OnCl
         llenarInfo();
     }
 
-    //Llena la información según la pregunta escogida por el usuario. 
+    //Llena la información según la pregunta escogida por el usuario.
     private void llenarInfo(){
         //Obtengo el número de pregunta.
         int preguntaId = getIntent().getIntExtra("pregunta", 0);
@@ -47,6 +47,7 @@ public class ActivityWikipetsInfo extends AppCompatActivity implements View.OnCl
         textoInfoCuerpo.setText(cuerpoId);
     }
 
+    //Termina la actividad al tocar el botón de regresar.
     @Override
     public void onClick(View v) {
         finish();

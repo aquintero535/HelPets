@@ -43,6 +43,11 @@ public class FragmentListaAdopcion extends Fragment {
         return inflater.inflate(R.layout.fragment_adopta, container, false);
     }
 
+    //Inicia los componentes. Obtiene la colección "mascotas" de la base de datos y llama
+    //al método llenarLista();
+    //Establece un listener al RecyclerView, para cuando el usuario toque un item de la lista.
+    //Al tocar un item, se guarda la mascota seleccionada en el ViewModel y cambia al fragmento con
+    //el formulario de adopción.
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -79,6 +84,7 @@ public class FragmentListaAdopcion extends Fragment {
         };
     }
 
+    //Método que obtiene los objetos Mascota de la base de datos y los coloca en el RecyclerView.
     private void llenarLista(Task<QuerySnapshot> task){
         for (QueryDocumentSnapshot document : task.getResult()) {
             Mascota itemMascota = document.toObject(Mascota.class);

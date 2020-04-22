@@ -46,6 +46,7 @@ public class FragmentBuzonFormulario extends Fragment implements View.OnClickLis
         return inflater.inflate(R.layout.fragment_buzon_formulario, container, false);
     }
 
+    //Inicia los componentes.
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -58,11 +59,15 @@ public class FragmentBuzonFormulario extends Fragment implements View.OnClickLis
         botonEnviar.setOnClickListener(this);
     }
 
+    //Al hacker click al botón enviar, llama al método enviarMensaje();
     @Override
     public void onClick(View v) {
      enviarMensaje();
     }
 
+    //Obtiene los String de los campos del formulario, comprueba si están vacíos, los mete en un
+    //HashMap, y lo envía a la base de datos. Si se envió con éxito, el Fragment se reemplaza por
+    //el siguiente con un aviso de que su formulario ha sido enviado.
     public void enviarMensaje(){
         String nombre = campoNombre.getText().toString();
         String telefono = campoTelefono.getText().toString();

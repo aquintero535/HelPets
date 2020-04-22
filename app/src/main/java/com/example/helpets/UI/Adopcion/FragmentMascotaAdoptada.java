@@ -38,6 +38,9 @@ public class FragmentMascotaAdoptada extends Fragment implements View.OnClickLis
         botonInicio.setOnClickListener(this);
     }
 
+    //Al hacer click al botón, se termina la actividad y regresa a la pantalla principal.
+    //Establece un el código FORMULARIO_ENVIADO para cuando regrese al menú principal se ejecute
+    //un método que muestra un Snackbar.
     @Override
     public void onClick(View v) {
         getActivity().setResult(ActivityMenuPrincipal.FORMULARIO_ENVIADO);

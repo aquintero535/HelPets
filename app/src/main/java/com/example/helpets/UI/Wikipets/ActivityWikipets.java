@@ -21,6 +21,7 @@ public class ActivityWikipets extends AppCompatActivity implements RecyclerViewC
     private List<String> listaPreguntas = new ArrayList<>();
     private RecyclerViewClickListener listener;
 
+    /* Inicia los componentes. Crea una lista para el RecyclerView con las preguntas de la Wikipets */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +46,7 @@ public class ActivityWikipets extends AppCompatActivity implements RecyclerViewC
         listaWikipets.setAdapter(adaptador);
     }
 
+    //Se ejecuta al tocar un item de la lista.
     @Override
     public void onClick(View view, int position) {
         Intent abrirPregunta = new Intent(this, ActivityWikipetsInfo.class);

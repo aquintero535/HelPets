@@ -20,9 +20,13 @@ public class ActivityOpciones extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_opciones);
+
+        //Fragment con los datos del usuario.
         getSupportFragmentManager().beginTransaction().replace(R.id.contenedorOpciones,
                 new FragmentDetallesUsuario()).commit();
         botonRegresar = (ImageButton)findViewById(R.id.botonRegresar);
+
+        //Para finalizar la actividad.
         botonRegresar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

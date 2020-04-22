@@ -80,7 +80,7 @@ public class ActivityConsultaVeterinario extends AppCompatActivity
         botonEnviarChat = (Button)findViewById(R.id.botonEnviarChat);
 
         storage = FirebaseStorage.getInstance(); //Base de datos de imágenes.
-        adaptador = new AdaptadorMensajes(this);
+        adaptador = new AdaptadorMensajes(this); //Adaptador del RV del chat.
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         rvMensajes.setLayoutManager(linearLayoutManager);
         rvMensajes.setAdapter(adaptador);
@@ -121,6 +121,13 @@ public class ActivityConsultaVeterinario extends AppCompatActivity
         });
     }
 
+    /* Se ejecuta al tocar un botón. El botón de enviar un mensaje, o el botón de enviar una imagen
+    En el primer caso, añade a la base de datos un nuevo objeto de clase Mensaje. Si se subió con
+    éxito, se ejecutará el método onEvent, si detecta un cambio en la DB.
+
+    En el segundo, inicia la actividad de la galería y espera el resultado. Una vez obtenido ese
+    resultado, se activa el método OnActivityResult.
+     */
     @Override
     public void onClick(View v) {
         switch(v.getId()){
@@ -151,6 +158,7 @@ public class ActivityConsultaVeterinario extends AppCompatActivity
         }
     }
 
+    //Método que desplaza el RecyclerView hacia abajo al enviar un nuevo mensaje.
     private void setScrollbar(){
         rvMensajes.scrollToPosition(adaptador.getItemCount()-1);
     }
@@ -168,7 +176,11 @@ public class ActivityConsultaVeterinario extends AppCompatActivity
         }
     }
 
-    //Método que se ejecuta al enviar una imagen.
+    /* Se ejecuta después de que el usuario haya elegido una foto en la actividad de la galería.
+    Obtiene el Uri de la foto, y lo sube a Firebase Storage. Subida la imagen, crea un nuevo
+    objeto Mensaje con la foto y lo sube a la base de datos. Subido el mensaje, se ejecuta onEvent
+    al detectar un cambio en la base de datos.
+     */
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
@@ -220,6 +232,7 @@ public class ActivityConsultaVeterinario extends AppCompatActivity
         }
     }
 
+    /* Compara los identificadores de los usuarios para asignarles un ID de chat único. */
     protected String idChat(){
         int comparar = idUsuario.compareTo(idVeterinario);
         if (comparar < 0){

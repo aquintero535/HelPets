@@ -47,6 +47,10 @@ public class FragmentInicioSesionGoogle extends Fragment implements View.OnClick
         return inflater.inflate(R.layout.fragment_inicio_sesion_google, container, false);
     }
 
+    /* Inicia los componentes.
+    Crea un nuevo objeto GoogleSignInOptions el cual devuelve el cliente
+    de inicio de sesión de Google. Este cliente es el que iniciará la actividad de Google para iniciar
+    sesión. */
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -57,9 +61,6 @@ public class FragmentInicioSesionGoogle extends Fragment implements View.OnClick
                 .build();
         googleSignInClient = GoogleSignIn.getClient(getActivity(), gso);
 
-        /*Para no mantener la sesión iniciada*/
-        //googleSignInClient.signOut();
-
         mAuth = FirebaseAuth.getInstance();
         botonIniciarSesionGoogle = view.findViewById(R.id.sign_in_button);
         botonIniciarSesionGoogle.setOnClickListener(this);
@@ -67,7 +68,9 @@ public class FragmentInicioSesionGoogle extends Fragment implements View.OnClick
         botonIniciarSesionCorreo.setOnClickListener(this);
     }
 
-    //Función que inicia el Activity de Google para iniciar sesión.
+    /* Método que inicia el Activity de Google para iniciar sesión. Finalizada la actividad
+    de Google, se ejecuta onActivityResult.
+     */
     private void iniciarSesion(){
         Intent inicioSesionIntent = googleSignInClient.getSignInIntent();
         startActivityForResult(inicioSesionIntent, RC_SIGN_IN);
@@ -92,8 +95,9 @@ public class FragmentInicioSesionGoogle extends Fragment implements View.OnClick
     }
 
     //Inicia sesión en Firebase con las credenciales de Google.
-    //Luego de iniciar sesión en Google, Google envía la credencial al objeto credential
+    //Luego de iniciar sesión en Google, Google envía la credencial al objeto credential de Firebase,
     //el cual después se enviará al método signInWithCredential para iniciar sesión en Firebase.
+    //Iniciada la sesión en Firebase, se llama al menú principal.
     private void inicioSesionFirebase(GoogleSignInAccount account){
         Log.d(TAG, "firebaseAuthWithGoogle" + account.getId());
         AuthCredential credential = GoogleAuthProvider.getCredential(account.getIdToken(), null);
@@ -126,6 +130,8 @@ public class FragmentInicioSesionGoogle extends Fragment implements View.OnClick
                 });
     }
 
+    /* Método que se ejecuta al tocar un botón. Si tocó el de Google, ejecuta el método iniciarSesion()
+    si es el de correo, cambia al fragment de inicio de sesión con correo. */
     @Override
     public void onClick(View v) {
         switch(v.getId()){
@@ -143,6 +149,7 @@ public class FragmentInicioSesionGoogle extends Fragment implements View.OnClick
         }
     }
 
+    //Inicia el Activity del menú principal. Se ejecuta solo si se ha iniciado sesión.
     private void llamarMenu(){
         Toast.makeText(getActivity(),
                 "Sesión iniciada",

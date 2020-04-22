@@ -2,23 +2,20 @@ package com.example.helpets.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+
 import com.example.helpets.R;
 import com.example.helpets.Usuario;
 import com.example.helpets.ui.Opciones.ActivityOpciones;
 import com.google.firebase.Timestamp;
 import com.google.firebase.auth.FirebaseAuth;
-
-import org.w3c.dom.Text;
 
 import java.text.DateFormat;
 
@@ -40,6 +37,9 @@ public class FragmentBarraEstado extends Fragment {
         return inflater.inflate(R.layout.fragment_barra_estado, container, false);
     }
 
+    /* Llama a la actividad de opciones si el usuario toca el botón. Si el usuario es un veterinario,
+    * muestra un TextView informando que es un veterinario.
+     */
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState){
        botonMenu = (Button)getView().findViewById(R.id.botonMenu);

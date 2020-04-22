@@ -32,7 +32,7 @@ public class ActivityConectarVeterinario extends AppCompatActivity {
 
     private RecyclerView listaVeterinarios;
     private List<Veterinario> lista = new ArrayList<>();
-    private RecyclerViewClickListener listener;
+    private RecyclerViewClickListener listener; //Listener para cuando el usuario toque un item.
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,6 +79,9 @@ public class ActivityConectarVeterinario extends AppCompatActivity {
         };
     }
 
+    /* Comprueba si el usuario tiene su sesión iniciada. De no tenerla, termina la actividad y lo
+    redirige a la actividad de inicio de sesión.
+     */
     @Override
     protected void onResume() {
         super.onResume();

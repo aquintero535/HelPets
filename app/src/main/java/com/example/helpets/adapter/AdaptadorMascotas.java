@@ -29,6 +29,8 @@ public class AdaptadorMascotas extends RecyclerView.Adapter<ViewHolderMascotas> 
 
     @NonNull
     @Override
+    /* Crea una nueva vista para el item
+    * Cada Item es un ViewHolder. */
     public ViewHolderMascotas onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View item = LayoutInflater
                 .from(contexto)
@@ -36,6 +38,9 @@ public class AdaptadorMascotas extends RecyclerView.Adapter<ViewHolderMascotas> 
         return new ViewHolderMascotas(item, recyclerViewClickListener);
     }
 
+    /* Creado el ViewHolder, este método añade la información a cada ViewHolder, según su
+    * posición.
+     */
     @Override
     public void onBindViewHolder(@NonNull ViewHolderMascotas holder, int position) {
         holder.getNombreMascota().setText("Nombre: "+listaMascotas.get(position).getNombre());

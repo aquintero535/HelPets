@@ -18,7 +18,7 @@ public class ActivityMenuPrincipal extends AppCompatActivity {
         setContentView(R.layout.menu_principal);
     }
 
-
+    /* Comprueba la sesión del usuario */
     @Override
     protected void onResume() {
         super.onResume();
@@ -30,6 +30,7 @@ public class ActivityMenuPrincipal extends AppCompatActivity {
         }
     }
 
+    /* Método que se ejecuta finalizadas algunas actividades. Sirve para mostrar un Snackbar */
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data){
         super.onActivityResult(requestCode, resultCode, null);

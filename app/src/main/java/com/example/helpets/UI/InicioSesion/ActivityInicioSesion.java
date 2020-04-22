@@ -15,6 +15,8 @@ public class ActivityInicioSesion extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inicio_sesion);
+
+        //Fragment de inicio de sesión con Google.
         getSupportFragmentManager().beginTransaction().replace
                 (R.id.fragmentInicioSesion, new FragmentInicioSesionGoogle()).commit();
     }

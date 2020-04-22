@@ -32,7 +32,8 @@ public class FragmentOpciones extends PreferenceFragmentCompat implements Shared
     }
 
 
-    //Llama a Firebase para realizar los cambios a la cuenta del usuario.
+    //Llama a Firebase para realizar los cambios a la cuenta del usuario. Se ejecuta si detecta un
+    //cambio en las preferencias.
     @Override
     public void onSharedPreferenceChanged(SharedPreferences sharedPreferences, String key) {
         FirebaseUser usuario = FirebaseAuth.getInstance().getCurrentUser();
@@ -92,6 +93,7 @@ public class FragmentOpciones extends PreferenceFragmentCompat implements Shared
         }
     }
 
+    //Establece la escucha de cambios en las preferencias.
     @Override
     public void onResume() {
         super.onResume();

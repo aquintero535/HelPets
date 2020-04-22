@@ -41,6 +41,7 @@ public class ActivityRegistro extends AppCompatActivity implements View.OnClickL
             ".appspot.com/o/foto_perfil_usuarios%2Fuser_profile_default.jpg?alt=media" +
             "&token=f32f295a-1833-492b-afdf-9778f7b092f5";
 
+    /* Inicia los componentes */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,6 +59,12 @@ public class ActivityRegistro extends AppCompatActivity implements View.OnClickL
         botonEnviarRegistro.setOnClickListener(this);
     }
 
+    /* Obtiene los String de los campos del formulario, comprueba si están vacíos y si las políticas
+    fueron aceptadas.
+
+    Después, crea un nuevo documento en la base de datos con los datos proporcionados por el usuario
+    y llama al método registrarUsuario() para iniciar el proceso de registro con Firebase.
+     */
     @Override
     public void onClick(View v) {
         String nombre = campoNombreRegistro.getText().toString();
@@ -90,6 +97,9 @@ public class ActivityRegistro extends AppCompatActivity implements View.OnClickL
         }
     }
 
+    /* Envía los datos proporcionados por el usuario a Firebase para el registro. Si fue exitoso,
+    obtiene su UID y lo sube a la base de datos. Si no, muestra un mensaje con el error.
+     */
     private void registrarUsuario(){
         // Registro de usuario
         sesion = FirebaseAuth.getInstance();
@@ -118,6 +128,7 @@ public class ActivityRegistro extends AppCompatActivity implements View.OnClickL
         });
     }
 
+    /* Sube los datos a una colección en la base de datos */
     private void subirUsuarioDB(){
         db.collection("usuarios")
                 .document(nuevoUsuario.get("uid"))
@@ -132,6 +143,7 @@ public class ActivityRegistro extends AppCompatActivity implements View.OnClickL
                 });
     }
 
+    /* Establece un perfil por default del usuario. Puede ser cambiado más adelante */
     private void crearPerfil(){
         FirebaseUser usuario = FirebaseAuth.getInstance().getCurrentUser();
         UserProfileChangeRequest nuevoPerfil = new UserProfileChangeRequest.Builder()

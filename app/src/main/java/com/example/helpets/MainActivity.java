@@ -51,6 +51,7 @@ public class MainActivity extends AppCompatActivity implements Callback {
         }, TIEMPO);
     }
 
+    /* Métodos que se ejecutan después de llamar al método obtenerDatosUsuario(); */
     @Override
     public void datosObtenidos() {
         startActivity(new Intent(MainActivity.this,
