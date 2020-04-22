@@ -13,6 +13,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.helpets.R;
+import com.example.helpets.model.Veterinario;
 import com.example.helpets.ui.Menu.ActivityMenuPrincipal;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -137,6 +138,14 @@ public class ActivityRegistro extends AppCompatActivity implements View.OnClickL
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if (task.isSuccessful()){
+                            Veterinario veterinario = new Veterinario
+                                    (nuevoUsuario.get("nombre"),
+                                            "0",
+                                            fotoPerfilDefault,
+                                            nuevoUsuario.get("uid"));
+                            db.collection("veterinarios")
+                                    .document(nuevoUsuario.get("uid"))
+                                    .set(veterinario);
                             crearPerfil();
                         }
                     }
