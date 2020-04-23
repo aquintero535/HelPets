@@ -1,4 +1,4 @@
-package com.example.helpets.ui.Buzon;
+package com.example.helpets.UI.Buzon;
 
 import android.os.Bundle;
 
@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 
 import com.example.helpets.R;
-import com.example.helpets.ui.Menu.ActivityMenuPrincipal;
+import com.example.helpets.UI.Menu.ActivityMenuPrincipal;
 
 public class FragmentBuzonEnviado extends Fragment implements View.OnClickListener {
 

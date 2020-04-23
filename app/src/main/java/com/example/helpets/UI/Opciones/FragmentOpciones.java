@@ -1,4 +1,4 @@
-package com.example.helpets.ui.Opciones;
+package com.example.helpets.UI.Opciones;
 
 import android.content.SharedPreferences;
 import android.os.Bundle;

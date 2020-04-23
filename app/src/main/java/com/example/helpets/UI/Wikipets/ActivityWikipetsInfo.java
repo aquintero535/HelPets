@@ -1,4 +1,4 @@
-package com.example.helpets.ui.Wikipets;
+package com.example.helpets.UI.Wikipets;
 
 import androidx.appcompat.app.AppCompatActivity;
 

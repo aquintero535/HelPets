@@ -1,4 +1,4 @@
-package com.example.helpets.ui.InicioSesion;
+package com.example.helpets.UI.InicioSesion;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;

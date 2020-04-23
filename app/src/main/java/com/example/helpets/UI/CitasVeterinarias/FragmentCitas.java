@@ -1,4 +1,4 @@
-package com.example.helpets.ui.CitasVeterinarias;
+package com.example.helpets.UI.CitasVeterinarias;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,7 +13,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.example.helpets.R;
-import com.example.helpets.ui.CitasVeterinarias.ActivityConectarVeterinario;
 
 
 public class FragmentCitas extends Fragment implements View.OnClickListener {

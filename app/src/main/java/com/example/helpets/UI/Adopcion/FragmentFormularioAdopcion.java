@@ -1,4 +1,4 @@
-package com.example.helpets.ui.Adopcion;
+package com.example.helpets.UI.Adopcion;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;

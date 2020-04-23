@@ -1,4 +1,4 @@
-package com.example.helpets.ui.Menu;
+package com.example.helpets.UI.Menu;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -14,10 +14,10 @@ import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.example.helpets.R;
-import com.example.helpets.ui.Adopcion.ActivityAdopta;
-import com.example.helpets.ui.Buzon.ActivityBuzon;
-import com.example.helpets.ui.CitasVeterinarias.FragmentCitas;
-import com.example.helpets.ui.Wikipets.ActivityWikipets;
+import com.example.helpets.UI.Adopcion.ActivityAdopta;
+import com.example.helpets.UI.Buzon.ActivityBuzon;
+import com.example.helpets.UI.CitasVeterinarias.FragmentCitas;
+import com.example.helpets.UI.Wikipets.ActivityWikipets;
 
 public class FragmentMenuPrincipal extends Fragment implements View.OnClickListener {
 

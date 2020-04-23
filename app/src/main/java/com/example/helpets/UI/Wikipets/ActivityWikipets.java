@@ -1,4 +1,4 @@
-package com.example.helpets.ui.Wikipets;
+package com.example.helpets.UI.Wikipets;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;

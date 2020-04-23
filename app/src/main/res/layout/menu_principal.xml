@@ -19,7 +19,7 @@
 
     <fragment
         android:id="@+id/fragmentBarraEstado"
-        android:name="com.example.helpets.ui.FragmentBarraEstado"
+        android:name="com.example.helpets.UI.FragmentBarraEstado"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
@@ -29,7 +29,7 @@
 
     <fragment
         android:id="@+id/fragmentMenuPrincipal"
-        android:name="com.example.helpets.ui.Menu.FragmentMenuPrincipal"
+        android:name="com.example.helpets.UI.Menu.FragmentMenuPrincipal"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layout_constraintBottom_toBottomOf="@+id/fondoInicio2"

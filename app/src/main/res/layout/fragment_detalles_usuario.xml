@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ui.Opciones.FragmentDetallesUsuario">
+    tools:context=".UI.Opciones.FragmentDetallesUsuario">
 
     <ImageView
         android:id="@+id/imagenPerfilUsuario"

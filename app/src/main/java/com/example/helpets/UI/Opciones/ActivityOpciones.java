@@ -1,14 +1,10 @@
-package com.example.helpets.ui.Opciones;
+package com.example.helpets.UI.Opciones;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.preference.PreferenceManager;
 
-import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.preference.PreferenceActivity;
 import android.view.View;
 import android.widget.ImageButton;
-import android.widget.Toast;
 
 import com.example.helpets.R;
 

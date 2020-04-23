@@ -1,4 +1,4 @@
-package com.example.helpets.ui.CitasVeterinarias;
+package com.example.helpets.UI.CitasVeterinarias;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;

@@ -1,4 +1,4 @@
-package com.example.helpets.ui.Opciones;
+package com.example.helpets.UI.Opciones;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -9,14 +9,12 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
-import android.provider.MediaStore;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.helpets.MainActivity;
@@ -32,10 +30,6 @@ import com.google.firebase.auth.UserProfileChangeRequest;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
-
-import org.w3c.dom.Text;
-
-import static android.app.Activity.RESULT_OK;
 
 
 public class FragmentDetallesUsuario extends Fragment implements View.OnClickListener {

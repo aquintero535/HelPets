@@ -1,4 +1,4 @@
-package com.example.helpets.ui.CitasVeterinarias;
+package com.example.helpets.UI.CitasVeterinarias;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
@@ -14,7 +14,7 @@ import com.example.helpets.R;
 import com.example.helpets.adapter.AdaptadorVeterinario;
 import com.example.helpets.adapter.RecyclerViewClickListener;
 import com.example.helpets.model.Veterinario;
-import com.example.helpets.ui.InicioSesion.ActivityInicioSesion;
+import com.example.helpets.UI.InicioSesion.ActivityInicioSesion;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 

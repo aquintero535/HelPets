@@ -7,11 +7,24 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.helpets.ui.InicioSesion.ActivityInicioSesion;
-import com.example.helpets.ui.Menu.ActivityMenuPrincipal;
+import com.example.helpets.UI.InicioSesion.ActivityInicioSesion;
+import com.example.helpets.UI.Menu.ActivityMenuPrincipal;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class MainActivity extends AppCompatActivity implements Callback {
+
+    /* Universidad Interamericana de Panamá
+    * Programación de Computadoras II - Grupo X
+    * Prof. Leonardo Esqueda
+    *
+    * Integrantes del grupo:
+    * Adrián Quintero
+    * Edixo Jiménez
+    * Juan Hincapié
+    * Henry Cárdenas
+    * Juan Solís
+    */
+
 
     //La clase Main sirve como puente para el Activity del menú principal o el de inicio de sesión.
     //Contador de la pantalla del logo.

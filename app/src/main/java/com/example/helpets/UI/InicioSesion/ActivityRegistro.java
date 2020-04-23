@@ -1,4 +1,4 @@
-package com.example.helpets.ui.InicioSesion;
+package com.example.helpets.UI.InicioSesion;
 
 import android.content.Intent;
 import android.net.Uri;
@@ -14,7 +14,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.helpets.R;
 import com.example.helpets.model.Veterinario;
-import com.example.helpets.ui.Menu.ActivityMenuPrincipal;
+import com.example.helpets.UI.Menu.ActivityMenuPrincipal;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;

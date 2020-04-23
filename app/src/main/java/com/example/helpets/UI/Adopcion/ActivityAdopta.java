@@ -1,4 +1,4 @@
-package com.example.helpets.ui.Adopcion;
+package com.example.helpets.UI.Adopcion;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
@@ -10,7 +10,7 @@ import android.os.Bundle;
 
 import com.example.helpets.R;
 
-import com.example.helpets.ui.InicioSesion.ActivityInicioSesion;
+import com.example.helpets.UI.InicioSesion.ActivityInicioSesion;
 import com.google.firebase.auth.FirebaseAuth;
 
 

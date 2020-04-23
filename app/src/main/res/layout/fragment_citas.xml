@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ui.CitasVeterinarias.FragmentCitas">
+    tools:context=".UI.CitasVeterinarias.FragmentCitas">
 
     <ImageView
         android:id="@+id/logoCitas"

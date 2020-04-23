@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.Adopcion.ActivityAdopta">
+    tools:context=".UI.Adopcion.ActivityAdopta">
 
     <ImageView
         android:id="@+id/fondoAdopta"
@@ -19,7 +19,7 @@
 
     <fragment
         android:id="@+id/fragmentMenuAdopta"
-        android:name="com.example.helpets.ui.FragmentBarraEstado"
+        android:name="com.example.helpets.UI.FragmentBarraEstado"
         tools:layout="@layout/fragment_barra_estado"
         android:layout_width="0dp"
         android:layout_height="100dp"

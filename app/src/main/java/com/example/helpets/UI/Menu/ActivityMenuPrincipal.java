@@ -1,10 +1,10 @@
-package com.example.helpets.ui.Menu;
+package com.example.helpets.UI.Menu;
 
 import android.content.Intent;
 import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 import com.example.helpets.R;
-import com.example.helpets.ui.InicioSesion.ActivityInicioSesion;
+import com.example.helpets.UI.InicioSesion.ActivityInicioSesion;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.FirebaseAuth;
 

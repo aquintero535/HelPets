@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.Wikipets.ActivityWikipets">
+    tools:context=".UI.Wikipets.ActivityWikipets">
 
     <ImageView
         android:id="@+id/fondoWikipets"
@@ -28,7 +28,7 @@
 
         <fragment
             android:id="@+id/fragment"
-            android:name="com.example.helpets.ui.FragmentBarraEstado"
+            android:name="com.example.helpets.UI.FragmentBarraEstado"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             tools:layout="@layout/fragment_barra_estado" />

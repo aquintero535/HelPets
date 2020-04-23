@@ -1,4 +1,4 @@
-package com.example.helpets.ui.Adopcion;
+package com.example.helpets.UI.Adopcion;
 
 import android.os.Bundle;
 
@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 import android.widget.ImageButton;
 
 import com.example.helpets.R;
-import com.example.helpets.ui.Menu.ActivityMenuPrincipal;
+import com.example.helpets.UI.Menu.ActivityMenuPrincipal;
 
 
 public class FragmentMascotaAdoptada extends Fragment implements View.OnClickListener {

@@ -1,4 +1,4 @@
-package com.example.helpets.ui.Buzon;
+package com.example.helpets.UI.Buzon;
 
 import android.os.Bundle;
 

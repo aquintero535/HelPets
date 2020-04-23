@@ -9,16 +9,16 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.Wikipets.ActivityWikipetsInfo"></activity>
-        <activity android:name=".ui.Wikipets.ActivityWikipets" />
-        <activity android:name=".ui.Opciones.ActivityOpciones" />
-        <activity android:name=".ui.InicioSesion.ActivityRegistro" />
-        <activity android:name=".ui.CitasVeterinarias.ActivityConsultaVeterinario" />
-        <activity android:name=".ui.Buzon.ActivityBuzon" />
-        <activity android:name=".ui.Adopcion.ActivityAdopta" />
-        <activity android:name=".ui.CitasVeterinarias.ActivityConectarVeterinario" />
-        <activity android:name=".ui.InicioSesion.ActivityInicioSesion" />
-        <activity android:name=".ui.Menu.ActivityMenuPrincipal" />
+        <activity android:name=".UI.Wikipets.ActivityWikipetsInfo"></activity>
+        <activity android:name=".UI.Wikipets.ActivityWikipets" />
+        <activity android:name=".UI.Opciones.ActivityOpciones" />
+        <activity android:name=".UI.InicioSesion.ActivityRegistro" />
+        <activity android:name=".UI.CitasVeterinarias.ActivityConsultaVeterinario" />
+        <activity android:name=".UI.Buzon.ActivityBuzon" />
+        <activity android:name=".UI.Adopcion.ActivityAdopta" />
+        <activity android:name=".UI.CitasVeterinarias.ActivityConectarVeterinario" />
+        <activity android:name=".UI.InicioSesion.ActivityInicioSesion" />
+        <activity android:name=".UI.Menu.ActivityMenuPrincipal" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />

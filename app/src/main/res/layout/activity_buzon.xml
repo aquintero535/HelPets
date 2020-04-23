@@ -5,7 +5,7 @@
     android:id="@+id/layoutBuzon"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.Buzon.ActivityBuzon">
+    tools:context=".UI.Buzon.ActivityBuzon">
 
     <ImageView
         android:id="@+id/fondoBuzon"
@@ -30,7 +30,7 @@
 
     <fragment
         android:id="@+id/fragmentoMenuBuzon"
-        android:name="com.example.helpets.ui.FragmentBarraEstado"
+        android:name="com.example.helpets.UI.FragmentBarraEstado"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"

@@ -1,4 +1,4 @@
-package com.example.helpets.ui;
+package com.example.helpets.UI;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,7 +13,7 @@ import androidx.fragment.app.Fragment;
 
 import com.example.helpets.R;
 import com.example.helpets.Usuario;
-import com.example.helpets.ui.Opciones.ActivityOpciones;
+import com.example.helpets.UI.Opciones.ActivityOpciones;
 import com.google.firebase.Timestamp;
 import com.google.firebase.auth.FirebaseAuth;
 
